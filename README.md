@@ -15,6 +15,7 @@ Zen Timer: A React Native app for effective time management. Features customizab
 - Firebase Authentication
 - React Native Voice
 - React Native Chart Kit
+- Expo
 - MongoDB
 
 ## Getting Started
