@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, View, StyleSheet } from "react-native";
+import { Image, View, StyleSheet, Text } from "react-native";
 
 export default function LoginScreen() {
   return (
@@ -9,6 +9,10 @@ export default function LoginScreen() {
         testID="img"
         style={styles.image}
       />
+      <Text testID="welcome-message" style={styles.welcomeMessage}>
+        Welcome to ZenTimer! Manage your time with serenity.
+        {"\n"}Log in and track your time.
+      </Text>
     </View>
   );
 }
@@ -17,16 +21,22 @@ const styles = StyleSheet.create({
   loginContainer: {
     flex: 1,
     alignItems: "center",
+    textAlign: "justify",
     justifyContent: "center",
-    backgroundColor: "#6c6c8c",
-    width: "100vh",
+    backgroundColor: "black",
+    width: "100%",
   },
   image: {
     width: 200,
     height: 200,
     borderWidth: 4,
-    borderColor: "#ffd33d",
+    borderColor: "#ecc4d4",
     borderRadius: 100,
     padding: 3,
+  },
+  welcomeMessage: {
+    color: "white",
+    textAlign: "center",
+    margin: 40,
   },
 });

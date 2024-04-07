@@ -1,13 +1,10 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import LoginScreen from "./screens/LoginScreen";
 
 export default function App() {
   return (
     <View testID="app-container" style={styles.appContainer}>
-      <Text testID="welcome-message">
-        Open up App.js to start working on your app!
-      </Text>
       <LoginScreen />
       <StatusBar style="auto" />
     </View>
@@ -15,10 +12,14 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1, // Ensure the root component takes up the entire screen
+  },
   appContainer: {
     flex: 1,
-    backgroundColor: "yellow",
+    backgroundColor: "#6c6c8c",
     alignItems: "center",
     justifyContent: "center",
+    width: "100%",
   },
 });

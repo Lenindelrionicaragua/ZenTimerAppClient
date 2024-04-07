@@ -5,6 +5,7 @@ import LoginScreen from "../../screens/LoginScreen";
 // should be a function
 // should render a View element with Id "login-container"
 // should render a <Image> element with Id "img"
+// should render a Text element with Id 'welcome-message'
 
 describe("LoginScreen", () => {
   it("should be a function", () => {
@@ -21,5 +22,11 @@ describe("LoginScreen", () => {
     const { getByTestId } = render(<LoginScreen />);
     const imgElement = getByTestId("img");
     expect(imgElement).toBeTruthy();
+  });
+
+  it("should render a welcome message", async () => {
+    const { getByTestId } = render(<LoginScreen />);
+    const welcomeMessage = getByTestId("welcome-message");
+    expect(welcomeMessage).toBeTruthy();
   });
 });
