@@ -4,7 +4,7 @@ import renderer from "react-test-renderer";
 import App from "../App";
 import LoginScreen from "../screens/LoginScreen";
 import { StatusBar } from "react-native";
-
+import { act } from "react-test-renderer";
 // should be a function
 // should render a View element with Id 'app-container'
 // should render the <LoginScreen/> component

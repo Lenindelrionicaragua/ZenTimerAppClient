@@ -1,5 +1,6 @@
 import React from "react";
 import { Image, View, StyleSheet, Text } from "react-native";
+import SignInForm from "../components/SignInForm";
 
 export default function LoginScreen() {
   return (
@@ -13,6 +14,7 @@ export default function LoginScreen() {
         Welcome to ZenTimer! Manage your time with serenity.
         {"\n"}Log in and track your time.
       </Text>
+      <SignInForm />
     </View>
   );
 }
