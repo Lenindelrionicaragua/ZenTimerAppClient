@@ -1,44 +1,124 @@
 import React from "react";
-import { render } from "@testing-library/react-native";
+import { fireEvent, render } from "@testing-library/react-native";
 import renderer from "react-test-renderer";
-import { act } from "react-test-renderer";
 
 import LoginScreen from "../../screens/LoginScreen";
-import SignInForm from "../../components/SignInForm";
+import { Formik } from "formik";
+import { StatusBar } from "react-native";
+import {
+  StyledContainer,
+  InnerContainer,
+  PageLogo,
+  PageTitle,
+  SubTitle,
+} from "../../components/styles";
 
-// should be a function
-// should render a View element with Id "login-container"
-// should render a <Image> element with Id "img"
-// should render a Text element with Id 'welcome-message'
-// should render a signin component
+// Should be a function.
+// Should render a StatusBar component/
+// Should render a StyledContainer component.
+// Should render an InnerContainer component.
+// Should render a PageLogo component.
+// The PageLogo component must have a valid image source.
+// The PageLogo component should render an image.
+// Should render a PageTitle component.
+// Should render a TitlePage component.
+// The PageTitle component should render a string: "ZenTimer".
+// Should render a SubTitle component.
+// The PageTitle component should render a string: "Account Login".
+// Should render the Formik component.
+// Formik component should have initialValues.
+// onSubmit property on Formik component should send values to console
 
 describe("LoginScreen", () => {
-  it("should be a function", () => {
+  it("Should be a function", () => {
     expect(typeof LoginScreen).toBe("function");
   });
 
-  it("should render a view element name login-container", () => {
-    const { getByTestId } = render(<LoginScreen />);
-    const containerElement = getByTestId("login-container");
-    expect(containerElement).toBeTruthy();
+  test("StatusBar renders in LoginScreen", async () => {
+    const statusBarInLoginScreen = renderer.create(<LoginScreen />);
+    const instance = statusBarInLoginScreen.root;
+    const statusBarInstance = await instance.findByType(StatusBar);
+    expect(statusBarInstance).toBeTruthy();
   });
 
-  it("should render a <Image> element", () => {
-    const { getByTestId } = render(<LoginScreen />);
-    const imgElement = getByTestId("img");
-    expect(imgElement).toBeTruthy();
+  test("Should render a StyledContainer component", async () => {
+    const loginScreenComponent = renderer.create(<LoginScreen />);
+    const instance = loginScreenComponent.root;
+    const styledContainerComponent = await instance.findByType(StyledContainer);
+
+    expect(styledContainerComponent).toBeTruthy();
   });
 
-  it("should render a welcome message", async () => {
-    const { getByTestId } = render(<LoginScreen />);
-    const welcomeMessage = getByTestId("welcome-message");
-    expect(welcomeMessage).toBeTruthy();
+  test("Should render a InnerContainer component", async () => {
+    const loginScreenComponent = renderer.create(<LoginScreen />);
+    const instance = loginScreenComponent.root;
+    const innerContainerComponent = await instance.findByType(InnerContainer);
+    expect(innerContainerComponent).toBeTruthy();
   });
 
-  test("should render the Signin component", () => {
-    const component = renderer.create(<LoginScreen />);
-    const instance = component.root;
-    const SignInFormInstance = instance.findByType(SignInForm);
-    expect(SignInFormInstance).toBeTruthy();
+  test("Should render a PageLogo component", async () => {
+    const loginScreenComponent = renderer.create(<LoginScreen />);
+    const instance = loginScreenComponent.root;
+    const pageLogoComponent = await instance.findByType(PageLogo);
+    expect(pageLogoComponent).toBeTruthy();
+  });
+
+  test("The PageLogo must have a valid image source", async () => {
+    const loginScreenComponent = renderer.create(<LoginScreen />);
+    const instance = loginScreenComponent.root;
+    const pageLogoComponent = await instance.findByType(PageLogo);
+    expect(pageLogoComponent.props.source).toBeTruthy();
+  });
+
+  it("Should renders the image of PageLogo  correctly", () => {
+    const tree = renderer.create(<PageLogo />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
+  test("Should render a PageTitle component", async () => {
+    const loginScreenComponent = renderer.create(<LoginScreen />);
+    const instance = loginScreenComponent.root;
+    const pageTitleComponent = await instance.findByType(PageTitle);
+    expect(pageTitleComponent).toBeTruthy();
+  });
+
+  test("PageTitle should render a string of letters, numbers, or spaces", async () => {
+    const loginScreenComponent = renderer.create(<LoginScreen />);
+    const instance = loginScreenComponent.root;
+    const pageTitleComponent = await instance.findByType(PageTitle);
+    const textContent = pageTitleComponent.props.children.toString();
+    expect(textContent).toMatch(/^[a-zA-Z0-9\s]*$/);
+  });
+
+  test("Should render a SubTitle component", async () => {
+    const loginScreenComponent = renderer.create(<LoginScreen />);
+    const instance = loginScreenComponent.root;
+    const subTitleComponent = await instance.findByType(SubTitle);
+    expect(subTitleComponent).toBeTruthy();
+  });
+
+  test("SubTitle should render a string of letters, numbers or spaces", async () => {
+    const loginScreenComponent = renderer.create(<LoginScreen />);
+    const instance = loginScreenComponent.root;
+    const subTitleComponent = await instance.findByType(SubTitle);
+    const textContent = subTitleComponent.props.children.toString();
+    expect(textContent).toMatch(/^[a-zA-Z0-9\s]*$/);
+  });
+
+  test("Should render a Formik component", async () => {
+    const loginScreenComponent = renderer.create(<LoginScreen />);
+    const instance = loginScreenComponent.root;
+    const formikComponent = await instance.findByType(Formik);
+    expect(formikComponent).toBeTruthy();
+  });
+
+  test("Formik component should have initialValues", async () => {
+    const loginScreenComponent = renderer.create(<LoginScreen />);
+    const instance = loginScreenComponent.root;
+    const formikComponent = await instance.findByType(Formik);
+    expect(formikComponent.props.initialValues).toEqual({
+      email: "",
+      password: "",
+    });
   });
 });
