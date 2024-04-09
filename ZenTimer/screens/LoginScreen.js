@@ -1,42 +1,36 @@
 import React from "react";
-import { Image, View, StyleSheet, Text } from "react-native";
+import { StatusBar } from "react-native";
+import {
+  StyledContainer,
+  InnerContainer,
+  PageLogo,
+  PageTitle,
+  SubTitle,
+} from "../components/styles";
+import { Formik } from "formik";
 
-export default function LoginScreen() {
+const LoginScreen = () => {
   return (
-    <View testID="login-container" style={styles.loginContainer}>
-      <Image
-        source={require("../assets/logoZenTimer.png")}
-        testID="img"
-        style={styles.image}
-      />
-      <Text testID="welcome-message" style={styles.welcomeMessage}>
-        Welcome to ZenTimer! Manage your time with serenity.
-        {"\n"}Log in and track your time.
-      </Text>
-    </View>
+    <StyledContainer>
+      <StatusBar style="dark" />
+      <InnerContainer>
+        <PageLogo
+          resizeMode="cover"
+          source={require("./../assets/logoZenTimer.png")}
+        />
+        <PageTitle>ZenTimer</PageTitle>
+        <SubTitle>Account Login</SubTitle>
+        <Formik
+          initialValues={{ email: "", password: "" }}
+          onSubmit={(values) => {
+            console.log(values);
+          }}
+        >
+          {/* Aquí puedes agregar tu formulario */}
+        </Formik>
+      </InnerContainer>
+    </StyledContainer>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  loginContainer: {
-    flex: 1,
-    alignItems: "center",
-    textAlign: "justify",
-    justifyContent: "center",
-    backgroundColor: "black",
-    width: "100%",
-  },
-  image: {
-    width: 200,
-    height: 200,
-    borderWidth: 4,
-    borderColor: "#ecc4d4",
-    borderRadius: 100,
-    padding: 3,
-  },
-  welcomeMessage: {
-    color: "white",
-    textAlign: "center",
-    margin: 40,
-  },
-});
+export default LoginScreen;
