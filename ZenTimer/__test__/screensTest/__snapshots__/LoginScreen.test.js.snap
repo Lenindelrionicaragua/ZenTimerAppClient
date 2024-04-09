@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginScreen Should renders the image of PageLogo  correctly 1`] = `
+<Image
+  style={
+    {
+      "borderBottomLeftRadius": 100,
+      "borderBottomRightRadius": 100,
+      "borderTopLeftRadius": 100,
+      "borderTopRightRadius": 100,
+      "height": 200,
+      "overflow": "hidden",
+      "width": 200,
+    }
+  }
+/>
+`;
