@@ -1,13 +1,25 @@
 import React from "react";
-import { StatusBar } from "react-native";
+import { StatusBar, View } from "react-native";
+// icons
+import { Octicons } from "@expo/vector-icons";
+// formik
+import { Formik } from "formik";
 import {
   StyledContainer,
   InnerContainer,
   PageLogo,
   PageTitle,
   SubTitle,
+  StyledFormArea,
+  LeftIcon,
+  StyledInputLabel,
+  StyledTextInput,
+  RightIcon,
+  Colors,
 } from "../components/styles";
-import { Formik } from "formik";
+
+// Colors
+const { brand } = Colors;
 
 const LoginScreen = () => {
   return (
@@ -26,10 +38,26 @@ const LoginScreen = () => {
             console.log(values);
           }}
         >
-          {/* Aquí puedes agregar tu formulario */}
+          {({ handleChange, handleBlur, handleSubmit, values }) => (
+            <StyledFormArea>
+              <MyTextInput />
+            </StyledFormArea>
+          )}
         </Formik>
       </InnerContainer>
     </StyledContainer>
+  );
+};
+
+const MyTextInput = (label, icon, ...props) => {
+  return (
+    <View TestID="text-input">
+      <LeftIcon>
+        <Octicons name={icon} size={30} color={brand} />
+      </LeftIcon>
+      <StyledInputLabel>{label}</StyledInputLabel>
+      <StyledTextInput {...props} />
+    </View>
   );
 };
 

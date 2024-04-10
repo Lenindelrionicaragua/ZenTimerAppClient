@@ -1,5 +1,5 @@
 import React from "react";
-import { fireEvent, render } from "@testing-library/react-native";
+import { render } from "@testing-library/react-native";
 import renderer from "react-test-renderer";
 
 import LoginScreen from "../../screens/LoginScreen";
@@ -13,7 +13,7 @@ import {
   SubTitle,
 } from "../../components/styles";
 
-// Should be a function.
+// LoginScreen Should be a function.
 // Should render a StatusBar component/
 // Should render a StyledContainer component.
 // Should render an InnerContainer component.
@@ -27,10 +27,12 @@ import {
 // The PageTitle component should render a string: "Account Login".
 // Should render the Formik component.
 // Formik component should have initialValues.
-// onSubmit property on Formik component should send values to console
+// Formik component should a function as a child.
+
+// MyTextInput must be a function
 
 describe("LoginScreen", () => {
-  it("Should be a function", () => {
+  it("LoginScreen Should be a function", () => {
     expect(typeof LoginScreen).toBe("function");
   });
 
@@ -120,5 +122,21 @@ describe("LoginScreen", () => {
       email: "",
       password: "",
     });
+  });
+
+  test("Formik component should have a function as a child", async () => {
+    const loginScreenComponent = renderer.create(<LoginScreen />);
+    const instance = loginScreenComponent.root;
+    const formikComponent = await instance.findByType(Formik);
+
+    const hasFunctionAsChild =
+      typeof formikComponent.props.children === "function";
+    expect(hasFunctionAsChild).toBe(true);
+  });
+
+  test("The text-input Should renders correctly", () => {
+    const { getByTestId } = render(<LoginScreen />);
+    const textInput = getByTestId("text-input");
+    expect(textInput).toBeTruthy();
   });
 });
