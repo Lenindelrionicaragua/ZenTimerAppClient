@@ -7,23 +7,21 @@ const StatusBarHeight = Constants.statusBarHeight;
 // colors
 
 export const Colors = {
-  primary: "#ffffff",
-  secondary: "#ecc4d4",
-  tertiary: "#040c0c",
-  green: "#6c6c8c",
-  brown: "#644c24",
-  brand: "#424242",
+  white: "#ffffff" /* styledContainer(background), buttonText: BLANCO */,
+  orange: "#fcbf49" /* styleTextInput(background): ORANGE */,
+  grey: "#15191d" /* subtitle, styleTextInput, styleInput: GRIS*/,
+  yellow: "#e9ff70" /* ORANGE 2*/,
+  lightGrey: "#f9f7f3" /* Gris claro */,
+  black: "#000000" /* pageTitle, styledButton: NEGRO*/,
 };
 
-const { primary, secondary, tertiary, green, brown, brand } = Colors;
+const { white, orange, grey, yellow, lightGrey, black } = Colors;
 
 export const StyledContainer = styled.View`
   flex: 1;
-  align-items: center;
   padding: 25px;
   padding-top: ${StatusBarHeight + 10}px;
-  background-color: ${primary};
-  border-color: "" #000;
+  background-color: ${lightGrey};
 `;
 
 export const InnerContainer = styled.View`
@@ -43,7 +41,7 @@ export const PageTitle = styled.Text`
   font-size: 30px;
   text-align: center;
   font-weight: bold;
-  color: ${brand};
+  color: ${black};
   padding: 10px;
 `;
 
@@ -52,7 +50,7 @@ export const SubTitle = styled.Text`
   margin-bottom: 20px;
   letter-spacing: 1px;
   font-weight: bold;
-  color: ${tertiary};
+  color: ${grey};
 `;
 
 export const StyledFormArea = styled.View`
@@ -60,7 +58,7 @@ export const StyledFormArea = styled.View`
 `;
 
 export const StyledTextInput = styled.TextInput`
-  background-color: ${secondary};
+  background-color: ${orange};
   padding: 15px;
   padding-left: 55px;
   padding-right: 55px;
@@ -69,11 +67,11 @@ export const StyledTextInput = styled.TextInput`
   height: 60px;
   margin-vertical: 3px;
   margin-bottom: 10px;
-  color: ${tertiary};
+  color: ${grey};
 `;
 
 export const StyledInputLabel = styled.Text`
-  color: $(tertiary);
+  color: ${grey};
   font-size: 13px;
   text-align: left;
 `;
@@ -94,7 +92,7 @@ export const RightIcon = styled.TouchableOpacity`
 
 export const StyledButton = styled.TouchableOpacity`
   padding: 15px;
-  background-color: ${brand};
+  background-color: ${black};
   justify-content: center;
   border-radius: 5px;
   margin-vertical: 5px;
@@ -102,6 +100,6 @@ export const StyledButton = styled.TouchableOpacity`
 `;
 
 export const ButtonText = styled.Text`
-  color: ${primary};
+  color: ${white};
   font-size: 16px;
 `;

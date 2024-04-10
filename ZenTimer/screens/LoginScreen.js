@@ -19,7 +19,7 @@ import {
 } from "../components/styles";
 
 // Colors
-const { brand, brown } = Colors;
+const { white, orange, grey, yellow, lightGrey, black } = Colors;
 
 const LoginScreen = () => {
   return (
@@ -44,7 +44,7 @@ const LoginScreen = () => {
                 label="Email Address"
                 icon="mail"
                 placeholder="andyj@gmail.com"
-                placeholderTextColor={brown}
+                placeholderTextColor={lightGrey}
                 onChangeText={handleChange("email")}
                 onblur={handleBlur("email")}
                 value={values.email}
@@ -64,7 +64,7 @@ const MyTextInput = (props) => {
   return (
     <View testID="text-input">
       <LeftIcon>
-        <Octicons name={icon} size={30} color={brand} />
+        <Octicons name={icon} size={30} color={black} />
       </LeftIcon>
       <StyledInputLabel>{label}</StyledInputLabel>
       <StyledTextInput {...textInputProps} />
