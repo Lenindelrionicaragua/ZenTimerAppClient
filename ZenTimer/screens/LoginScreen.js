@@ -19,7 +19,7 @@ import {
 } from "../components/styles";
 
 // Colors
-const { brand } = Colors;
+const { brand, brown } = Colors;
 
 const LoginScreen = () => {
   return (
@@ -40,7 +40,16 @@ const LoginScreen = () => {
         >
           {({ handleChange, handleBlur, handleSubmit, values }) => (
             <StyledFormArea>
-              <MyTextInput />
+              <MyTextInput
+                label="Email Address"
+                icon="mail"
+                placeholder="andyj@gmail.com"
+                placeholderTextColor={brown}
+                onChangeText={handleChange("email")}
+                onblur={handleBlur("email")}
+                value={values.email}
+                keyboardType="email-address"
+              />
             </StyledFormArea>
           )}
         </Formik>
@@ -49,16 +58,19 @@ const LoginScreen = () => {
   );
 };
 
-const MyTextInput = (label, icon, ...props) => {
+const MyTextInput = (props) => {
+  const { label, icon, ...textInputProps } = props;
+
   return (
-    <View TestID="text-input">
+    <View testID="text-input">
       <LeftIcon>
         <Octicons name={icon} size={30} color={brand} />
       </LeftIcon>
       <StyledInputLabel>{label}</StyledInputLabel>
-      <StyledTextInput {...props} />
+      <StyledTextInput {...textInputProps} />
     </View>
   );
 };
 
 export default LoginScreen;
+export { MyTextInput };

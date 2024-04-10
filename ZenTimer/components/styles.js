@@ -7,21 +7,23 @@ const StatusBarHeight = Constants.statusBarHeight;
 // colors
 
 export const Colors = {
-  primary: "#040c0c",
+  primary: "#ffffff",
   secondary: "#ecc4d4",
-  tertiary: "#6c6c8c",
-  green: "#3cbc9c",
+  tertiary: "#040c0c",
+  green: "#6c6c8c",
   brown: "#644c24",
-  brand: "#dcc49c",
+  brand: "#424242",
 };
 
 const { primary, secondary, tertiary, green, brown, brand } = Colors;
 
 export const StyledContainer = styled.View`
   flex: 1;
+  align-items: center;
   padding: 25px;
   padding-top: ${StatusBarHeight + 10}px;
   background-color: ${primary};
+  border-color: "" #000;
 `;
 
 export const InnerContainer = styled.View`

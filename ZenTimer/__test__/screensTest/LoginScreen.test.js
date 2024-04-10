@@ -2,7 +2,8 @@ import React from "react";
 import { render } from "@testing-library/react-native";
 import renderer from "react-test-renderer";
 
-import LoginScreen from "../../screens/LoginScreen";
+import LoginScreen, { MyTextInput } from "../../screens/LoginScreen";
+
 import { Formik } from "formik";
 import { StatusBar } from "react-native";
 import {
@@ -134,7 +135,11 @@ describe("LoginScreen", () => {
     expect(hasFunctionAsChild).toBe(true);
   });
 
-  test("The text-input Should renders correctly", () => {
+  test("MyTextInput Should be a function", () => {
+    expect(typeof MyTextInput).toBe("function");
+  });
+
+  test("MyTextInput function Should renders correctly the signin form", () => {
     const { getByTestId } = render(<LoginScreen />);
     const textInput = getByTestId("text-input");
     expect(textInput).toBeTruthy();
