@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react-native";
+import { render, fireEvent } from "@testing-library/react-native";
 import renderer from "react-test-renderer";
 
 import LoginScreen, {
@@ -34,6 +34,7 @@ import {
 // MyTextInput Should be a function
 // MyTextInput function Should renders correctly the email-input
 // MyTextInput function Should renders correctly the password-input
+// Correctly updates from state in response to onChange and onBluer events
 
 describe("LoginScreen", () => {
   it("LoginScreen Should be a function", () => {
@@ -152,5 +153,27 @@ describe("LoginScreen", () => {
     const { getByTestId } = render(<LoginScreen />);
     const passwordInput = getByTestId("password-input");
     expect(passwordInput).toBeTruthy();
+  });
+
+  describe("Form Input Events", () => {
+    test("correctly updates form state on onChangeText and onBlur", () => {
+      const { getByTestId } = render(<LoginScreen />);
+
+      // Simulate a change in the email input field and verify if the state updates correctly
+      fireEvent.changeText(getByTestId("email-input"), "serenity@gmail.com");
+      expect(getByTestId("email-input").props.value).toBe("serenity@gmail.com");
+
+      // Simulate a blur event on the email input field and verify if the state updates correctly
+      fireEvent(getByTestId("email-input"), "blur");
+      // Add additional assertions here as needed
+
+      // Simulate a change in the password input field and verify if the state updates correctly
+      fireEvent.changeText(getByTestId("password-input"), "password123");
+      expect(getByTestId("password-input").props.value).toBe("password123");
+
+      // Simulate a blur event on the password input field and verify if the state updates correctly
+      fireEvent(getByTestId("password-input"), "blur");
+      // Add additional assertions here as needed
+    });
   });
 });

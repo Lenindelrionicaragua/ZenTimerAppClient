@@ -50,7 +50,7 @@ const LoginScreen = () => {
                 onChangeText={handleChange("email")}
                 onblur={handleBlur("email")}
                 value={values.email}
-                inputMode="email-address"
+                keyboardType="email-address"
                 testID="email-input"
               />
               <MyTextInput
@@ -93,7 +93,7 @@ const MyTextInput = (props) => {
       <StyledInputLabel>{label}</StyledInputLabel>
       <StyledTextInput {...textInputProps} />
       {isPassword && (
-        <RightIcon>
+        <RightIcon onPress={() => setHidePassword(!hidePassword)}>
           <Feather
             name={hidePassword ? "eye" : "eye-off"}
             size={25}
