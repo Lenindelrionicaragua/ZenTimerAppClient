@@ -1,19 +1,9 @@
 import styled from "styled-components/native";
 import { View, Image, Text, TextInput, TouchableOpacity } from "react-native";
 import Constants from "expo-constants";
+import { Colors } from "../../styles/AppStyles";
 
 const StatusBarHeight = Constants.statusBarHeight;
-
-// colors
-
-export const Colors = {
-  white: "#ffe1a8" /* styledContainer(background), buttonText: BLANCO */,
-  orange: "#ffc500" /* styleTextInput(background): ORANGE */,
-  grey: "#1a1204" /* subtitle, styleTextInput, styleInput: GRIS/BROWN*/,
-  yellow: "#ffc554" /* ORANGE 2*/,
-  lightGrey: "#f9f7f3" /* Gris claro */,
-  black: "#000000" /* pageTitle, styledButton: NEGRO*/,
-};
 
 const { white, orange, grey, yellow, lightGrey, black } = Colors;
 
@@ -84,7 +74,7 @@ export const LeftIcon = styled.View`
 `;
 
 export const RightIcon = styled.TouchableOpacity`
-  left: 15px;
+  right: 15px;
   top: 38px;
   position: absolute;
   z-index: 1;

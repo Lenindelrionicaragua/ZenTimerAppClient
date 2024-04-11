@@ -1,20 +1,11 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
-import LoginScreen from "./screens/LoginScreen";
+import LoginScreen from "./screens/LoginScreen/LoginScreen";
+import { AppContainer } from "./styles/AppStyles";
 
 export default function App() {
   return (
-    <View style={styles.container} testID="app-container">
+    <AppContainer testID="app-container">
       <LoginScreen />
-    </View>
+    </AppContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#25292e",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

@@ -2,7 +2,9 @@ import React from "react";
 import { render } from "@testing-library/react-native";
 import renderer from "react-test-renderer";
 
-import LoginScreen, { MyTextInput } from "../../screens/LoginScreen";
+import LoginScreen, {
+  MyTextInput,
+} from "../../screens/LoginScreen/LoginScreen";
 
 import { Formik } from "formik";
 import { StatusBar } from "react-native";
@@ -12,7 +14,7 @@ import {
   PageLogo,
   PageTitle,
   SubTitle,
-} from "../../components/styles";
+} from "../../screens/LoginScreen/LoginScreenStyles";
 
 // LoginScreen Should be a function.
 // Should render a StatusBar component/
@@ -28,9 +30,10 @@ import {
 // The PageTitle component should render a string: "Account Login".
 // Should render the Formik component.
 // Formik component should have initialValues.
-// Formik component should a function as a child.
-
-// MyTextInput must be a function
+// Formik component should have function as a child.
+// MyTextInput Should be a function
+// MyTextInput function Should renders correctly the email-input
+// MyTextInput function Should renders correctly the password-input
 
 describe("LoginScreen", () => {
   it("LoginScreen Should be a function", () => {
@@ -139,9 +142,15 @@ describe("LoginScreen", () => {
     expect(typeof MyTextInput).toBe("function");
   });
 
-  test("MyTextInput function Should renders correctly the signin form", () => {
+  test("MyTextInput function Should renders correctly the email-input", () => {
     const { getByTestId } = render(<LoginScreen />);
-    const textInput = getByTestId("text-input");
-    expect(textInput).toBeTruthy();
+    const emailInput = getByTestId("email-input");
+    expect(emailInput).toBeTruthy();
+  });
+
+  test("MyTextInput function Should renders correctly the password-input", () => {
+    const { getByTestId } = render(<LoginScreen />);
+    const passwordInput = getByTestId("password-input");
+    expect(passwordInput).toBeTruthy();
   });
 });
