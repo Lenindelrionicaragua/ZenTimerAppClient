@@ -1,8 +1,14 @@
 import React from "react";
-import { render } from "@testing-library/react-native";
+import { render, fireEvent } from "@testing-library/react-native";
 import renderer from "react-test-renderer";
+import { Fontisto } from "@expo/vector-icons";
 
-import LoginScreen from "../../screens/LoginScreen";
+// import { act } from "react-test-renderer";
+
+import LoginScreen, {
+  MyTextInput,
+} from "../../screens/LoginScreen/LoginScreen";
+
 import { Formik } from "formik";
 import { StatusBar } from "react-native";
 import {
@@ -11,7 +17,15 @@ import {
   PageLogo,
   PageTitle,
   SubTitle,
-} from "../../components/styles";
+  StyledButton,
+  ButtonText,
+} from "../../screens/LoginScreen/LoginScreenStyles";
+import { Colors } from "../../styles/AppStyles";
+
+// Colors
+const { white, orange, grey, yellow, lightGrey, black } = Colors;
+
+/// UI Tests
 
 // LoginScreen Should be a function.
 // Should render a StatusBar component/
@@ -25,11 +39,6 @@ import {
 // The PageTitle component should render a string: "ZenTimer".
 // Should render a SubTitle component.
 // The PageTitle component should render a string: "Account Login".
-// Should render the Formik component.
-// Formik component should have initialValues.
-// Formik component should a function as a child.
-
-// MyTextInput must be a function
 
 describe("LoginScreen", () => {
   it("LoginScreen Should be a function", () => {
@@ -106,6 +115,28 @@ describe("LoginScreen", () => {
     const textContent = subTitleComponent.props.children.toString();
     expect(textContent).toMatch(/^[a-zA-Z0-9\s]*$/);
   });
+});
+
+/// Form Area ///
+
+// Should render the Formik component.
+// Formik component should have initialValues.
+// Formik component should have function as a child.
+// MyTextInput Should be a function
+// MyTextInput function Should renders correctly the email-input
+// MyTextInput function Should renders correctly the password-input
+// Correctly updates from state in response to onChange and onBluer events
+// Should render a style button
+// Should render a Fontisto Icon
+// Should render a button text
+// Should render a MsgBox
+// StyledButton should have an Fontisto component as Child
+// StyledButton should render the Google Icon
+
+describe("Formik Integration Tests", () => {
+  const handleSubmit = jest.fn();
+
+  // Formik Component
 
   test("Should render a Formik component", async () => {
     const loginScreenComponent = renderer.create(<LoginScreen />);
@@ -134,9 +165,128 @@ describe("LoginScreen", () => {
     expect(hasFunctionAsChild).toBe(true);
   });
 
-  test("The text-input Should renders correctly", () => {
+  // MyTextInput
+
+  test("MyTextInput Should be a function", () => {
+    expect(typeof MyTextInput).toBe("function");
+  });
+
+  test("MyTextInput function Should renders correctly the email-input", () => {
     const { getByTestId } = render(<LoginScreen />);
-    const textInput = getByTestId("text-input");
-    expect(textInput).toBeTruthy();
+    const emailInput = getByTestId("email-input");
+    expect(emailInput).toBeTruthy();
+  });
+
+  test("MyTextInput function Should renders correctly the password-input", () => {
+    const { getByTestId } = render(<LoginScreen />);
+    const passwordInput = getByTestId("password-input");
+    expect(passwordInput).toBeTruthy();
+  });
+
+  test("correctly updates form state on onChangeText and onBlur", () => {
+    const { getByTestId } = render(<LoginScreen />);
+
+    // Simulate a change in the email input field and verify if the state updates correctly
+    fireEvent.changeText(getByTestId("email-input"), "serenity@gmail.com");
+    expect(getByTestId("email-input").props.value).toBe("serenity@gmail.com");
+
+    // Simulate a blur event on the email input field and verify if the state updates correctly
+    fireEvent(getByTestId("email-input"), "blur");
+
+    // Simulate a change in the password input field and verify if the state updates correctly
+    fireEvent.changeText(getByTestId("password-input"), "password123");
+    expect(getByTestId("password-input").props.value).toBe("password123");
+
+    // Simulate a blur event on the password input field and verify if the state updates correctly
+    fireEvent(getByTestId("password-input"), "blur");
+  });
+
+  // Login StyledButton
+
+  test("should render StyledButton", () => {
+    const { getByTestId } = render(<LoginScreen />);
+    const styledButtonElement = getByTestId("login-styled-button");
+    expect(styledButtonElement).toBeTruthy();
+  });
+
+  // MsgBox
+
+  test("Should render a MsgBox", () => {
+    const { getByTestId } = render(<LoginScreen />);
+    const msgBoxElement = getByTestId("msg-box");
+    expect(msgBoxElement).toBeTruthy();
+  });
+
+  test("MsgBox should render a string of letters, numbers or spaces", async () => {
+    const { getByTestId } = render(<LoginScreen />);
+    const msgBoxElement = getByTestId("msg-box");
+    const textContent = msgBoxElement.props.children.toString();
+    expect(textContent).toMatch(/^[a-zA-Z0-9.\s]*$/);
+  });
+
+  // Login ButtonText
+
+  test("should render the login-button-text", () => {
+    const { getByTestId } = render(<LoginScreen />);
+    const buttonTextElement = getByTestId("login-button-text");
+    expect(buttonTextElement).toBeTruthy();
+  });
+
+  test("login-button-text should render a string of letters, numbers or spaces", async () => {
+    const { getByTestId } = render(<LoginScreen />);
+    const buttonTextElement = getByTestId("login-button-text");
+    const textContent = buttonTextElement.props.children.toString("Login");
+    expect(textContent).toMatch("Login");
+  });
+
+  test("should render a Line element", () => {
+    const { getByTestId } = render(<LoginScreen />);
+    const lineElement = getByTestId("line");
+    expect(lineElement).toBeTruthy();
+  });
+
+  // Google StyledButton
+
+  test("should render a StyleButton to sign in with google", () => {
+    const { getByTestId } = render(<LoginScreen />);
+    const googleStyledButton = getByTestId("google-styled-button");
+    expect(googleStyledButton).toBeTruthy();
+  });
+
+  // Google Icon
+
+  test("StyledButton should have an Fontisto component as Child", () => {
+    const loginScreenComponent = renderer.create(<LoginScreen />);
+    const instance = loginScreenComponent.root;
+    const styledButtonComponent = instance.findByProps({
+      testID: "google-styled-button",
+    });
+
+    expect(styledButtonComponent).toBeTruthy();
+
+    const children = styledButtonComponent.props.children;
+
+    let hasFontistoAsAChild = false;
+
+    React.Children.forEach(children, (child) => {
+      if (child && child.type === Fontisto) {
+        hasFontistoAsAChild = true;
+      }
+    });
+    expect(hasFontistoAsAChild).toBe(true);
+  });
+
+  test("StyledButton should render the Google Icon", () => {
+    const { getByTestId } = render(<LoginScreen />);
+    const googleIconElement = getByTestId("google-icon");
+    expect(googleIconElement).toBeTruthy();
+  });
+
+  // Google ButtonText
+
+  test("StyledButton should render a google-button-text", () => {
+    const { getByTestId } = render(<LoginScreen />);
+    const buttonTextGoogle = getByTestId("google-button-text");
+    expect(buttonTextGoogle).toBeTruthy();
   });
 });

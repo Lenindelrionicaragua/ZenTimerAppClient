@@ -2,7 +2,7 @@ import React from "react";
 import { render } from "@testing-library/react-native";
 import renderer from "react-test-renderer";
 import App from "../App";
-import LoginScreen from "../screens/LoginScreen";
+import LoginScreen from "../screens/LoginScreen/LoginScreen";
 
 // Should be a function
 // Should render a View element with Id 'app-container'

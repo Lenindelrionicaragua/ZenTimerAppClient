@@ -1,27 +1,17 @@
 import styled from "styled-components/native";
 import { View, Image, Text, TextInput, TouchableOpacity } from "react-native";
 import Constants from "expo-constants";
+import { Colors } from "../../styles/AppStyles";
 
 const StatusBarHeight = Constants.statusBarHeight;
 
-// colors
-
-export const Colors = {
-  primary: "#040c0c",
-  secondary: "#ecc4d4",
-  tertiary: "#6c6c8c",
-  green: "#3cbc9c",
-  brown: "#644c24",
-  brand: "#dcc49c",
-};
-
-const { primary, secondary, tertiary, green, brown, brand } = Colors;
+const { white, orange, grey, yellow, lightGrey, black } = Colors;
 
 export const StyledContainer = styled.View`
   flex: 1;
   padding: 25px;
   padding-top: ${StatusBarHeight + 10}px;
-  background-color: ${primary};
+  background-color: ${lightGrey};
 `;
 
 export const InnerContainer = styled.View`
@@ -41,7 +31,7 @@ export const PageTitle = styled.Text`
   font-size: 30px;
   text-align: center;
   font-weight: bold;
-  color: ${brand};
+  color: ${black};
   padding: 10px;
 `;
 
@@ -50,7 +40,7 @@ export const SubTitle = styled.Text`
   margin-bottom: 20px;
   letter-spacing: 1px;
   font-weight: bold;
-  color: ${tertiary};
+  color: ${grey};
 `;
 
 export const StyledFormArea = styled.View`
@@ -58,7 +48,7 @@ export const StyledFormArea = styled.View`
 `;
 
 export const StyledTextInput = styled.TextInput`
-  background-color: ${secondary};
+  background-color: ${orange};
   padding: 15px;
   padding-left: 55px;
   padding-right: 55px;
@@ -67,11 +57,11 @@ export const StyledTextInput = styled.TextInput`
   height: 60px;
   margin-vertical: 3px;
   margin-bottom: 10px;
-  color: ${tertiary};
+  color: ${grey};
 `;
 
 export const StyledInputLabel = styled.Text`
-  color: $(tertiary);
+  color: ${grey};
   font-size: 13px;
   text-align: left;
 `;
@@ -84,7 +74,7 @@ export const LeftIcon = styled.View`
 `;
 
 export const RightIcon = styled.TouchableOpacity`
-  left: 15px;
+  right: 15px;
   top: 38px;
   position: absolute;
   z-index: 1;
@@ -92,14 +82,42 @@ export const RightIcon = styled.TouchableOpacity`
 
 export const StyledButton = styled.TouchableOpacity`
   padding: 15px;
-  background-color: ${brand};
+  background-color: ${black};
   justify-content: center;
+  align-items: center;
   border-radius: 5px;
   margin-vertical: 5px;
   height: 60px;
+
+  ${(props) =>
+    props.google == true &&
+    `
+    background-color: ${orange};
+    flex-direction: row;
+    justify-content: center;
+  `}
 `;
 
 export const ButtonText = styled.Text`
-  color: ${primary};
+  color: ${white};
   font-size: 16px;
+
+  ${(props) =>
+    props.google == true &&
+    `
+    padding: 25px;
+    color: ${black}
+  `}
+`;
+
+export const MsgBox = styled.Text`
+  text-align: center;
+  font-size: 13px;
+`;
+
+export const Line = styled.View`
+  height: 1px;
+  width: 100%;
+  background-color: ${orange};
+  margin-vertical: 10px;
 `;
