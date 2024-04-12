@@ -84,6 +84,7 @@ export const StyledButton = styled.TouchableOpacity`
   padding: 15px;
   background-color: ${black};
   justify-content: center;
+  align-items: center;
   border-radius: 5px;
   margin-vertical: 5px;
   height: 60px;
@@ -92,4 +93,16 @@ export const StyledButton = styled.TouchableOpacity`
 export const ButtonText = styled.Text`
   color: ${white};
   font-size: 16px;
+`;
+
+export const MsgBox = styled.Text`
+  text-align: center;
+  font-size: 13px;
+`;
+
+export const Line = styled.View`
+  height: 1px;
+  width: 100%;
+  background-color: ${orange};
+  margin-vertical: 10px;
 `;

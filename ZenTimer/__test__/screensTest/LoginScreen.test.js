@@ -1,6 +1,8 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react-native";
 import renderer from "react-test-renderer";
+import { Fontisto } from "@expo/vector-icons";
+
 // import { act } from "react-test-renderer";
 
 import LoginScreen, {
@@ -18,8 +20,12 @@ import {
   StyledButton,
   ButtonText,
 } from "../../screens/LoginScreen/LoginScreenStyles";
+import { Colors } from "../../styles/AppStyles";
 
-/// Login Screen
+// Colors
+const { white, orange, grey, yellow, lightGrey, black } = Colors;
+
+/// UI Tests
 
 // LoginScreen Should be a function.
 // Should render a StatusBar component/
@@ -121,9 +127,15 @@ describe("LoginScreen", () => {
 // MyTextInput function Should renders correctly the password-input
 // Correctly updates from state in response to onChange and onBluer events
 // Should render a style button
+// Should render a Fontisto Icon
 // Should render a button text
+// Should render a MsgBox
 
-describe("Form Input Events", () => {
+describe("Formik Integration Tests", () => {
+  const handleSubmit = jest.fn();
+
+  // Formik Component
+
   test("Should render a Formik component", async () => {
     const loginScreenComponent = renderer.create(<LoginScreen />);
     const instance = loginScreenComponent.root;
@@ -150,6 +162,8 @@ describe("Form Input Events", () => {
       typeof formikComponent.props.children === "function";
     expect(hasFunctionAsChild).toBe(true);
   });
+
+  // MyTextInput
 
   test("MyTextInput Should be a function", () => {
     expect(typeof MyTextInput).toBe("function");
@@ -185,15 +199,81 @@ describe("Form Input Events", () => {
     fireEvent(getByTestId("password-input"), "blur");
   });
 
-  test("should render StyleButton", () => {
+  // Login StyledButton
+
+  test("should render StyledButton", () => {
     const { getByTestId } = render(<LoginScreen />);
-    const styleButtonElement = getByTestId("style-button");
-    expect(styleButtonElement).toBeTruthy();
+    const styledButtonElement = getByTestId("login-styled-button");
+    expect(styledButtonElement).toBeTruthy();
   });
 
-  test("should render ButtonText", () => {
+  // MsgBox
+
+  test("Should render a MsgBox", () => {
     const { getByTestId } = render(<LoginScreen />);
-    const buttonTextElement = getByTestId("button-text");
+    const msgBoxElement = getByTestId("msg-box");
+    expect(msgBoxElement).toBeTruthy();
+  });
+
+  test("MsgBox should render a string of letters, numbers or spaces", async () => {
+    const { getByTestId } = render(<LoginScreen />);
+    const msgBoxElement = getByTestId("msg-box");
+    const textContent = msgBoxElement.props.children.toString();
+    expect(textContent).toMatch(/^[a-zA-Z0-9.\s]*$/);
+  });
+
+  // Login ButtonText
+
+  test("should render the login-button-text", () => {
+    const { getByTestId } = render(<LoginScreen />);
+    const buttonTextElement = getByTestId("login-button-text");
     expect(buttonTextElement).toBeTruthy();
+  });
+
+  test("login-button-text should render a string of letters, numbers or spaces", async () => {
+    const { getByTestId } = render(<LoginScreen />);
+    const buttonTextElement = getByTestId("login-button-text");
+    const textContent = buttonTextElement.props.children.toString("Login");
+    expect(textContent).toMatch("Login");
+  });
+
+  test("should render a Line element", () => {
+    const { getByTestId } = render(<LoginScreen />);
+    const lineElement = getByTestId("line");
+    expect(lineElement).toBeTruthy();
+  });
+
+  // Google StyledButton
+
+  test("should render a StyleButton to sign in with google", () => {
+    const { getByTestId } = render(<LoginScreen />);
+    const googleStyledButton = getByTestId("google-styled-button");
+    expect(googleStyledButton).toBeTruthy();
+  });
+
+  // Google ButtonText
+
+  test("StyledButton should render a google-button-text", () => {
+    const { getByTestId } = render(<LoginScreen />);
+    const buttonTextGoogle = getByTestId("google-button-text");
+    expect(buttonTextGoogle).toBeTruthy();
+  });
+
+  // Google Icon
+
+  // test("should render the Google Icon", () => {
+  //   const { getByTestId } = render(<LoginScreen />);
+  //   const googleIconElement = getByTestId("google-icon");
+  //   expect(googleIconElement).toBeTruthy();
+  // });
+
+  test("Formik component should have a function as a child", async () => {
+    const loginScreenComponent = renderer.create(<LoginScreen />);
+    const instance = loginScreenComponent.root;
+    const StyledButtonComponent = await instance.findByType(StyledButton);
+
+    const hasFontistoAsAChild =
+      typeof StyledButtonComponent.props.children === "Fontisto";
+    expect(hasFontistoAsAChild).toBe(true);
   });
 });

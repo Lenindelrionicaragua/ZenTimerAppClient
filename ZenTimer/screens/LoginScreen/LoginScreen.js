@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StatusBar, View } from "react-native";
 // icons
-import { Octicons, Feather } from "@expo/vector-icons";
+import { Octicons, Feather, Fontisto } from "@expo/vector-icons";
 // formik
 import { Formik } from "formik";
 import {
@@ -17,6 +17,8 @@ import {
   RightIcon,
   StyledButton,
   ButtonText,
+  MsgBox,
+  Line,
 } from "./LoginScreenStyles";
 import { Colors } from "../../styles/AppStyles";
 
@@ -69,11 +71,23 @@ const LoginScreen = () => {
                 hidePassword={hidePassword}
                 setHidePassword={setHidePassword}
               />
+              <MsgBox testID="msg-box">...</MsgBox>
+              <StyledButton testID="login-styled-button" onPress={handleSubmit}>
+                <ButtonText testID="login-button-text">Login</ButtonText>
+              </StyledButton>
+              <Line testID="line" />
+              <StyledButton
+                testID="google-styled-button"
+                onPress={handleSubmit}
+              >
+                <Fontisto name="google" color={white} testID="google-icon" />
+                <ButtonText testID="google-button-text">
+                  Sign in with Google
+                </ButtonText>
+              </StyledButton>
             </StyledFormArea>
           )}
         </Formik>
-        <StyledButton testID="style-button" />
-        <ButtonText testID="button-text" />
       </InnerContainer>
     </StyledContainer>
   );
