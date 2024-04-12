@@ -261,19 +261,30 @@ describe("Formik Integration Tests", () => {
 
   // Google Icon
 
-  // test("should render the Google Icon", () => {
-  //   const { getByTestId } = render(<LoginScreen />);
-  //   const googleIconElement = getByTestId("google-icon");
-  //   expect(googleIconElement).toBeTruthy();
-  // });
-
-  test("Formik component should have a function as a child", async () => {
+  test("StyledButton should have an Fontisto component as Child", () => {
     const loginScreenComponent = renderer.create(<LoginScreen />);
     const instance = loginScreenComponent.root;
-    const StyledButtonComponent = await instance.findByType(StyledButton);
+    const styledButtonComponent = instance.findByProps({
+      testID: "google-styled-button",
+    });
 
-    const hasFontistoAsAChild =
-      typeof StyledButtonComponent.props.children === "Fontisto";
+    expect(styledButtonComponent).toBeTruthy();
+
+    const children = styledButtonComponent.props.children;
+
+    let hasFontistoAsAChild = false;
+
+    React.Children.forEach(children, (child) => {
+      if (child && child.type === Fontisto) {
+        hasFontistoAsAChild = true;
+      }
+    });
     expect(hasFontistoAsAChild).toBe(true);
+  });
+
+  test("StyledButton should render the Google Icon", () => {
+    const { getByTestId } = render(<LoginScreen />);
+    const googleIconElement = getByTestId("google-icon");
+    expect(googleIconElement).toBeTruthy();
   });
 });
