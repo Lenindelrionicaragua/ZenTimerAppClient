@@ -1,6 +1,7 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react-native";
 import renderer from "react-test-renderer";
+// import { act } from "react-test-renderer";
 
 import LoginScreen, {
   MyTextInput,
@@ -14,7 +15,11 @@ import {
   PageLogo,
   PageTitle,
   SubTitle,
+  StyledButton,
+  ButtonText,
 } from "../../screens/LoginScreen/LoginScreenStyles";
+
+/// Login Screen
 
 // LoginScreen Should be a function.
 // Should render a StatusBar component/
@@ -28,13 +33,6 @@ import {
 // The PageTitle component should render a string: "ZenTimer".
 // Should render a SubTitle component.
 // The PageTitle component should render a string: "Account Login".
-// Should render the Formik component.
-// Formik component should have initialValues.
-// Formik component should have function as a child.
-// MyTextInput Should be a function
-// MyTextInput function Should renders correctly the email-input
-// MyTextInput function Should renders correctly the password-input
-// Correctly updates from state in response to onChange and onBluer events
 
 describe("LoginScreen", () => {
   it("LoginScreen Should be a function", () => {
@@ -111,7 +109,21 @@ describe("LoginScreen", () => {
     const textContent = subTitleComponent.props.children.toString();
     expect(textContent).toMatch(/^[a-zA-Z0-9\s]*$/);
   });
+});
 
+/// Form Area ///
+
+// Should render the Formik component.
+// Formik component should have initialValues.
+// Formik component should have function as a child.
+// MyTextInput Should be a function
+// MyTextInput function Should renders correctly the email-input
+// MyTextInput function Should renders correctly the password-input
+// Correctly updates from state in response to onChange and onBluer events
+// Should render a style button
+// Should render a button text
+
+describe("Form Input Events", () => {
   test("Should render a Formik component", async () => {
     const loginScreenComponent = renderer.create(<LoginScreen />);
     const instance = loginScreenComponent.root;
@@ -155,25 +167,33 @@ describe("LoginScreen", () => {
     expect(passwordInput).toBeTruthy();
   });
 
-  describe("Form Input Events", () => {
-    test("correctly updates form state on onChangeText and onBlur", () => {
-      const { getByTestId } = render(<LoginScreen />);
+  test("correctly updates form state on onChangeText and onBlur", () => {
+    const { getByTestId } = render(<LoginScreen />);
 
-      // Simulate a change in the email input field and verify if the state updates correctly
-      fireEvent.changeText(getByTestId("email-input"), "serenity@gmail.com");
-      expect(getByTestId("email-input").props.value).toBe("serenity@gmail.com");
+    // Simulate a change in the email input field and verify if the state updates correctly
+    fireEvent.changeText(getByTestId("email-input"), "serenity@gmail.com");
+    expect(getByTestId("email-input").props.value).toBe("serenity@gmail.com");
 
-      // Simulate a blur event on the email input field and verify if the state updates correctly
-      fireEvent(getByTestId("email-input"), "blur");
-      // Add additional assertions here as needed
+    // Simulate a blur event on the email input field and verify if the state updates correctly
+    fireEvent(getByTestId("email-input"), "blur");
 
-      // Simulate a change in the password input field and verify if the state updates correctly
-      fireEvent.changeText(getByTestId("password-input"), "password123");
-      expect(getByTestId("password-input").props.value).toBe("password123");
+    // Simulate a change in the password input field and verify if the state updates correctly
+    fireEvent.changeText(getByTestId("password-input"), "password123");
+    expect(getByTestId("password-input").props.value).toBe("password123");
 
-      // Simulate a blur event on the password input field and verify if the state updates correctly
-      fireEvent(getByTestId("password-input"), "blur");
-      // Add additional assertions here as needed
-    });
+    // Simulate a blur event on the password input field and verify if the state updates correctly
+    fireEvent(getByTestId("password-input"), "blur");
+  });
+
+  test("should render StyleButton", () => {
+    const { getByTestId } = render(<LoginScreen />);
+    const styleButtonElement = getByTestId("style-button");
+    expect(styleButtonElement).toBeTruthy();
+  });
+
+  test("should render ButtonText", () => {
+    const { getByTestId } = render(<LoginScreen />);
+    const buttonTextElement = getByTestId("button-text");
+    expect(buttonTextElement).toBeTruthy();
   });
 });

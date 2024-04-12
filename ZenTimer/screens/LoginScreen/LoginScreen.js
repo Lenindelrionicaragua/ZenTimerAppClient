@@ -15,6 +15,8 @@ import {
   StyledInputLabel,
   StyledTextInput,
   RightIcon,
+  StyledButton,
+  ButtonText,
 } from "./LoginScreenStyles";
 import { Colors } from "../../styles/AppStyles";
 
@@ -70,6 +72,8 @@ const LoginScreen = () => {
             </StyledFormArea>
           )}
         </Formik>
+        <StyledButton testID="style-button" />
+        <ButtonText testID="button-text" />
       </InnerContainer>
     </StyledContainer>
   );
