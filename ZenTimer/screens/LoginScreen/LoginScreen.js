@@ -77,11 +77,17 @@ const LoginScreen = () => {
               </StyledButton>
               <Line testID="line" />
               <StyledButton
-                testID="google-styled-button"
+                google={true}
                 onPress={handleSubmit}
+                testID="google-styled-button"
               >
-                <Fontisto name="google" color={white} testID="google-icon" />
-                <ButtonText testID="google-button-text">
+                <Fontisto
+                  name="google"
+                  color={grey}
+                  size={20}
+                  testID="google-icon"
+                />
+                <ButtonText google={true} testID="google-button-text">
                   Sign in with Google
                 </ButtonText>
               </StyledButton>

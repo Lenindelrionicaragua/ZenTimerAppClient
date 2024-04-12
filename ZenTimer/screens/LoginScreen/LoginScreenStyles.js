@@ -88,11 +88,26 @@ export const StyledButton = styled.TouchableOpacity`
   border-radius: 5px;
   margin-vertical: 5px;
   height: 60px;
+
+  ${(props) =>
+    props.google == true &&
+    `
+    background-color: ${orange};
+    flex-direction: row;
+    justify-content: center;
+  `}
 `;
 
 export const ButtonText = styled.Text`
   color: ${white};
   font-size: 16px;
+
+  ${(props) =>
+    props.google == true &&
+    `
+    padding: 25px;
+    color: ${black}
+  `}
 `;
 
 export const MsgBox = styled.Text`

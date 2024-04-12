@@ -130,6 +130,8 @@ describe("LoginScreen", () => {
 // Should render a Fontisto Icon
 // Should render a button text
 // Should render a MsgBox
+// StyledButton should have an Fontisto component as Child
+// StyledButton should render the Google Icon
 
 describe("Formik Integration Tests", () => {
   const handleSubmit = jest.fn();
@@ -251,14 +253,6 @@ describe("Formik Integration Tests", () => {
     expect(googleStyledButton).toBeTruthy();
   });
 
-  // Google ButtonText
-
-  test("StyledButton should render a google-button-text", () => {
-    const { getByTestId } = render(<LoginScreen />);
-    const buttonTextGoogle = getByTestId("google-button-text");
-    expect(buttonTextGoogle).toBeTruthy();
-  });
-
   // Google Icon
 
   test("StyledButton should have an Fontisto component as Child", () => {
@@ -286,5 +280,13 @@ describe("Formik Integration Tests", () => {
     const { getByTestId } = render(<LoginScreen />);
     const googleIconElement = getByTestId("google-icon");
     expect(googleIconElement).toBeTruthy();
+  });
+
+  // Google ButtonText
+
+  test("StyledButton should render a google-button-text", () => {
+    const { getByTestId } = render(<LoginScreen />);
+    const buttonTextGoogle = getByTestId("google-button-text");
+    expect(buttonTextGoogle).toBeTruthy();
   });
 });
