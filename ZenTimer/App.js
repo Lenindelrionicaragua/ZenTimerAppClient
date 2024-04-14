@@ -1,10 +1,15 @@
-import { View } from "react-native";
-import LoginScreen from "./screens/LoginScreen";
+import React from "react";
+import LoginScreen from "./screens/LoginScreen/LoginScreen";
+import { AppContainer } from "./styles/AppStyles";
+// import "@expo/metro-runtime";
+// import { registerRootComponent } from "expo";
 
 export default function App() {
   return (
-    <View testID="app-container">
+    <AppContainer testID="app-container">
       <LoginScreen />
-    </View>
+    </AppContainer>
   );
 }
+
+// registerRootComponent(App);
