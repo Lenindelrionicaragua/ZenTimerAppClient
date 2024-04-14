@@ -19,6 +19,10 @@ import {
   ButtonText,
   MsgBox,
   Line,
+  ExtraView,
+  ExtraText,
+  TextLink,
+  TextLinkContent,
 } from "./LoginScreenStyles";
 import { Colors } from "../../styles/AppStyles";
 
@@ -91,6 +95,16 @@ const LoginScreen = () => {
                   Sign in with Google
                 </ButtonText>
               </StyledButton>
+              <ExtraView testID="extra-view">
+                <ExtraText testID="extra-text">
+                  Dont you have an account already?
+                </ExtraText>
+                <TextLink testID="text-link">
+                  <TextLinkContent testID="text-link-content">
+                    Signup
+                  </TextLinkContent>
+                </TextLink>
+              </ExtraView>
             </StyledFormArea>
           )}
         </Formik>
