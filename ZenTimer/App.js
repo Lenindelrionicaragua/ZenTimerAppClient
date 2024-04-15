@@ -7,7 +7,7 @@ import { AppContainer } from "./styles/AppStyles";
 export default function App() {
   return (
     <AppContainer testID="app-container">
-      <LoginScreen />
+      <LoginScreen testID="login-screen" />
     </AppContainer>
   );
 }
