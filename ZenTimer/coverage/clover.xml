@@ -1,56 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1713120361600" clover="3.2.0">
-  <project timestamp="1713120361601" name="All files">
-    <metrics statements="35" coveredstatements="33" conditionals="8" coveredconditionals="7" methods="7" coveredmethods="5" elements="50" coveredelements="45" complexity="0" loc="35" ncloc="35" packages="2" files="3" classes="3"/>
-    <package name="screens.LoginScreen">
-      <metrics statements="32" coveredstatements="30" conditionals="8" coveredconditionals="7" methods="7" coveredmethods="5"/>
-      <file name="LoginScreen.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/screens/LoginScreen/LoginScreen.js">
-        <metrics statements="10" coveredstatements="8" conditionals="4" coveredconditionals="3" methods="5" coveredmethods="3"/>
-        <line num="30" count="2" type="stmt"/>
-        <line num="32" count="2" type="stmt"/>
-        <line num="33" count="33" type="stmt"/>
-        <line num="35" count="32" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
-        <line num="52" count="36" type="stmt"/>
-        <line num="116" count="2" type="stmt"/>
-        <line num="124" count="72" type="stmt"/>
-        <line num="126" count="72" type="stmt"/>
-        <line num="134" count="0" type="stmt"/>
-      </file>
-      <file name="LoginScreenStyles.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/screens/LoginScreen/LoginScreenStyles.js">
-        <metrics statements="22" coveredstatements="22" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
-        <line num="30" count="2" type="stmt"/>
-        <line num="38" count="2" type="stmt"/>
-        <line num="46" count="2" type="stmt"/>
-        <line num="50" count="2" type="stmt"/>
-        <line num="63" count="2" type="stmt"/>
-        <line num="69" count="2" type="stmt"/>
-        <line num="76" count="2" type="stmt"/>
-        <line num="83" count="2" type="stmt"/>
-        <line num="93" count="72" type="cond" truecount="2" falsecount="0"/>
-        <line num="101" count="2" type="stmt"/>
-        <line num="106" count="72" type="cond" truecount="2" falsecount="0"/>
-        <line num="113" count="2" type="stmt"/>
-        <line num="118" count="2" type="stmt"/>
-        <line num="125" count="2" type="stmt"/>
-        <line num="132" count="2" type="stmt"/>
-        <line num="139" count="2" type="stmt"/>
-        <line num="144" count="2" type="stmt"/>
-      </file>
-    </package>
-    <package name="styles">
-      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="AppStyles.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/styles/AppStyles.js">
-        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
-      </file>
-    </package>
+<coverage generated="1713189301062" clover="3.2.0">
+  <project timestamp="1713189301062" name="All files">
+    <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="0" coveredelements="0" complexity="0" loc="0" ncloc="0" packages="0" files="0" classes="0"/>
   </project>
 </coverage>
