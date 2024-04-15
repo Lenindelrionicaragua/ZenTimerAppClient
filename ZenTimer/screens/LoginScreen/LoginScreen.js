@@ -33,15 +33,16 @@ const LoginScreen = () => {
   const [hidePassword, setHidePassword] = useState(true);
 
   return (
-    <StyledContainer>
+    <StyledContainer testID="styled-container">
       <StatusBar style="dark" />
-      <InnerContainer>
+      <InnerContainer testID="inner-container">
         <PageLogo
           resizeMode="cover"
           source={require("./../../assets/logoZenTimer.png")}
+          testID="page-logo"
         />
-        <PageTitle>ZenTimer</PageTitle>
-        <SubTitle>Account Login</SubTitle>
+        <PageTitle testID="page-title">ZenTimer</PageTitle>
+        <SubTitle testID="sub-title">Account Login</SubTitle>
         <Formik
           initialValues={{ email: "", password: "" }}
           onSubmit={(values) => {

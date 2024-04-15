@@ -5,43 +5,54 @@ import renderer from "react-test-renderer";
 import LoginScreen from "../screens/LoginScreen/LoginScreen";
 import { AppContainer } from "../styles/AppStyles";
 
-const renderApp = () => {
-  return render(<App />);
-};
+// Rendering functions
+const renderApp = () => render(<App />);
+const renderAppWithRenderer = () => renderer.create(<App />);
+const renderAppContainerWithRenderer = () => renderer.create(<AppContainer />);
+const renderLoginScreenWithRenderer = () => renderer.create(<LoginScreen />);
 
+//App.js
 describe("App", () => {
-  // Should renders correctly AppContainer Element
-  // Should render a View element with Id 'app-container'
-  let appRenderResult;
+  let appRender;
+  let appRenderWithRenderer;
+  let appContainerRenderWithRenderer;
 
   beforeEach(() => {
-    appRenderResult = renderApp();
+    appRender = renderApp();
+    appRenderWithRenderer = renderAppWithRenderer();
+    appContainerRenderWithRenderer = renderAppContainerWithRenderer();
   });
 
-  test("should renders correctly", () => {
-    const tree = renderer.create(<AppContainer />).toJSON();
+  test("Should renders AppContainer correctly", () => {
+    const tree = appContainerRenderWithRenderer.toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("Should render a View element with the test ID 'app-container'", () => {
-    const { getByTestId } = appRenderResult;
+    const { getByTestId } = appRender;
     const containerElement = getByTestId("app-container");
     expect(containerElement).toBeTruthy();
   });
 
-  //LoginScreen
-
   test("Should render the LoginScreen component", () => {
-    const loginScreenComponent = renderer.create(<App />);
+    const loginScreenComponent = appRenderWithRenderer;
     const instance = loginScreenComponent.root;
     const loginScreenInstance = instance.findByType(LoginScreen);
     expect(loginScreenInstance).toBeTruthy();
   });
 });
 
+// LoginScreen Component
 describe("LoginScreen", () => {
+  let loginScreenRenderWithRenderer;
+
+  beforeEach(() => {
+    loginScreenRenderWithRenderer = renderLoginScreenWithRenderer();
+  });
+
+  // should renders correctly
   test("Should renders correctly the LoginScreen Component", () => {
-    const tree = renderer.create(<LoginScreen />).toJSON();
+    const tree = loginScreenRenderWithRenderer.toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

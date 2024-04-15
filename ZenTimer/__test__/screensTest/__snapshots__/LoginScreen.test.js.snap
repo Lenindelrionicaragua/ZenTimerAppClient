@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LoginScreen Should renders the image of PageLogo  correctly 1`] = `
+exports[`PageLogo Should renders the image of PageLogo  correctly 1`] = `
 <Image
   style={
     {
