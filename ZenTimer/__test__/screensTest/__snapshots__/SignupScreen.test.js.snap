@@ -1,6 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
+exports[`PageLogo Renders the PageLogo component correctly 1`] = `
+<Image
+  style={
+    {
+      "borderBottomLeftRadius": 100,
+      "borderBottomRightRadius": 100,
+      "borderTopLeftRadius": 100,
+      "borderTopRightRadius": 100,
+      "height": 200,
+      "overflow": "hidden",
+      "width": 200,
+    }
+  }
+/>
+`;
+
+exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
 <View
   style={
     {
@@ -73,7 +89,7 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
       }
       testID="sub-title"
     >
-      Account Login
+      Account Signup
     </Text>
     <View
       style={
@@ -536,20 +552,4 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
     </View>
   </View>
 </View>
-`;
-
-exports[`PageLogo Renders the PageLogo component correctly 1`] = `
-<Image
-  style={
-    {
-      "borderBottomLeftRadius": 100,
-      "borderBottomRightRadius": 100,
-      "borderTopLeftRadius": 100,
-      "borderTopRightRadius": 100,
-      "height": 200,
-      "overflow": "hidden",
-      "width": 200,
-    }
-  }
-/>
 `;
