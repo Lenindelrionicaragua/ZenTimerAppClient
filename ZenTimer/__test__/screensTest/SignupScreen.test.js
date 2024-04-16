@@ -47,15 +47,8 @@ describe("SignupScreen", () => {
 
     expect(getByTestId("styled-container")).toBeTruthy();
     expect(getByTestId("inner-container")).toBeTruthy();
-    expect(getByTestId("page-logo")).toBeTruthy();
     expect(getByTestId("page-title")).toBeTruthy();
     expect(getByTestId("sub-title")).toBeTruthy();
-  });
-
-  test("The PageLogo must have a valid image source", () => {
-    const { getByTestId } = signupScreenRender;
-    const pageLogoComponent = getByTestId("page-logo");
-    expect(pageLogoComponent.props.source).toBeTruthy();
   });
 
   test("PageTitle should render a string of letters, numbers, or spaces", () => {
@@ -70,14 +63,6 @@ describe("SignupScreen", () => {
     const subTitleComponent = getByTestId("sub-title");
     const textContent = subTitleComponent.props.children.toString();
     expect(textContent).toMatch("Account Signup");
-  });
-});
-
-// PageLogo
-describe("PageLogo", () => {
-  it("Renders the PageLogo component correctly", () => {
-    const pageLogoSnapshot = renderer.create(<PageLogo />).toJSON();
-    expect(pageLogoSnapshot).toMatchSnapshot();
   });
 });
 
@@ -96,8 +81,11 @@ describe("Formik Integration Tests", () => {
 
   test("Should have initialValues", () => {
     expect(formikComponent.props.initialValues).toEqual({
+      fullName: "",
       email: "",
+      dateOfBirth: "",
       password: "",
+      confirmPassword: "",
     });
   });
 
@@ -105,44 +93,77 @@ describe("Formik Integration Tests", () => {
     expect(typeof formikComponent.props.children).toBe("function");
   });
 
-  // MyTextInput
+  //MyTextInput
   describe("MyTextInput", () => {
+    let fullName;
     let emailInput;
+    let dateOfBirth;
     let passwordInput;
+    let confirmPasswordInput;
+
+    const renderForm = () => {
+      const { getByTestId } = signupScreenRender;
+      fullName = getByTestId("full-name");
+      emailInput = getByTestId("email-input");
+      dateOfBirth = getByTestId("date-of-birth");
+      passwordInput = getByTestId("password-input");
+      confirmPasswordInput = getByTestId("confirm-password-input");
+    };
 
     beforeEach(() => {
-      const { getByTestId } = signupScreenRender;
-      emailInput = getByTestId("email-input");
-      passwordInput = getByTestId("password-input");
+      renderForm();
     });
 
-    test("Renders correctly the email-input", () => {
-      expect(emailInput).toBeTruthy();
+    describe("Rendering", () => {
+      test("Renders correctly the full-name", () => {
+        expect(fullName).toBeTruthy();
+      });
+
+      test("Renders correctly the email-input", () => {
+        expect(emailInput).toBeTruthy();
+      });
+
+      test("Renders correctly the date-of-birth", () => {
+        expect(dateOfBirth).toBeTruthy();
+      });
+
+      test("Renders correctly the password-input", () => {
+        expect(passwordInput).toBeTruthy();
+      });
+
+      test("Renders correctly the confirm-password-input", () => {
+        expect(confirmPasswordInput).toBeTruthy();
+      });
     });
 
-    test("Renders correctly the password-input", () => {
-      expect(passwordInput).toBeTruthy();
-    });
-
-    test("Correctly updates form state on onChangeText and onBlur", () => {
-      const { getByTestId } = signupScreenRender;
-
-      act(() => {
-        fireEvent.changeText(getByTestId("email-input"), "serenity@gmail.com");
-      });
-      expect(getByTestId("email-input").props.value).toBe("serenity@gmail.com");
-
-      act(() => {
-        fireEvent(getByTestId("email-input"), "blur");
+    describe("Form State Update", () => {
+      beforeEach(() => {
+        renderForm();
       });
 
-      act(() => {
-        fireEvent.changeText(getByTestId("password-input"), "password123");
-      });
-      expect(getByTestId("password-input").props.value).toBe("password123");
+      test("Correctly updates form state on onChangeText and onBlur", () => {
+        act(() => {
+          fireEvent.changeText(fullName, "Mark Twain");
+          fireEvent(fullName, "blur");
 
-      act(() => {
-        fireEvent(getByTestId("password-input"), "blur");
+          fireEvent.changeText(emailInput, "serenity@gmail.com");
+          fireEvent(emailInput, "blur");
+
+          fireEvent.changeText(dateOfBirth, "YYYY-MM-DD");
+          fireEvent(dateOfBirth, "blur");
+
+          fireEvent.changeText(passwordInput, "password123");
+          fireEvent(passwordInput, "blur");
+
+          fireEvent.changeText(confirmPasswordInput, "password123");
+          fireEvent(confirmPasswordInput, "blur");
+        });
+
+        expect(fullName.props.value).toBe("Mark Twain");
+        expect(emailInput.props.value).toBe("serenity@gmail.com");
+        expect(dateOfBirth.props.value).toBe("YYYY-MM-DD");
+        expect(passwordInput.props.value).toBe("password123");
+        expect(confirmPasswordInput.props.value).toBe("password123");
       });
     });
   });
@@ -172,43 +193,6 @@ describe("Formik Integration Tests", () => {
     });
   });
 
-  describe("Google StyledButton", () => {
-    // Google StyledButton
-
-    test("Render correctly", () => {
-      const { getByTestId } = signupScreenRender;
-      const googleStyledButton = getByTestId("google-styled-button");
-      expect(googleStyledButton).toBeTruthy();
-    });
-
-    test("Render the Google Icon", () => {
-      const { getByTestId } = signupScreenRender;
-      const googleIconElement = getByTestId("google-icon");
-      expect(googleIconElement).toBeTruthy();
-    });
-
-    test("StyledButton should have an Fontisto component as Child", () => {
-      const { getByTestId } = signupScreenRender;
-      const styledButtonComponent = getByTestId("google-styled-button");
-      const children = styledButtonComponent.props.children;
-
-      let hasFontistoAsAChild = false;
-
-      React.Children.forEach(children, (child) => {
-        if (child && child.type === Fontisto) {
-          hasFontistoAsAChild = true;
-        }
-      });
-      expect(hasFontistoAsAChild).toBe(true);
-    });
-
-    test("Render a google-button-text", () => {
-      const { getByTestId } = signupScreenRender;
-      const buttonTextGoogle = getByTestId("google-button-text");
-      expect(buttonTextGoogle).toBeTruthy();
-    });
-  });
-
   describe("ExtraView", () => {
     test("Render correctly", () => {
       const { getByTestId } = signupScreenRender;
@@ -224,11 +208,11 @@ describe("Formik Integration Tests", () => {
       expect(extraTextElement).toBeTruthy();
     });
 
-    test("Render a text", () => {
+    test("Render the correct text", () => {
       const { getByTestId } = signupScreenRender;
       const extraTextElement = getByTestId("extra-text");
       const textContent = extraTextElement.props.children;
-      expect(textContent).toBe("Dont you have an account already?");
+      expect(textContent).toBe("Already have an account?");
     });
   });
 
@@ -243,7 +227,7 @@ describe("Formik Integration Tests", () => {
       const { getByTestId } = signupScreenRender;
       const textLinkContent = getByTestId("text-link-content");
       const LinkContent = textLinkContent.props.children;
-      expect(LinkContent).toBe("Signup");
+      expect(LinkContent).toBe("Login");
     });
   });
 });

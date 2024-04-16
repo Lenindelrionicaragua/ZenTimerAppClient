@@ -110,39 +110,49 @@ describe("Formik Integration Tests", () => {
     let emailInput;
     let passwordInput;
 
-    beforeEach(() => {
+    const renderForm = () => {
       const { getByTestId } = loginScreenRender;
       emailInput = getByTestId("email-input");
       passwordInput = getByTestId("password-input");
+    };
+
+    beforeEach(() => {
+      renderForm();
     });
 
-    test("Renders correctly the email-input", () => {
-      expect(emailInput).toBeTruthy();
+    describe("Rendering", () => {
+      test("Renders correctly the email-input", () => {
+        expect(emailInput).toBeTruthy();
+      });
+
+      test("Renders correctly the password-input", () => {
+        expect(passwordInput).toBeTruthy();
+      });
     });
 
-    test("Renders correctly the password-input", () => {
-      expect(passwordInput).toBeTruthy();
-    });
-
-    test("Correctly updates form state on onChangeText and onBlur", () => {
-      const { getByTestId } = loginScreenRender;
-
-      act(() => {
-        fireEvent.changeText(getByTestId("email-input"), "serenity@gmail.com");
-      });
-      expect(getByTestId("email-input").props.value).toBe("serenity@gmail.com");
-
-      act(() => {
-        fireEvent(getByTestId("email-input"), "blur");
+    describe("Form State Update", () => {
+      beforeEach(() => {
+        renderForm();
       });
 
-      act(() => {
-        fireEvent.changeText(getByTestId("password-input"), "password123");
-      });
-      expect(getByTestId("password-input").props.value).toBe("password123");
+      test("Correctly updates form state on onChangeText and onBlur", () => {
+        const { getByTestId } = loginScreenRender;
 
-      act(() => {
-        fireEvent(getByTestId("password-input"), "blur");
+        act(() => {
+          fireEvent.changeText(
+            getByTestId("email-input"),
+            "serenity@gmail.com"
+          );
+          fireEvent(getByTestId("email-input"), "blur");
+
+          fireEvent.changeText(getByTestId("password-input"), "password123");
+          fireEvent(getByTestId("password-input"), "blur");
+        });
+
+        expect(getByTestId("email-input").props.value).toBe(
+          "serenity@gmail.com"
+        );
+        expect(getByTestId("password-input").props.value).toBe("password123");
       });
     });
   });

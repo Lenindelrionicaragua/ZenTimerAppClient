@@ -41,22 +41,6 @@ exports[`App renders AppContainer correctly 1`] = `
       }
       testID="inner-container"
     >
-      <Image
-        resizeMode="cover"
-        source={1}
-        style={
-          {
-            "borderBottomLeftRadius": 100,
-            "borderBottomRightRadius": 100,
-            "borderTopLeftRadius": 100,
-            "borderTopRightRadius": 100,
-            "height": 200,
-            "overflow": "hidden",
-            "width": 200,
-          }
-        }
-        testID="page-logo"
-      />
       <Text
         style={
           {
@@ -95,6 +79,77 @@ exports[`App renders AppContainer correctly 1`] = `
           }
         }
       >
+        <View>
+          <View
+            style={
+              {
+                "left": 15,
+                "position": "absolute",
+                "top": 38,
+                "zIndex": 1,
+              }
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              selectable={false}
+              style={
+                [
+                  {
+                    "color": "#000000",
+                    "fontSize": 30,
+                  },
+                  undefined,
+                  {
+                    "fontFamily": "octicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+          <Text
+            style={
+              {
+                "color": "#1a1204",
+                "fontSize": 13,
+                "textAlign": "left",
+              }
+            }
+          >
+            Full Name
+          </Text>
+          <TextInput
+            onChangeText={[Function]}
+            onblur={[Function]}
+            placeholder="Mark Twain"
+            placeholderTextColor="#f9f7f3"
+            style={
+              {
+                "backgroundColor": "#ffc500",
+                "borderBottomLeftRadius": 5,
+                "borderBottomRightRadius": 5,
+                "borderTopLeftRadius": 5,
+                "borderTopRightRadius": 5,
+                "color": "#1a1204",
+                "fontSize": 16,
+                "height": 60,
+                "marginBottom": 10,
+                "marginVertical": 3,
+                "paddingBottom": 15,
+                "paddingLeft": 55,
+                "paddingRight": 55,
+                "paddingTop": 15,
+              }
+            }
+            testID="full-name"
+            value=""
+          />
+        </View>
         <View>
           <View
             style={
@@ -197,6 +252,77 @@ exports[`App renders AppContainer correctly 1`] = `
                 ]
               }
             >
+              
+            </Text>
+          </View>
+          <Text
+            style={
+              {
+                "color": "#1a1204",
+                "fontSize": 13,
+                "textAlign": "left",
+              }
+            }
+          >
+            Date of Birth
+          </Text>
+          <TextInput
+            onChangeText={[Function]}
+            onblur={[Function]}
+            placeholder="YYYY - MM - DD"
+            placeholderTextColor="#f9f7f3"
+            style={
+              {
+                "backgroundColor": "#ffc500",
+                "borderBottomLeftRadius": 5,
+                "borderBottomRightRadius": 5,
+                "borderTopLeftRadius": 5,
+                "borderTopRightRadius": 5,
+                "color": "#1a1204",
+                "fontSize": 16,
+                "height": 60,
+                "marginBottom": 10,
+                "marginVertical": 3,
+                "paddingBottom": 15,
+                "paddingLeft": 55,
+                "paddingRight": 55,
+                "paddingTop": 15,
+              }
+            }
+            testID="date-of-birth"
+            value=""
+          />
+        </View>
+        <View>
+          <View
+            style={
+              {
+                "left": 15,
+                "position": "absolute",
+                "top": 38,
+                "zIndex": 1,
+              }
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              selectable={false}
+              style={
+                [
+                  {
+                    "color": "#000000",
+                    "fontSize": 30,
+                  },
+                  undefined,
+                  {
+                    "fontFamily": "octicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  {},
+                ]
+              }
+            >
               
             </Text>
           </View>
@@ -236,6 +362,138 @@ exports[`App renders AppContainer correctly 1`] = `
               }
             }
             testID="password-input"
+            value=""
+          />
+          <View
+            accessibilityState={
+              {
+                "busy": undefined,
+                "checked": undefined,
+                "disabled": undefined,
+                "expanded": undefined,
+                "selected": undefined,
+              }
+            }
+            accessibilityValue={
+              {
+                "max": undefined,
+                "min": undefined,
+                "now": undefined,
+                "text": undefined,
+              }
+            }
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              {
+                "opacity": 1,
+                "position": "absolute",
+                "right": 15,
+                "top": 38,
+                "zIndex": 1,
+              }
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              selectable={false}
+              style={
+                [
+                  {
+                    "color": "#f9f7f3",
+                    "fontSize": 25,
+                  },
+                  undefined,
+                  {
+                    "fontFamily": "feather",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+        <View>
+          <View
+            style={
+              {
+                "left": 15,
+                "position": "absolute",
+                "top": 38,
+                "zIndex": 1,
+              }
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              selectable={false}
+              style={
+                [
+                  {
+                    "color": "#000000",
+                    "fontSize": 30,
+                  },
+                  undefined,
+                  {
+                    "fontFamily": "octicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+          <Text
+            style={
+              {
+                "color": "#1a1204",
+                "fontSize": 13,
+                "textAlign": "left",
+              }
+            }
+          >
+            Confirm Password
+          </Text>
+          <TextInput
+            onChangeText={[Function]}
+            onblur={[Function]}
+            placeholder="* * * * * * *"
+            placeholderTextColor="#f9f7f3"
+            secureTextEntry={true}
+            style={
+              {
+                "backgroundColor": "#ffc500",
+                "borderBottomLeftRadius": 5,
+                "borderBottomRightRadius": 5,
+                "borderTopLeftRadius": 5,
+                "borderTopRightRadius": 5,
+                "color": "#1a1204",
+                "fontSize": 16,
+                "height": 60,
+                "marginBottom": 10,
+                "marginVertical": 3,
+                "paddingBottom": 15,
+                "paddingLeft": 55,
+                "paddingRight": 55,
+                "paddingTop": 15,
+              }
+            }
+            testID="confirm-password-input"
             value=""
           />
           <View
@@ -382,94 +640,6 @@ exports[`App renders AppContainer correctly 1`] = `
           testID="line"
         />
         <View
-          accessibilityState={
-            {
-              "busy": undefined,
-              "checked": undefined,
-              "disabled": undefined,
-              "expanded": undefined,
-              "selected": undefined,
-            }
-          }
-          accessibilityValue={
-            {
-              "max": undefined,
-              "min": undefined,
-              "now": undefined,
-              "text": undefined,
-            }
-          }
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            {
-              "alignItems": "center",
-              "backgroundColor": "#ffc500",
-              "borderBottomLeftRadius": 5,
-              "borderBottomRightRadius": 5,
-              "borderTopLeftRadius": 5,
-              "borderTopRightRadius": 5,
-              "flexDirection": "row",
-              "height": 60,
-              "justifyContent": "center",
-              "marginVertical": 5,
-              "opacity": 1,
-              "paddingBottom": 15,
-              "paddingLeft": 15,
-              "paddingRight": 15,
-              "paddingTop": 15,
-            }
-          }
-          testID="google-styled-button"
-        >
-          <Text
-            allowFontScaling={false}
-            selectable={false}
-            style={
-              [
-                {
-                  "color": "#1a1204",
-                  "fontSize": 20,
-                },
-                undefined,
-                {
-                  "fontFamily": "Fontisto",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                {},
-              ]
-            }
-            testID="google-icon"
-          >
-            
-          </Text>
-          <Text
-            google={true}
-            style={
-              {
-                "color": "#000000",
-                "fontSize": 16,
-                "paddingBottom": 25,
-                "paddingLeft": 25,
-                "paddingRight": 25,
-                "paddingTop": 25,
-              }
-            }
-            testID="google-button-text"
-          >
-            Sign in with Google
-          </Text>
-        </View>
-        <View
           style={
             {
               "alignItems": "center",
@@ -494,7 +664,7 @@ exports[`App renders AppContainer correctly 1`] = `
             }
             testID="extra-text"
           >
-            Dont you have an account already?
+            Already have an account?
           </Text>
           <View
             accessibilityState={
@@ -542,7 +712,7 @@ exports[`App renders AppContainer correctly 1`] = `
               }
               testID="text-link-content"
             >
-              Signup
+              Login
             </Text>
           </View>
         </View>
