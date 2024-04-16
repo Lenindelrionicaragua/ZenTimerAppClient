@@ -3,9 +3,9 @@ import { render, fireEvent, act } from "@testing-library/react-native";
 import renderer from "react-test-renderer";
 import { Fontisto } from "@expo/vector-icons";
 
-import LoginScreen, {
+import SignupScreen, {
   MyTextInput,
-} from "../../screens/LoginScreen/LoginScreen";
+} from "../../screens/SignupScreen/SignupScreen";
 
 import { Formik } from "formik";
 import { StatusBar } from "react-native";
@@ -15,69 +15,54 @@ import {
   PageLogo,
   PageTitle,
   SubTitle,
-} from "../../screens/LoginScreen/LoginScreenStyles";
+} from "../../screens/SignupScreen/SignupScreenStyles";
 
 // Rendering Functions
-const renderLoginScreen = () => render(<LoginScreen />);
-const renderLoginScreenWithRenderer = () => renderer.create(<LoginScreen />);
+const renderSignupScreen = () => render(<SignupScreen />);
+const renderSignupScreenWithRenderer = () => renderer.create(<SignupScreen />);
 
-let loginScreenRender;
-let loginScreenRenderWithRenderer;
+let signupScreenRender;
+let signupScreenRenderWithRenderer;
 
 beforeEach(() => {
-  loginScreenRender = renderLoginScreen();
-  loginScreenRenderWithRenderer = renderLoginScreenWithRenderer();
+  signupScreenRender = renderSignupScreen();
+  signupScreenRenderWithRenderer = renderSignupScreenWithRenderer();
 });
 
-//LoginScreen
-describe("LoginScreen", () => {
-  test("Renders correctly the LoginScreen Component", () => {
-    const loginScreenSnapshot = loginScreenRenderWithRenderer.toJSON();
-    expect(loginScreenSnapshot).toMatchSnapshot();
+//SignupScreen
+describe("SignupScreen", () => {
+  test("Renders correctly the SignupScreen Component", () => {
+    const signupScreenSnapshot = signupScreenRenderWithRenderer.toJSON();
+    expect(signupScreenSnapshot).toMatchSnapshot();
   });
 
   test("Render StatusBar correctly", () => {
-    const loginScreenInstance = loginScreenRenderWithRenderer.root;
-    const statusBar = loginScreenInstance.findByType(StatusBar);
+    const signupScreenInstance = signupScreenRenderWithRenderer.root;
+    const statusBar = signupScreenInstance.findByType(StatusBar);
     expect(statusBar).toBeTruthy();
   });
 
   test("Render UI components correctly", () => {
-    const { getByTestId } = loginScreenRender;
+    const { getByTestId } = signupScreenRender;
 
     expect(getByTestId("styled-container")).toBeTruthy();
     expect(getByTestId("inner-container")).toBeTruthy();
-    expect(getByTestId("page-logo")).toBeTruthy();
     expect(getByTestId("page-title")).toBeTruthy();
     expect(getByTestId("sub-title")).toBeTruthy();
   });
 
-  test("The PageLogo must have a valid image source", () => {
-    const { getByTestId } = loginScreenRender;
-    const pageLogoComponent = getByTestId("page-logo");
-    expect(pageLogoComponent.props.source).toBeTruthy();
-  });
-
   test("PageTitle should render a string of letters, numbers, or spaces", () => {
-    const { getByTestId } = loginScreenRender;
+    const { getByTestId } = signupScreenRender;
     const pageTitleComponent = getByTestId("page-title");
     const textContent = pageTitleComponent.props.children.toString();
     expect(textContent).toMatch("ZenTimer");
   });
 
   test("SubTitle should render a string of letters, numbers or spaces", () => {
-    const { getByTestId } = loginScreenRender;
+    const { getByTestId } = signupScreenRender;
     const subTitleComponent = getByTestId("sub-title");
     const textContent = subTitleComponent.props.children.toString();
-    expect(textContent).toMatch("Account Login");
-  });
-});
-
-// PageLogo
-describe("PageLogo", () => {
-  it("Renders the PageLogo component correctly", () => {
-    const pageLogoSnapshot = renderer.create(<PageLogo />).toJSON();
-    expect(pageLogoSnapshot).toMatchSnapshot();
+    expect(textContent).toMatch("Account Signup");
   });
 });
 
@@ -86,8 +71,8 @@ describe("Formik Integration Tests", () => {
   let formikComponent;
 
   beforeEach(() => {
-    const loginScreenInstance = loginScreenRenderWithRenderer.root;
-    formikComponent = loginScreenInstance.findByType(Formik);
+    const signupScreenInstance = signupScreenRenderWithRenderer.root;
+    formikComponent = signupScreenInstance.findByType(Formik);
   });
 
   test("Render a Formik component", () => {
@@ -96,8 +81,11 @@ describe("Formik Integration Tests", () => {
 
   test("Should have initialValues", () => {
     expect(formikComponent.props.initialValues).toEqual({
+      fullName: "",
       email: "",
+      dateOfBirth: "",
       password: "",
+      confirmPassword: "",
     });
   });
 
@@ -105,15 +93,21 @@ describe("Formik Integration Tests", () => {
     expect(typeof formikComponent.props.children).toBe("function");
   });
 
-  // MyTextInput
+  //MyTextInput
   describe("MyTextInput", () => {
+    let fullName;
     let emailInput;
+    let dateOfBirth;
     let passwordInput;
+    let confirmPasswordInput;
 
     const renderForm = () => {
-      const { getByTestId } = loginScreenRender;
+      const { getByTestId } = signupScreenRender;
+      fullName = getByTestId("full-name");
       emailInput = getByTestId("email-input");
+      dateOfBirth = getByTestId("date-of-birth");
       passwordInput = getByTestId("password-input");
+      confirmPasswordInput = getByTestId("confirm-password-input");
     };
 
     beforeEach(() => {
@@ -121,12 +115,24 @@ describe("Formik Integration Tests", () => {
     });
 
     describe("Rendering", () => {
+      test("Renders correctly the full-name", () => {
+        expect(fullName).toBeTruthy();
+      });
+
       test("Renders correctly the email-input", () => {
         expect(emailInput).toBeTruthy();
       });
 
+      test("Renders correctly the date-of-birth", () => {
+        expect(dateOfBirth).toBeTruthy();
+      });
+
       test("Renders correctly the password-input", () => {
         expect(passwordInput).toBeTruthy();
+      });
+
+      test("Renders correctly the confirm-password-input", () => {
+        expect(confirmPasswordInput).toBeTruthy();
       });
     });
 
@@ -136,23 +142,28 @@ describe("Formik Integration Tests", () => {
       });
 
       test("Correctly updates form state on onChangeText and onBlur", () => {
-        const { getByTestId } = loginScreenRender;
-
         act(() => {
-          fireEvent.changeText(
-            getByTestId("email-input"),
-            "serenity@gmail.com"
-          );
-          fireEvent(getByTestId("email-input"), "blur");
+          fireEvent.changeText(fullName, "Mark Twain");
+          fireEvent(fullName, "blur");
 
-          fireEvent.changeText(getByTestId("password-input"), "password123");
-          fireEvent(getByTestId("password-input"), "blur");
+          fireEvent.changeText(emailInput, "serenity@gmail.com");
+          fireEvent(emailInput, "blur");
+
+          fireEvent.changeText(dateOfBirth, "YYYY-MM-DD");
+          fireEvent(dateOfBirth, "blur");
+
+          fireEvent.changeText(passwordInput, "password123");
+          fireEvent(passwordInput, "blur");
+
+          fireEvent.changeText(confirmPasswordInput, "password123");
+          fireEvent(confirmPasswordInput, "blur");
         });
 
-        expect(getByTestId("email-input").props.value).toBe(
-          "serenity@gmail.com"
-        );
-        expect(getByTestId("password-input").props.value).toBe("password123");
+        expect(fullName.props.value).toBe("Mark Twain");
+        expect(emailInput.props.value).toBe("serenity@gmail.com");
+        expect(dateOfBirth.props.value).toBe("YYYY-MM-DD");
+        expect(passwordInput.props.value).toBe("password123");
+        expect(confirmPasswordInput.props.value).toBe("password123");
       });
     });
   });
@@ -160,7 +171,7 @@ describe("Formik Integration Tests", () => {
   // Login StyledButton
   describe("StyledButton", () => {
     test("Render StyledButton", () => {
-      const { getByTestId } = loginScreenRender;
+      const { getByTestId } = signupScreenRender;
       const styledButtonElement = getByTestId("login-styled-button");
       expect(styledButtonElement).toBeTruthy();
     });
@@ -169,59 +180,22 @@ describe("Formik Integration Tests", () => {
   // MsgBox
   describe("MsgBox", () => {
     test("Render a MsgBox", () => {
-      const { getByTestId } = loginScreenRender;
+      const { getByTestId } = signupScreenRender;
       const msgBoxElement = getByTestId("msg-box");
       expect(msgBoxElement).toBeTruthy();
     });
 
     test("MsgBox should render a string of letters, numbers or spaces", async () => {
-      const { getByTestId } = loginScreenRender;
+      const { getByTestId } = signupScreenRender;
       const msgBoxElement = getByTestId("msg-box");
       const textContent = msgBoxElement.props.children.toString();
       expect(textContent).toMatch(/^[a-zA-Z0-9.\s]*$/);
     });
   });
 
-  describe("Google StyledButton", () => {
-    // Google StyledButton
-
-    test("Render correctly", () => {
-      const { getByTestId } = loginScreenRender;
-      const googleStyledButton = getByTestId("google-styled-button");
-      expect(googleStyledButton).toBeTruthy();
-    });
-
-    test("Render the Google Icon", () => {
-      const { getByTestId } = loginScreenRender;
-      const googleIconElement = getByTestId("google-icon");
-      expect(googleIconElement).toBeTruthy();
-    });
-
-    test("StyledButton should have an Fontisto component as Child", () => {
-      const { getByTestId } = loginScreenRender;
-      const styledButtonComponent = getByTestId("google-styled-button");
-      const children = styledButtonComponent.props.children;
-
-      let hasFontistoAsAChild = false;
-
-      React.Children.forEach(children, (child) => {
-        if (child && child.type === Fontisto) {
-          hasFontistoAsAChild = true;
-        }
-      });
-      expect(hasFontistoAsAChild).toBe(true);
-    });
-
-    test("Render a google-button-text", () => {
-      const { getByTestId } = loginScreenRender;
-      const buttonTextGoogle = getByTestId("google-button-text");
-      expect(buttonTextGoogle).toBeTruthy();
-    });
-  });
-
   describe("ExtraView", () => {
     test("Render correctly", () => {
-      const { getByTestId } = loginScreenRender;
+      const { getByTestId } = signupScreenRender;
       const extraViewElement = getByTestId("extra-view");
       expect(extraViewElement).toBeTruthy();
     });
@@ -229,31 +203,31 @@ describe("Formik Integration Tests", () => {
 
   describe("ExtraText", () => {
     test("Render correctly", () => {
-      const { getByTestId } = loginScreenRender;
+      const { getByTestId } = signupScreenRender;
       const extraTextElement = getByTestId("extra-text");
       expect(extraTextElement).toBeTruthy();
     });
 
-    test("Render a text", () => {
-      const { getByTestId } = loginScreenRender;
+    test("Render the correct text", () => {
+      const { getByTestId } = signupScreenRender;
       const extraTextElement = getByTestId("extra-text");
       const textContent = extraTextElement.props.children;
-      expect(textContent).toBe("Dont you have an account already?");
+      expect(textContent).toBe("Already have an account?");
     });
   });
 
   describe("TextLink", () => {
     test("Render correctly", () => {
-      const { getByTestId } = loginScreenRender;
+      const { getByTestId } = signupScreenRender;
       const textLinkElement = getByTestId("text-link");
       expect(typeof textLinkElement.props).toBe("object");
     });
 
     test("Render the correct text", () => {
-      const { getByTestId } = loginScreenRender;
+      const { getByTestId } = signupScreenRender;
       const textLinkContent = getByTestId("text-link-content");
       const LinkContent = textLinkContent.props.children;
-      expect(LinkContent).toBe("Signup");
+      expect(LinkContent).toBe("Login");
     });
   });
 });
