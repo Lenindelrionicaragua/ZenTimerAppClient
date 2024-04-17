@@ -1,8 +1,9 @@
 import React from "react";
-
-import { render, fireEvent, act } from "@testing-library/react-native";
-import DateTimePicker from "@react-native-community/datetimepicker";
 import renderer from "react-test-renderer";
+import { render, fireEvent, act, waitFor } from "@testing-library/react-native";
+
+import DateTimePicker from "@react-native-community/datetimepicker";
+
 import { Fontisto } from "@expo/vector-icons";
 
 import SignupScreen, {
@@ -18,7 +19,6 @@ import {
   PageTitle,
   SubTitle,
 } from "../../screens/SignupScreen/SignupScreenStyles";
-import { View, TouchableOpacity } from "react-native";
 
 // Rendering Functions
 const renderSignupScreen = () => render(<SignupScreen />);
@@ -68,19 +68,6 @@ describe("SignupScreen", () => {
     expect(textContent).toMatch("Account Signup");
   });
 });
-
-// DateTimePicker
-// describe("DateTimePicker", () => {
-//   test("Render DateTimePicker inside InnerContainer", () => {
-//     const { getByTestId } = signupScreenRender;
-//     const innerContainerComponent = getByTestId("inner-container");
-
-//     expect(innerContainerComponent).toBeTruthy();
-
-//     const dateTimePickerComponent = getByTestId("date-time-picker");
-//     expect(dateTimePickerComponent).toBeTruthy();
-//   });
-// });
 
 // Formik Integration Tests
 describe("Formik Integration Tests", () => {
@@ -153,13 +140,24 @@ describe("Formik Integration Tests", () => {
     });
 
     describe("Form State Update", () => {
+      let dateOfBirth;
+
+      const renderForm = () => {
+        const { getByTestId } = signupScreenRender;
+        dateOfBirth = getByTestId("date-of-birth");
+      };
+
+      beforeEach(() => {
+        renderForm();
+      });
+
       beforeEach(() => {
         renderForm();
       });
 
       test("Correctly updates form state on onChangeText and onBlur", () => {
         act(() => {
-          fireEvent.changeText(fullName, "Mark Twain");
+          fireEvent.changeText(fullName, "Zen User");
           fireEvent(fullName, "blur");
 
           fireEvent.changeText(emailInput, "serenity@gmail.com");
@@ -175,11 +173,56 @@ describe("Formik Integration Tests", () => {
           fireEvent(confirmPasswordInput, "blur");
         });
 
-        expect(fullName.props.value).toBe("Mark Twain");
+        expect(fullName.props.value).toBe("Zen User");
         expect(emailInput.props.value).toBe("serenity@gmail.com");
         expect(dateOfBirth.props.value).toBe("");
         expect(passwordInput.props.value).toBe("password123");
         expect(confirmPasswordInput.props.value).toBe("password123");
+      });
+    });
+  });
+
+  describe("DateTimePicker", () => {
+    let dateOfBirth;
+
+    const renderForm = () => {
+      const { getByTestId } = signupScreenRender;
+      dateOfBirth = getByTestId("date-of-birth");
+    };
+
+    beforeEach(() => {
+      renderForm();
+    });
+
+    test("Renders correctly the date-of-birth input field", () => {
+      expect(dateOfBirth).toBeTruthy();
+    });
+
+    test("Show DateTimePicker after clicking on the date-of-birth input field", async () => {
+      fireEvent.press(dateOfBirth);
+
+      await waitFor(() => {
+        const dateTimePicker =
+          signupScreenRender.queryByTestId("date-time-picker");
+        expect(dateTimePicker).toBeTruthy();
+      });
+    });
+
+    test("Change date in DateTimePicker", async () => {
+      fireEvent.press(dateOfBirth);
+
+      await waitFor(() => {
+        const dateTimePicker =
+          signupScreenRender.queryByTestId("date-time-picker");
+        expect(dateTimePicker).toBeTruthy();
+
+        fireEvent(dateTimePicker, "onChange", {
+          nativeEvent: { timestamp: "Tue Feb 01 2022" },
+        });
+      });
+
+      await waitFor(() => {
+        expect(dateOfBirth.props.value).toBe("Tue Feb 01 2022");
       });
     });
   });

@@ -80,7 +80,7 @@ const SignupScreen = () => {
               <MyTextInput
                 label="Full Name"
                 icon="person"
-                placeholder="Mark Twain"
+                placeholder="Zen User"
                 placeholderTextColor={lightGrey}
                 onChangeText={handleChange("fullName")}
                 onblur={handleBlur("fullName")}

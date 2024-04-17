@@ -126,7 +126,7 @@ exports[`App renders AppContainer correctly 1`] = `
           <TextInput
             onChangeText={[Function]}
             onblur={[Function]}
-            placeholder="Mark Twain"
+            placeholder="Zen User"
             placeholderTextColor="#f9f7f3"
             style={
               {
