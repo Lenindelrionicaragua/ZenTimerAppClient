@@ -1,88 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1713279708900" clover="3.2.0">
-  <project timestamp="1713279708900" name="All files">
-    <metrics statements="64" coveredstatements="60" conditionals="16" coveredconditionals="12" methods="14" coveredmethods="10" elements="94" coveredelements="82" complexity="0" loc="64" ncloc="64" packages="2" files="4" classes="4"/>
-    <package name="LoginScreen">
-      <metrics statements="32" coveredstatements="30" conditionals="8" coveredconditionals="7" methods="7" coveredmethods="5"/>
-      <file name="LoginScreen.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/screens/LoginScreen/LoginScreen.js">
-        <metrics statements="10" coveredstatements="8" conditionals="4" coveredconditionals="3" methods="5" coveredmethods="3"/>
-        <line num="30" count="2" type="stmt"/>
-        <line num="32" count="2" type="stmt"/>
-        <line num="33" count="51" type="stmt"/>
-        <line num="35" count="50" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="53" count="53" type="stmt"/>
-        <line num="117" count="2" type="stmt"/>
-        <line num="125" count="106" type="stmt"/>
-        <line num="127" count="106" type="stmt"/>
-        <line num="135" count="0" type="stmt"/>
-      </file>
-      <file name="LoginScreenStyles.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/screens/LoginScreen/LoginScreenStyles.js">
-        <metrics statements="22" coveredstatements="22" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
-        <line num="30" count="2" type="stmt"/>
-        <line num="38" count="2" type="stmt"/>
-        <line num="46" count="2" type="stmt"/>
-        <line num="50" count="2" type="stmt"/>
-        <line num="63" count="2" type="stmt"/>
-        <line num="69" count="2" type="stmt"/>
-        <line num="76" count="2" type="stmt"/>
-        <line num="83" count="2" type="stmt"/>
-        <line num="93" count="106" type="cond" truecount="2" falsecount="0"/>
-        <line num="101" count="2" type="stmt"/>
-        <line num="106" count="106" type="cond" truecount="2" falsecount="0"/>
-        <line num="113" count="2" type="stmt"/>
-        <line num="118" count="2" type="stmt"/>
-        <line num="125" count="2" type="stmt"/>
-        <line num="132" count="2" type="stmt"/>
-        <line num="139" count="2" type="stmt"/>
-        <line num="144" count="2" type="stmt"/>
-      </file>
-    </package>
-    <package name="SignupScreen">
-      <metrics statements="32" coveredstatements="30" conditionals="8" coveredconditionals="5" methods="7" coveredmethods="5"/>
-      <file name="SignupScreen.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/screens/SignupScreen/SignupScreen.js">
-        <metrics statements="10" coveredstatements="8" conditionals="4" coveredconditionals="3" methods="5" coveredmethods="3"/>
-        <line num="30" count="2" type="stmt"/>
-        <line num="32" count="2" type="stmt"/>
-        <line num="33" count="51" type="stmt"/>
-        <line num="35" count="50" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="54" count="56" type="stmt"/>
-        <line num="141" count="2" type="stmt"/>
-        <line num="149" count="280" type="stmt"/>
-        <line num="151" count="280" type="stmt"/>
-        <line num="159" count="0" type="stmt"/>
-      </file>
-      <file name="SignupScreenStyles.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/screens/SignupScreen/SignupScreenStyles.js">
-        <metrics statements="22" coveredstatements="22" conditionals="4" coveredconditionals="2" methods="2" coveredmethods="2"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="17" count="2" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
-        <line num="30" count="2" type="stmt"/>
-        <line num="38" count="2" type="stmt"/>
-        <line num="46" count="2" type="stmt"/>
-        <line num="50" count="2" type="stmt"/>
-        <line num="63" count="2" type="stmt"/>
-        <line num="69" count="2" type="stmt"/>
-        <line num="76" count="2" type="stmt"/>
-        <line num="83" count="2" type="stmt"/>
-        <line num="93" count="56" type="cond" truecount="1" falsecount="1"/>
-        <line num="101" count="2" type="stmt"/>
-        <line num="106" count="56" type="cond" truecount="1" falsecount="1"/>
-        <line num="113" count="2" type="stmt"/>
-        <line num="118" count="2" type="stmt"/>
-        <line num="125" count="2" type="stmt"/>
-        <line num="132" count="2" type="stmt"/>
-        <line num="139" count="2" type="stmt"/>
-        <line num="144" count="2" type="stmt"/>
-      </file>
-    </package>
+<coverage generated="1713341038037" clover="3.2.0">
+  <project timestamp="1713341038037" name="All files">
+    <metrics statements="42" coveredstatements="35" conditionals="18" coveredconditionals="11" methods="9" coveredmethods="5" elements="69" coveredelements="51" complexity="0" loc="42" ncloc="42" packages="1" files="2" classes="2"/>
+    <file name="SignupScreen.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/screens/SignupScreen/SignupScreen.js">
+      <metrics statements="20" coveredstatements="13" conditionals="14" coveredconditionals="9" methods="7" coveredmethods="3"/>
+      <line num="29" count="2" type="stmt"/>
+      <line num="31" count="2" type="stmt"/>
+      <line num="32" count="51" type="stmt"/>
+      <line num="33" count="50" type="stmt"/>
+      <line num="34" count="50" type="stmt"/>
+      <line num="35" count="50" type="stmt"/>
+      <line num="37" count="50" type="stmt"/>
+      <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="39" count="0" type="stmt"/>
+      <line num="40" count="0" type="stmt"/>
+      <line num="41" count="0" type="stmt"/>
+      <line num="44" count="50" type="stmt"/>
+      <line num="45" count="0" type="stmt"/>
+      <line num="48" count="50" type="stmt"/>
+      <line num="75" count="0" type="stmt"/>
+      <line num="79" count="56" type="stmt"/>
+      <line num="169" count="2" type="stmt"/>
+      <line num="179" count="280" type="stmt"/>
+      <line num="181" count="280" type="stmt"/>
+      <line num="194" count="0" type="stmt"/>
+    </file>
+    <file name="SignupScreenStyles.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/screens/SignupScreen/SignupScreenStyles.js">
+      <metrics statements="22" coveredstatements="22" conditionals="4" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <line num="6" count="2" type="stmt"/>
+      <line num="8" count="2" type="stmt"/>
+      <line num="10" count="2" type="stmt"/>
+      <line num="17" count="2" type="stmt"/>
+      <line num="23" count="2" type="stmt"/>
+      <line num="30" count="2" type="stmt"/>
+      <line num="38" count="2" type="stmt"/>
+      <line num="46" count="2" type="stmt"/>
+      <line num="50" count="2" type="stmt"/>
+      <line num="63" count="2" type="stmt"/>
+      <line num="69" count="2" type="stmt"/>
+      <line num="76" count="2" type="stmt"/>
+      <line num="83" count="2" type="stmt"/>
+      <line num="93" count="56" type="cond" truecount="1" falsecount="1"/>
+      <line num="101" count="2" type="stmt"/>
+      <line num="106" count="56" type="cond" truecount="1" falsecount="1"/>
+      <line num="113" count="2" type="stmt"/>
+      <line num="118" count="2" type="stmt"/>
+      <line num="125" count="2" type="stmt"/>
+      <line num="132" count="2" type="stmt"/>
+      <line num="139" count="2" type="stmt"/>
+      <line num="144" count="2" type="stmt"/>
+    </file>
   </project>
 </coverage>

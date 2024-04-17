@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { StatusBar, View } from "react-native";
-// icons
+import { StatusBar, View, TouchableOpacity } from "react-native";
+import DateTimePicker from "@react-native-community/datetimepicker";
 import { Octicons, Feather, Fontisto } from "@expo/vector-icons";
-// formik
 import { Formik } from "formik";
 import {
   StyledContainer,
@@ -31,6 +30,20 @@ const { white, orange, grey, yellow, lightGrey, black } = Colors;
 
 const SignupScreen = () => {
   const [hidePassword, setHidePassword] = useState(true);
+  const [show, setShow] = useState(false);
+  const [date, setDate] = useState(new Date(2000, 0, 1));
+  const [userBirthDay, setUserBirthDay] = useState();
+
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setShow(false);
+    setDate(currentDate);
+    setUserBirthDay(currentDate);
+  };
+
+  const showDatePicker = () => {
+    setShow(true);
+  };
 
   return (
     <StyledContainer testID="styled-container">
@@ -38,6 +51,18 @@ const SignupScreen = () => {
       <InnerContainer testID="inner-container">
         <PageTitle testID="page-title">ZenTimer</PageTitle>
         <SubTitle testID="sub-title">Account Signup</SubTitle>
+
+        {show && (
+          <DateTimePicker
+            testID="date-time-picker"
+            value={date}
+            mode="date"
+            is24Hour={true}
+            display="default"
+            onChange={onChange}
+          />
+        )}
+
         <Formik
           initialValues={{
             fullName: "",
@@ -82,8 +107,11 @@ const SignupScreen = () => {
                 placeholderTextColor={lightGrey}
                 onChangeText={handleChange("dateOfBirth")}
                 onblur={handleBlur("dateOfBirth")}
-                value={values.dateOfBirth}
+                value={userBirthDay ? userBirthDay.toDateString() : ""}
                 testID="date-of-birth"
+                isDate={true}
+                editable={false}
+                showDatePicker={showDatePicker}
               />
 
               <MyTextInput
@@ -145,6 +173,8 @@ const MyTextInput = (props) => {
     isPassword,
     hidePassword,
     setHidePassword,
+    isDate,
+    showDatePicker,
     ...textInputProps
   } = props;
 
@@ -154,7 +184,12 @@ const MyTextInput = (props) => {
         <Octicons name={icon} size={30} color={black} />
       </LeftIcon>
       <StyledInputLabel>{label}</StyledInputLabel>
-      <StyledTextInput {...textInputProps} />
+      {!isDate && <StyledTextInput {...textInputProps} />}
+      {isDate && (
+        <TouchableOpacity onPress={showDatePicker}>
+          <StyledTextInput {...textInputProps} />
+        </TouchableOpacity>
+      )}
       {isPassword && (
         <RightIcon onPress={() => setHidePassword(!hidePassword)}>
           <Feather

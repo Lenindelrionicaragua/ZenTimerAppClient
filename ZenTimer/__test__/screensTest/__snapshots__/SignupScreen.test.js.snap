@@ -253,32 +253,68 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
         >
           Date of Birth
         </Text>
-        <TextInput
-          onChangeText={[Function]}
-          onblur={[Function]}
-          placeholder="YYYY - MM - DD"
-          placeholderTextColor="#f9f7f3"
-          style={
+        <View
+          accessibilityState={
             {
-              "backgroundColor": "#ffc500",
-              "borderBottomLeftRadius": 5,
-              "borderBottomRightRadius": 5,
-              "borderTopLeftRadius": 5,
-              "borderTopRightRadius": 5,
-              "color": "#1a1204",
-              "fontSize": 16,
-              "height": 60,
-              "marginBottom": 10,
-              "marginVertical": 3,
-              "paddingBottom": 15,
-              "paddingLeft": 55,
-              "paddingRight": 55,
-              "paddingTop": 15,
+              "busy": undefined,
+              "checked": undefined,
+              "disabled": undefined,
+              "expanded": undefined,
+              "selected": undefined,
             }
           }
-          testID="date-of-birth"
-          value=""
-        />
+          accessibilityValue={
+            {
+              "max": undefined,
+              "min": undefined,
+              "now": undefined,
+              "text": undefined,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            {
+              "opacity": 1,
+            }
+          }
+        >
+          <TextInput
+            editable={false}
+            onChangeText={[Function]}
+            onblur={[Function]}
+            placeholder="YYYY - MM - DD"
+            placeholderTextColor="#f9f7f3"
+            style={
+              {
+                "backgroundColor": "#ffc500",
+                "borderBottomLeftRadius": 5,
+                "borderBottomRightRadius": 5,
+                "borderTopLeftRadius": 5,
+                "borderTopRightRadius": 5,
+                "color": "#1a1204",
+                "fontSize": 16,
+                "height": 60,
+                "marginBottom": 10,
+                "marginVertical": 3,
+                "paddingBottom": 15,
+                "paddingLeft": 55,
+                "paddingRight": 55,
+                "paddingTop": 15,
+              }
+            }
+            testID="date-of-birth"
+            value=""
+          />
+        </View>
       </View>
       <View>
         <View

@@ -1,5 +1,7 @@
 import React from "react";
+
 import { render, fireEvent, act } from "@testing-library/react-native";
+import DateTimePicker from "@react-native-community/datetimepicker";
 import renderer from "react-test-renderer";
 import { Fontisto } from "@expo/vector-icons";
 
@@ -16,6 +18,7 @@ import {
   PageTitle,
   SubTitle,
 } from "../../screens/SignupScreen/SignupScreenStyles";
+import { View, TouchableOpacity } from "react-native";
 
 // Rendering Functions
 const renderSignupScreen = () => render(<SignupScreen />);
@@ -65,6 +68,19 @@ describe("SignupScreen", () => {
     expect(textContent).toMatch("Account Signup");
   });
 });
+
+// DateTimePicker
+// describe("DateTimePicker", () => {
+//   test("Render DateTimePicker inside InnerContainer", () => {
+//     const { getByTestId } = signupScreenRender;
+//     const innerContainerComponent = getByTestId("inner-container");
+
+//     expect(innerContainerComponent).toBeTruthy();
+
+//     const dateTimePickerComponent = getByTestId("date-time-picker");
+//     expect(dateTimePickerComponent).toBeTruthy();
+//   });
+// });
 
 // Formik Integration Tests
 describe("Formik Integration Tests", () => {
@@ -149,7 +165,7 @@ describe("Formik Integration Tests", () => {
           fireEvent.changeText(emailInput, "serenity@gmail.com");
           fireEvent(emailInput, "blur");
 
-          fireEvent.changeText(dateOfBirth, "YYYY-MM-DD");
+          fireEvent.changeText(dateOfBirth, "");
           fireEvent(dateOfBirth, "blur");
 
           fireEvent.changeText(passwordInput, "password123");
@@ -161,7 +177,7 @@ describe("Formik Integration Tests", () => {
 
         expect(fullName.props.value).toBe("Mark Twain");
         expect(emailInput.props.value).toBe("serenity@gmail.com");
-        expect(dateOfBirth.props.value).toBe("YYYY-MM-DD");
+        expect(dateOfBirth.props.value).toBe("");
         expect(passwordInput.props.value).toBe("password123");
         expect(confirmPasswordInput.props.value).toBe("password123");
       });
