@@ -16,9 +16,9 @@ const { white, orange, grey, yellow, lightGrey, black } = Colors;
 
 // styles
 
-export const AppContainer = styled.View`
+export const AppContainer = styled(View)`
   flex: 1;
-  background-color: #25292e;
+  background-color: ${yellow};
   align-items: center;
   justify-content: center;
 `;

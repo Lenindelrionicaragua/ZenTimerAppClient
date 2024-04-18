@@ -1,26 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App renders AppContainer correctly 1`] = `
+exports[`WelcomeScreen Renders correctly the WelcomeScreen Component 1`] = `
 <View
   style={
     {
-      "alignItems": "center",
       "backgroundColor": "#ffc500",
       "flexBasis": 0,
       "flexGrow": 1,
       "flexShrink": 1,
-      "justifyContent": "center",
+      "paddingBottom": 21,
+      "paddingLeft": 21,
+      "paddingRight": 21,
+      "paddingTop": 64,
     }
   }
-  testID="app-container"
+  testID="styled-container"
 >
   <View
     style={
       {
         "alignItems": "center",
+        "backgroundColor": "#ffe1a8",
         "flexBasis": 0,
         "flexGrow": 1,
         "flexShrink": 1,
+        "paddingBottom": 20,
+        "paddingLeft": 20,
+        "paddingRight": 20,
+        "paddingTop": 20,
         "width": "100%",
       }
     }
@@ -32,7 +39,7 @@ exports[`App renders AppContainer correctly 1`] = `
       style={
         {
           "height": "50%",
-          "minWidth": "100%",
+          "width": "100%",
         }
       }
       testID="welcome-image"
@@ -41,6 +48,7 @@ exports[`App renders AppContainer correctly 1`] = `
       style={
         {
           "alignItems": "center",
+          "backgroundColor": "#ffe1a8",
           "flexBasis": 0,
           "flexGrow": 1,
           "flexShrink": 1,
@@ -79,8 +87,7 @@ exports[`App renders AppContainer correctly 1`] = `
             "fontSize": 10,
             "fontWeight": "normal",
             "letterSpacing": 1,
-            "marginBottom": 20,
-            "marginBotton": 5,
+            "marginBottom": 5,
           }
         }
         testID="user-name"
@@ -95,8 +102,7 @@ exports[`App renders AppContainer correctly 1`] = `
             "fontSize": 10,
             "fontWeight": "normal",
             "letterSpacing": 1,
-            "marginBottom": 20,
-            "marginBotton": 5,
+            "marginBottom": 5,
           }
         }
         testID="user-email"
@@ -123,8 +129,7 @@ exports[`App renders AppContainer correctly 1`] = `
               "borderTopRightRadius": 50,
               "borderWidth": 2,
               "height": 100,
-              "marginBottom": "auto",
-              "marginBotton": 10,
+              "marginBottom": 10,
               "marginLeft": "auto",
               "marginRight": "auto",
               "marginTop": 10,

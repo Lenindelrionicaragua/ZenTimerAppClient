@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { View, Image, Text, TextInput, TouchableOpacity } from "react-native";
+import { View, Image, Text, TouchableOpacity } from "react-native";
 import Constants from "expo-constants";
 import { Colors } from "../../styles/AppStyles";
 
@@ -11,8 +11,7 @@ export const StyledContainer = styled(View)`
   flex: 1;
   padding: 15px;
   padding-top: ${StatusBarHeight + 10}px;
-  background-color: ${lightGrey};
-  width: 100%;
+  background-color: ${orange};
 `;
 
 export const InnerContainer = styled(View)`
@@ -21,12 +20,26 @@ export const InnerContainer = styled(View)`
   align-items: center;
   justify-content: center;
 `;
+export const WelcomeContainer = styled(InnerContainer)`
+  padding: 25px;
+  padding-top: 10px;
+  justify-content: center;
+`;
 
-export const PageLogo = styled(Image)`
-  width: 200px;
-  height: 200px;
-  border-radius: 100px;
-  overflow: hidden;
+export const Avatar = styled(Image)`
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  border-radius: 50px;
+  border-width: 2px;
+  border-color: ${orange};
+  margin-bottom: 10px;
+  margin-top: 10px;
+`;
+
+export const WelcomeImage = styled(Image)`
+  height: 50%;
+  width: 100%;
 `;
 
 export const PageTitle = styled(Text)`
@@ -35,6 +48,12 @@ export const PageTitle = styled(Text)`
   font-weight: bold;
   color: ${black};
   padding: 10px;
+
+  ${(props) =>
+    props.welcome &&
+    `
+    font-size: 35px;
+  `}
 `;
 
 export const SubTitle = styled(Text)`
@@ -43,43 +62,17 @@ export const SubTitle = styled(Text)`
   letter-spacing: 1px;
   font-weight: bold;
   color: ${grey};
+
+  ${(props) =>
+    props.welcome &&
+    `
+    margin-bottom: 5px;
+    font-weight: normal;
+  `}
 `;
 
 export const StyledFormArea = styled(View)`
   width: 90%;
-`;
-
-export const StyledTextInput = styled(TextInput)`
-  background-color: ${orange};
-  padding: 15px;
-  padding-left: 55px;
-  padding-right: 55px;
-  border-radius: 5px;
-  font-size: 16px;
-  height: 60px;
-  margin-vertical: 3px;
-  margin-bottom: 10px;
-  color: ${grey};
-`;
-
-export const StyledInputLabel = styled(Text)`
-  color: ${grey};
-  font-size: 13px;
-  text-align: left;
-`;
-
-export const LeftIcon = styled(View)`
-  left: 15px;
-  top: 38px;
-  position: absolute;
-  z-index: 1;
-`;
-
-export const RightIcon = styled(TouchableOpacity)`
-  right: 15px;
-  top: 38px;
-  position: absolute;
-  z-index: 1;
 `;
 
 export const StyledButton = styled(TouchableOpacity)`
@@ -112,38 +105,9 @@ export const ButtonText = styled(Text)`
   `}
 `;
 
-export const MsgBox = styled(Text)`
-  text-align: center;
-  font-size: 13px;
-`;
-
 export const Line = styled(View)`
   height: 1px;
   width: 100%;
   background-color: ${orange};
   margin-vertical: 10px;
-`;
-
-export const ExtraView = styled(View)`
-  justify-content: center;
-  flex-direction: row;
-  align-items: center;
-  padding: 10px;
-`;
-
-export const ExtraText = styled(Text)`
-  justify-content: center;
-  align-content: center;
-  color: ${grey};
-  font-size: 15px;
-`;
-
-export const TextLink = styled(TouchableOpacity)`
-  justify-content: center;
-  align-items: center;
-`;
-
-export const TextLinkContent = styled(Text)`
-  color: ${yellow};
-  font-size: 15px;
 `;

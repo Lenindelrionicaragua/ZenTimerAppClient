@@ -151,10 +151,6 @@ describe("Formik Integration Tests", () => {
         renderForm();
       });
 
-      beforeEach(() => {
-        renderForm();
-      });
-
       test("Correctly updates form state on onChangeText and onBlur", () => {
         act(() => {
           fireEvent.changeText(fullName, "Zen User");
