@@ -34,7 +34,7 @@ const LoginScreen = () => {
 
   return (
     <StyledContainer testID="styled-container">
-      <StatusBar style="dark" />
+      <StatusBar style="light" />
       <InnerContainer testID="inner-container">
         <PageLogo
           resizeMode="cover"

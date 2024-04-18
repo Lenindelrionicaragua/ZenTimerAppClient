@@ -12,12 +12,14 @@ export const StyledContainer = styled(View)`
   padding: 25px;
   padding-top: ${StatusBarHeight + 10}px;
   background-color: ${lightGrey};
+  width: 100%;
 `;
 
 export const InnerContainer = styled(View)`
   flex: 1;
   width: 100%;
   align-items: center;
+  justify-content: center;
 `;
 
 export const PageLogo = styled(Image)`

@@ -4,7 +4,8 @@ import renderer from "react-test-renderer";
 import App from "../App";
 import LoginScreen from "../screens/LoginScreen/LoginScreen";
 import SignupScreen from "../screens/SignupScreen/SignupScreen";
-import { AppContainer } from "../styles/AppStyles";
+import WelcomeScreen from "../screens/WelcomeScreen/WelcomeScreen";
+import { AppContainer } from "../styles/appStyles";
 
 // Rendering functions
 const renderApp = () => render(<App />);
@@ -25,17 +26,23 @@ describe("App", () => {
     expect(appSnapshot).toMatchSnapshot();
   });
 
-  it("render a View element with the test ID 'app-container'", () => {
+  test("render a View element with the test ID 'app-container'", () => {
     const { getByTestId } = appRender;
     const appContainerElement = getByTestId("app-container");
     expect(appContainerElement).toBeTruthy();
   });
 
-  it("render the SignupScreen component", () => {
+  test("render the WelcomeScreen", () => {
     const appInstance = appRenderWithRenderer.root;
-    const signupScreen = appInstance.findByType(SignupScreen);
-    expect(signupScreen).toBeTruthy();
+    const welcomeScreen = appInstance.findByType(WelcomeScreen);
+    expect(welcomeScreen).toBeTruthy();
   });
+
+  // test("render the SignupScreen component", () => {
+  //   const appInstance = appRenderWithRenderer.root;
+  //   const signupScreen = appInstance.findByType(SignupScreen);
+  //   expect(signupScreen).toBeTruthy();
+  // });
 
   // test("render the LoginScreen component", () => {
   //   const appInstance = appRenderWithRenderer.root;
