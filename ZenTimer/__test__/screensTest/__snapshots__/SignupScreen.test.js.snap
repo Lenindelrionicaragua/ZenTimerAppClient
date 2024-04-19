@@ -59,7 +59,7 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
       }
       testID="sub-title"
     >
-      Account Signup
+      Account Sign Up
     </Text>
     <View
       style={
@@ -68,7 +68,9 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
         }
       }
     >
-      <View>
+      <View
+        testID="text-input-signup-screen"
+      >
         <View
           style={
             {
@@ -78,6 +80,7 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
               "zIndex": 1,
             }
           }
+          testID="left-icon"
         >
           <Text
             allowFontScaling={false}
@@ -139,7 +142,9 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
           value=""
         />
       </View>
-      <View>
+      <View
+        testID="text-input-signup-screen"
+      >
         <View
           style={
             {
@@ -149,6 +154,7 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
               "zIndex": 1,
             }
           }
+          testID="left-icon"
         >
           <Text
             allowFontScaling={false}
@@ -211,7 +217,9 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
           value=""
         />
       </View>
-      <View>
+      <View
+        testID="text-input-signup-screen"
+      >
         <View
           style={
             {
@@ -221,6 +229,7 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
               "zIndex": 1,
             }
           }
+          testID="left-icon"
         >
           <Text
             allowFontScaling={false}
@@ -318,7 +327,9 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
           />
         </View>
       </View>
-      <View>
+      <View
+        testID="text-input-signup-screen"
+      >
         <View
           style={
             {
@@ -328,6 +339,7 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
               "zIndex": 1,
             }
           }
+          testID="left-icon"
         >
           <Text
             allowFontScaling={false}
@@ -426,6 +438,7 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
               "zIndex": 1,
             }
           }
+          testID="right-icon"
         >
           <Text
             allowFontScaling={false}
@@ -450,7 +463,9 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
           </Text>
         </View>
       </View>
-      <View>
+      <View
+        testID="text-input-signup-screen"
+      >
         <View
           style={
             {
@@ -460,6 +475,7 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
               "zIndex": 1,
             }
           }
+          testID="left-icon"
         >
           <Text
             allowFontScaling={false}
@@ -558,6 +574,7 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
               "zIndex": 1,
             }
           }
+          testID="right-icon"
         >
           <Text
             allowFontScaling={false}
@@ -650,7 +667,7 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
           }
           testID="login-button-text"
         >
-          Login
+          Sign Up
         </Text>
       </View>
       <View
@@ -676,7 +693,7 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
             "paddingTop": 10,
           }
         }
-        testID="extra-view"
+        testID="footer-view"
       >
         <Text
           style={
@@ -687,7 +704,7 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
               "justifyContent": "center",
             }
           }
-          testID="extra-text"
+          testID="footer-text"
         >
           Already have an account?
         </Text>
@@ -726,7 +743,7 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
               "opacity": 1,
             }
           }
-          testID="text-link"
+          testID="footer-link"
         >
           <Text
             style={
@@ -735,7 +752,7 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
                 "fontSize": 15,
               }
             }
-            testID="text-link-content"
+            testID="footer-link-content"
           >
             Login
           </Text>
