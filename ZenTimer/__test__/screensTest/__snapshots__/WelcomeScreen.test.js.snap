@@ -1,17 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Logout ButtonText Renders ButtonText with the correct text: Logout 1`] = `"[object Object]"`;
+
 exports[`WelcomeScreen Renders correctly the WelcomeScreen Component 1`] = `
 <View
   style={
     {
-      "backgroundColor": "#ffc500",
+      "backgroundColor": "#f9f7f3",
       "flexBasis": 0,
       "flexGrow": 1,
       "flexShrink": 1,
-      "paddingBottom": 21,
-      "paddingLeft": 21,
-      "paddingRight": 21,
-      "paddingTop": 64,
+      "width": "100%",
     }
   }
   testID="styled-container"
@@ -20,14 +19,10 @@ exports[`WelcomeScreen Renders correctly the WelcomeScreen Component 1`] = `
     style={
       {
         "alignItems": "center",
-        "backgroundColor": "#ffe1a8",
         "flexBasis": 0,
         "flexGrow": 1,
         "flexShrink": 1,
-        "paddingBottom": 20,
-        "paddingLeft": 20,
-        "paddingRight": 20,
-        "paddingTop": 20,
+        "justifyContent": "center",
         "width": "100%",
       }
     }
@@ -48,7 +43,6 @@ exports[`WelcomeScreen Renders correctly the WelcomeScreen Component 1`] = `
       style={
         {
           "alignItems": "center",
-          "backgroundColor": "#ffe1a8",
           "flexBasis": 0,
           "flexGrow": 1,
           "flexShrink": 1,
@@ -78,13 +72,13 @@ exports[`WelcomeScreen Renders correctly the WelcomeScreen Component 1`] = `
         testID="welcome-title"
         welcome={true}
       >
-        Welcome! Prix
+        Welcome!
       </Text>
       <Text
         style={
           {
             "color": "#1a1204",
-            "fontSize": 10,
+            "fontSize": 15,
             "fontWeight": "normal",
             "letterSpacing": 1,
             "marginBottom": 5,
@@ -99,7 +93,7 @@ exports[`WelcomeScreen Renders correctly the WelcomeScreen Component 1`] = `
         style={
           {
             "color": "#1a1204",
-            "fontSize": 10,
+            "fontSize": 15,
             "fontWeight": "normal",
             "letterSpacing": 1,
             "marginBottom": 5,
@@ -124,7 +118,7 @@ exports[`WelcomeScreen Renders correctly the WelcomeScreen Component 1`] = `
             {
               "borderBottomLeftRadius": 50,
               "borderBottomRightRadius": 50,
-              "borderColor": "#ffc500",
+              "borderColor": "#ffc554",
               "borderTopLeftRadius": 50,
               "borderTopRightRadius": 50,
               "borderWidth": 2,
@@ -136,7 +130,7 @@ exports[`WelcomeScreen Renders correctly the WelcomeScreen Component 1`] = `
               "width": 100,
             }
           }
-          testID="avatar"
+          testID="avatar-image"
         />
         <View
           style={
@@ -195,7 +189,7 @@ exports[`WelcomeScreen Renders correctly the WelcomeScreen Component 1`] = `
               "paddingTop": 15,
             }
           }
-          testID="login-styled-button"
+          testID="logout-styled-button"
         >
           <Text
             style={
@@ -204,7 +198,7 @@ exports[`WelcomeScreen Renders correctly the WelcomeScreen Component 1`] = `
                 "fontSize": 16,
               }
             }
-            testID="login-button-text"
+            testID="logout-button-text"
           >
             Logout
           </Text>

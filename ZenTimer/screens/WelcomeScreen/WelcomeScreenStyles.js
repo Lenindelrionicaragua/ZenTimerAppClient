@@ -1,17 +1,13 @@
 import styled from "styled-components/native";
 import { View, Image, Text, TouchableOpacity } from "react-native";
-import Constants from "expo-constants";
 import { Colors } from "../../styles/AppStyles";
-
-const StatusBarHeight = Constants.statusBarHeight;
 
 const { white, orange, grey, yellow, lightGrey, black } = Colors;
 
 export const StyledContainer = styled(View)`
   flex: 1;
-  padding: 15px;
-  padding-top: ${StatusBarHeight + 10}px;
-  background-color: ${orange};
+  background-color: ${lightGrey};
+  width: 100%;
 `;
 
 export const InnerContainer = styled(View)`
@@ -20,6 +16,7 @@ export const InnerContainer = styled(View)`
   align-items: center;
   justify-content: center;
 `;
+
 export const WelcomeContainer = styled(InnerContainer)`
   padding: 25px;
   padding-top: 10px;
@@ -32,7 +29,7 @@ export const Avatar = styled(Image)`
   margin: auto;
   border-radius: 50px;
   border-width: 2px;
-  border-color: ${orange};
+  border-color: ${yellow};
   margin-bottom: 10px;
   margin-top: 10px;
 `;
@@ -57,7 +54,7 @@ export const PageTitle = styled(Text)`
 `;
 
 export const SubTitle = styled(Text)`
-  font-size: 10px;
+  font-size: 15px;
   margin-bottom: 20px;
   letter-spacing: 1px;
   font-weight: bold;

@@ -1,17 +1,10 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { render, fireEvent, act, waitFor } from "@testing-library/react-native";
+import { render } from "@testing-library/react-native";
 
 import WelcomeScreen from "../../screens/WelcomeScreen/WelcomeScreen";
 
 import { StatusBar } from "react-native";
-import {
-  InnerContainer,
-  PageLogo,
-  PageTitle,
-  SubTitle,
-  WelcomeContainer,
-} from "../../screens/WelcomeScreen/WelcomeScreenStyles";
 
 // Rendering Functions
 const renderWelcomeScreen = () => render(<WelcomeScreen />);
@@ -41,17 +34,18 @@ describe("WelcomeScreen", () => {
 
   test("Render UI components correctly", () => {
     const { getByTestId } = welcomeScreenRender;
-    expect(getByTestId("welcome-container")).toBeTruthy();
     expect(getByTestId("inner-container")).toBeTruthy();
+    expect(getByTestId("welcome-container")).toBeTruthy();
     expect(getByTestId("welcome-title")).toBeTruthy();
     expect(getByTestId("user-name")).toBeTruthy();
+    expect(getByTestId("user-email")).toBeTruthy();
   });
 
   test("PageTitle should render a string of letters, numbers, or spaces", () => {
     const { getByTestId } = welcomeScreenRender;
     const pageTitleComponent = getByTestId("welcome-title");
     const textContent = pageTitleComponent.props.children.toString();
-    expect(textContent).toMatch("Welcome! Prix");
+    expect(textContent).toMatch("Welcome!");
   });
 
   test("SubTitle should render a string of letters, numbers or spaces", () => {
@@ -60,27 +54,40 @@ describe("WelcomeScreen", () => {
     const textContent = subTitleComponent.props.children.toString();
     expect(textContent).toMatch("Zen User");
   });
+
+  test("SubTitle should render a string of letters, numbers or spaces", () => {
+    const { getByTestId } = welcomeScreenRender;
+    const subTitleComponent = getByTestId("user-email");
+    const textContent = subTitleComponent.props.children.toString();
+    expect(textContent).toMatch("serenity@gmail.com");
+  });
 });
 
-// WelcomeContainer Integration Tests
-describe("WelcomeContainer Integration Tests", () => {
-  let welcomeComponent;
-
-  beforeEach(() => {
-    const WelcomeScreenInstance = welcomeScreenRenderWithRenderer.root;
-    welcomeComponent = WelcomeScreenInstance.findByType(WelcomeContainer);
+// WelcomeImage
+describe("WelcomeImage", () => {
+  test("Render the WelcomePage component correctly and has a valid image source", () => {
+    const { getByTestId } = welcomeScreenRender;
+    const welcomeImageComponent = getByTestId("welcome-image");
+    expect(welcomeImageComponent).toBeTruthy();
   });
+});
 
-  test("Render a WelcomeContainer component", () => {
-    expect(welcomeComponent).toBeTruthy();
+// Avatar
+describe("AvatarImage", () => {
+  test("Render the AvatarImage component correctly and has a valid image source", () => {
+    const { getByTestId } = welcomeScreenRender;
+    const avatarImageComponent = getByTestId("avatar-image");
+    expect(avatarImageComponent).toBeTruthy();
   });
+});
 
-  // Login StyledButton
-  describe("StyledButton", () => {
-    test("Render StyledButton", () => {
-      const { getByTestId } = welcomeScreenRender;
-      const styledButtonElement = getByTestId("login-styled-button");
-      expect(styledButtonElement).toBeTruthy();
-    });
+// Logout ButtonText
+describe("Logout ButtonText", () => {
+  test("Renders ButtonText with the correct text", () => {
+    const { getByTestId } = welcomeScreenRender;
+    const styledButtonElement = getByTestId("logout-button-text");
+    const textContent = styledButtonElement.toString();
+    expect(styledButtonElement).toBeTruthy();
+    expect(textContent).toMatchSnapshot("Logout");
   });
 });
