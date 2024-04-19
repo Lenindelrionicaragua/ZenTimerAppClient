@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react-native";
-import TextInputSignupScreen from "../../component/TextInputSignupScreen";
+import TextInputSignupScreen from "../../component/TextInputSignupScreen/TextInputSignupScreen";
 
 describe("TextInputSignupScreen", () => {
   test("renders correctly", () => {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1713549076828" clover="3.2.0">
-  <project timestamp="1713549076828" name="All files">
-    <metrics statements="45" coveredstatements="41" conditionals="18" coveredconditionals="14" methods="10" coveredmethods="7" elements="73" coveredelements="62" complexity="0" loc="45" ncloc="45" packages="3" files="4" classes="4"/>
+<coverage generated="1713556736030" clover="3.2.0">
+  <project timestamp="1713556736030" name="All files">
+    <metrics statements="159" coveredstatements="2" conditionals="40" coveredconditionals="0" methods="31" coveredmethods="1" elements="230" coveredelements="3" complexity="0" loc="159" ncloc="159" packages="55" files="59" classes="59"/>
     <package name="ZenTimer">
       <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="App.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/App.js">
@@ -10,62 +10,497 @@
         <line num="19" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="ZenTimer.component">
-      <metrics statements="5" coveredstatements="4" conditionals="8" coveredconditionals="7" methods="2" coveredmethods="1"/>
-      <file name="TextInputSignupScreen.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/component/TextInputSignupScreen.js">
-        <metrics statements="5" coveredstatements="4" conditionals="8" coveredconditionals="7" methods="2" coveredmethods="1"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="24" count="298" type="stmt"/>
-        <line num="26" count="298" type="stmt"/>
+    <package name="ZenTimer..expo.metro">
+      <metrics statements="2" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="polyfill.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/polyfill.js">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="0" type="cond" truecount="0" falsecount="2"/>
+      </file>
+      <file name="polyfill.native.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/polyfill.native.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.assert">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/assert/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.async_hooks">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/async_hooks/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.buffer">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/buffer/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.child_process">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/child_process/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.cluster">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/cluster/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.console">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/console/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.constants">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/constants/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.crypto">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/crypto/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.dgram">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/dgram/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.diagnostics_channel">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/diagnostics_channel/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.dns">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/dns/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.domain">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/domain/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.events">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/events/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.fs">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/fs/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.fs.promises">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/fs/promises/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.http">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/http/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.http2">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/http2/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.https">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/https/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.inspector">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/inspector/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.module">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/module/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.net">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/net/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.os">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/os/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.path">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/path/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.perf_hooks">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/perf_hooks/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.process">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/process/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.punycode">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/punycode/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.querystring">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/querystring/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.readline">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/readline/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.repl">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/repl/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.stream">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/stream/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.string_decoder">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/string_decoder/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.timers">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/timers/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.tls">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/tls/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.trace_events">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/trace_events/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.tty">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/tty/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.url">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/url/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.util">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/util/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.v8">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/v8/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.vm">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/vm/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.wasi">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/wasi/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.worker_threads">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/worker_threads/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.externals.zlib">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/externals/zlib/index.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.shims.react-native-web.dist.cjs.exports.AppRegistry">
+      <metrics statements="5" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="AppContainer.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/shims/react-native-web/dist/cjs/exports/AppRegistry/AppContainer.js">
+        <metrics statements="5" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="8" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.shims.react-native-web.dist.cjs.exports.BackHandler">
+      <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/shims/react-native-web/dist/cjs/exports/BackHandler/index.js">
+        <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.shims.react-native-web.dist.exports.AppRegistry">
+      <metrics statements="3" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="AppContainer.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/shims/react-native-web/dist/exports/AppRegistry/AppContainer.js">
+        <metrics statements="3" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="8" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="9" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer..expo.metro.shims.react-native-web.dist.exports.BackHandler">
+      <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="index.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/.expo/metro/shims/react-native-web/dist/exports/BackHandler/index.js">
+        <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer.component.KeyboardAvoider">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="KeyboardAvoider.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/component/KeyboardAvoider/KeyboardAvoider.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer.component.TextInputLoginScreen">
+      <metrics statements="4" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="TextInputLoginScreen.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/component/TextInputLoginScreen/TextInputLoginScreen.js">
+        <metrics statements="4" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer.component.TextInputSignupScreen">
+      <metrics statements="5" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="TextInputSignupScreen.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/component/TextInputSignupScreen/TextInputSignupScreen.js">
+        <metrics statements="5" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
       </file>
     </package>
+    <package name="ZenTimer.screens.LoginScreen">
+      <metrics statements="28" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="5" coveredmethods="0"/>
+      <file name="LoginScreen.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/screens/LoginScreen/LoginScreen.js">
+        <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+      </file>
+      <file name="LoginScreenStyles.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/screens/LoginScreen/LoginScreenStyles.js">
+        <metrics statements="22" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="85" count="0" type="stmt"/>
+        <line num="95" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="103" count="0" type="stmt"/>
+        <line num="108" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="115" count="0" type="stmt"/>
+        <line num="120" count="0" type="stmt"/>
+        <line num="127" count="0" type="stmt"/>
+        <line num="134" count="0" type="stmt"/>
+        <line num="141" count="0" type="stmt"/>
+        <line num="146" count="0" type="stmt"/>
+      </file>
+    </package>
     <package name="ZenTimer.screens.SignupScreen">
-      <metrics statements="38" coveredstatements="37" conditionals="10" coveredconditionals="7" methods="7" coveredmethods="6"/>
+      <metrics statements="38" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="7" coveredmethods="0"/>
       <file name="SignupScreen.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/screens/SignupScreen/SignupScreen.js">
-        <metrics statements="16" coveredstatements="15" conditionals="6" coveredconditionals="5" methods="5" coveredmethods="4"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
-        <line num="27" count="54" type="stmt"/>
-        <line num="28" count="53" type="stmt"/>
-        <line num="29" count="53" type="stmt"/>
-        <line num="30" count="53" type="stmt"/>
-        <line num="32" count="53" type="stmt"/>
-        <line num="33" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="34" count="1" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
-        <line num="39" count="53" type="stmt"/>
-        <line num="40" count="2" type="stmt"/>
-        <line num="43" count="53" type="stmt"/>
+        <metrics statements="16" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
         <line num="70" count="0" type="stmt"/>
-        <line num="74" count="59" type="stmt"/>
+        <line num="74" count="0" type="stmt"/>
       </file>
       <file name="SignupScreenStyles.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/screens/SignupScreen/SignupScreenStyles.js">
-        <metrics statements="22" coveredstatements="22" conditionals="4" coveredconditionals="2" methods="2" coveredmethods="2"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
-        <line num="32" count="1" type="stmt"/>
-        <line num="40" count="1" type="stmt"/>
-        <line num="48" count="1" type="stmt"/>
-        <line num="52" count="1" type="stmt"/>
-        <line num="65" count="1" type="stmt"/>
-        <line num="71" count="1" type="stmt"/>
-        <line num="78" count="1" type="stmt"/>
-        <line num="85" count="1" type="stmt"/>
-        <line num="95" count="59" type="cond" truecount="1" falsecount="1"/>
-        <line num="103" count="1" type="stmt"/>
-        <line num="108" count="59" type="cond" truecount="1" falsecount="1"/>
-        <line num="115" count="1" type="stmt"/>
-        <line num="120" count="1" type="stmt"/>
-        <line num="127" count="1" type="stmt"/>
-        <line num="134" count="1" type="stmt"/>
-        <line num="141" count="1" type="stmt"/>
-        <line num="146" count="1" type="stmt"/>
+        <metrics statements="22" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="85" count="0" type="stmt"/>
+        <line num="95" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="103" count="0" type="stmt"/>
+        <line num="108" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="115" count="0" type="stmt"/>
+        <line num="120" count="0" type="stmt"/>
+        <line num="127" count="0" type="stmt"/>
+        <line num="134" count="0" type="stmt"/>
+        <line num="141" count="0" type="stmt"/>
+        <line num="146" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer.screens.WelcomeScreen">
+      <metrics statements="18" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="5" coveredmethods="0"/>
+      <file name="WelcomeScreen.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/screens/WelcomeScreen/WelcomeScreen.js">
+        <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+      </file>
+      <file name="WelcomeScreenStyles.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/screens/WelcomeScreen/WelcomeScreenStyles.js">
+        <metrics statements="16" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="50" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="64" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="85" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="93" count="0" type="stmt"/>
+        <line num="98" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="105" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="ZenTimer.styles">
+      <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="AppStyles.js" path="/Users/leninortizreyes/Desktop/ZenTimer/ZenTimer/styles/AppStyles.js">
+        <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
       </file>
     </package>
   </project>

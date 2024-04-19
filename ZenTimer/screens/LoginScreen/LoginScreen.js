@@ -19,7 +19,7 @@ import {
   SignupLink,
   SignupLinkContent,
 } from "./LoginScreenStyles";
-import TextInputLoginScreen from "../../component/TextInputLoginScreen";
+import TextInputLoginScreen from "../../component/TextInputLoginScreen/TextInputLoginScreen";
 
 const { grey, lightGrey, black } = Colors;
 

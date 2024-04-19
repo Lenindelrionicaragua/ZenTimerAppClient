@@ -4,7 +4,7 @@ import { Octicons, Feather } from "@expo/vector-icons";
 import {
   StyledInputLabel,
   StyledTextInput,
-} from "../screens/LoginScreen/LoginScreenStyles";
+} from "../../screens/LoginScreen/LoginScreenStyles";
 
 const TextInputLoginScreen = (props) => {
   const {
