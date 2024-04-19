@@ -1,32 +1,27 @@
 import React, { useState } from "react";
-import { StatusBar, View, TouchableOpacity } from "react-native";
+import { StatusBar } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import { Octicons, Feather, Fontisto } from "@expo/vector-icons";
 import { Formik } from "formik";
 import {
   StyledContainer,
   InnerContainer,
-  PageLogo,
   PageTitle,
   SubTitle,
   StyledFormArea,
-  LeftIcon,
-  StyledInputLabel,
-  StyledTextInput,
-  RightIcon,
   StyledButton,
   ButtonText,
   MsgBox,
   Line,
-  ExtraView,
-  ExtraText,
-  TextLink,
-  TextLinkContent,
+  FooterView,
+  FooterText,
+  FooterLink,
+  FooterLinkContent,
 } from "./SignupScreenStyles";
 import { Colors } from "../../styles/AppStyles";
+import TextInputSignupScreen from "../../component/TextInputSignupScreen";
 
 // Colors
-const { white, orange, grey, yellow, lightGrey, black } = Colors;
+const { lightGrey } = Colors;
 
 const SignupScreen = () => {
   const [hidePassword, setHidePassword] = useState(true);
@@ -50,7 +45,7 @@ const SignupScreen = () => {
       <StatusBar style="dark" />
       <InnerContainer testID="inner-container">
         <PageTitle testID="page-title">ZenTimer</PageTitle>
-        <SubTitle testID="sub-title">Account Signup</SubTitle>
+        <SubTitle testID="sub-title">Account Sign Up</SubTitle>
 
         {show && (
           <DateTimePicker
@@ -77,7 +72,7 @@ const SignupScreen = () => {
         >
           {({ handleChange, handleBlur, handleSubmit, values }) => (
             <StyledFormArea>
-              <MyTextInput
+              <TextInputSignupScreen
                 label="Full Name"
                 icon="person"
                 placeholder="Zen User"
@@ -88,7 +83,7 @@ const SignupScreen = () => {
                 testID="full-name"
               />
 
-              <MyTextInput
+              <TextInputSignupScreen
                 label="Email Address"
                 icon="mail"
                 placeholder="serenity@gmail.com"
@@ -100,7 +95,7 @@ const SignupScreen = () => {
                 testID="email-input"
               />
 
-              <MyTextInput
+              <TextInputSignupScreen
                 label="Date of Birth"
                 icon="calendar"
                 placeholder="YYYY - MM - DD"
@@ -114,7 +109,7 @@ const SignupScreen = () => {
                 showDatePicker={showDatePicker}
               />
 
-              <MyTextInput
+              <TextInputSignupScreen
                 label="Password"
                 icon="lock"
                 placeholder="* * * * * * *"
@@ -129,7 +124,7 @@ const SignupScreen = () => {
                 setHidePassword={setHidePassword}
               />
 
-              <MyTextInput
+              <TextInputSignupScreen
                 label="Confirm Password"
                 icon="lock"
                 placeholder="* * * * * * *"
@@ -145,19 +140,19 @@ const SignupScreen = () => {
               />
               <MsgBox testID="msg-box">...</MsgBox>
               <StyledButton testID="login-styled-button" onPress={handleSubmit}>
-                <ButtonText testID="login-button-text">Login</ButtonText>
+                <ButtonText testID="login-button-text">Sign Up</ButtonText>
               </StyledButton>
               <Line testID="line" />
-              <ExtraView testID="extra-view">
-                <ExtraText testID="extra-text">
+              <FooterView testID="footer-view">
+                <FooterText testID="footer-text">
                   Already have an account?
-                </ExtraText>
-                <TextLink testID="text-link">
-                  <TextLinkContent testID="text-link-content">
+                </FooterText>
+                <FooterLink testID="footer-link">
+                  <FooterLinkContent testID="footer-link-content">
                     Login
-                  </TextLinkContent>
-                </TextLink>
-              </ExtraView>
+                  </FooterLinkContent>
+                </FooterLink>
+              </FooterView>
             </StyledFormArea>
           )}
         </Formik>
@@ -166,42 +161,4 @@ const SignupScreen = () => {
   );
 };
 
-const MyTextInput = (props) => {
-  const {
-    label,
-    icon,
-    isPassword,
-    hidePassword,
-    setHidePassword,
-    isDate,
-    showDatePicker,
-    ...textInputProps
-  } = props;
-
-  return (
-    <View>
-      <LeftIcon>
-        <Octicons name={icon} size={30} color={black} />
-      </LeftIcon>
-      <StyledInputLabel>{label}</StyledInputLabel>
-      {!isDate && <StyledTextInput {...textInputProps} />}
-      {isDate && (
-        <TouchableOpacity onPress={showDatePicker}>
-          <StyledTextInput {...textInputProps} />
-        </TouchableOpacity>
-      )}
-      {isPassword && (
-        <RightIcon onPress={() => setHidePassword(!hidePassword)}>
-          <Feather
-            name={hidePassword ? "eye" : "eye-off"}
-            size={25}
-            color={lightGrey}
-          />
-        </RightIcon>
-      )}
-    </View>
-  );
-};
-
 export default SignupScreen;
-export { MyTextInput };

@@ -124,26 +124,26 @@ export const Line = styled(View)`
   margin-vertical: 10px;
 `;
 
-export const ExtraView = styled(View)`
+export const FooterView = styled(View)`
   justify-content: center;
   flex-direction: row;
   align-items: center;
   padding: 10px;
 `;
 
-export const ExtraText = styled(Text)`
+export const FooterText = styled(Text)`
   justify-content: center;
   align-content: center;
   color: ${grey};
   font-size: 15px;
 `;
 
-export const TextLink = styled(TouchableOpacity)`
+export const SignupLink = styled(TouchableOpacity)`
   justify-content: center;
   align-items: center;
 `;
 
-export const TextLinkContent = styled(Text)`
+export const SignupLinkContent = styled(Text)`
   color: ${yellow};
   font-size: 15px;
 `;

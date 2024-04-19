@@ -1,24 +1,9 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import { render, fireEvent, act, waitFor } from "@testing-library/react-native";
-
-import DateTimePicker from "@react-native-community/datetimepicker";
-
-import { Fontisto } from "@expo/vector-icons";
-
-import SignupScreen, {
-  MyTextInput,
-} from "../../screens/SignupScreen/SignupScreen";
-
 import { Formik } from "formik";
 import { StatusBar } from "react-native";
-import {
-  StyledContainer,
-  InnerContainer,
-  PageLogo,
-  PageTitle,
-  SubTitle,
-} from "../../screens/SignupScreen/SignupScreenStyles";
+import SignupScreen from "../../screens/SignupScreen/SignupScreen";
 
 // Rendering Functions
 const renderSignupScreen = () => render(<SignupScreen />);
@@ -65,7 +50,7 @@ describe("SignupScreen", () => {
     const { getByTestId } = signupScreenRender;
     const subTitleComponent = getByTestId("sub-title");
     const textContent = subTitleComponent.props.children.toString();
-    expect(textContent).toMatch("Account Signup");
+    expect(textContent).toMatch("Account Sign Up");
   });
 });
 
@@ -96,8 +81,8 @@ describe("Formik Integration Tests", () => {
     expect(typeof formikComponent.props.children).toBe("function");
   });
 
-  //MyTextInput
-  describe("MyTextInput", () => {
+  //TextInputSignupScreen
+  describe("TextInputSingupScreen", () => {
     let fullName;
     let emailInput;
     let dateOfBirth;
@@ -248,40 +233,40 @@ describe("Formik Integration Tests", () => {
     });
   });
 
-  describe("ExtraView", () => {
+  describe("FooterView", () => {
     test("Render correctly", () => {
       const { getByTestId } = signupScreenRender;
-      const extraViewElement = getByTestId("extra-view");
-      expect(extraViewElement).toBeTruthy();
+      const FooterViewElement = getByTestId("footer-view");
+      expect(FooterViewElement).toBeTruthy();
     });
   });
 
-  describe("ExtraText", () => {
+  describe("FooterText", () => {
     test("Render correctly", () => {
       const { getByTestId } = signupScreenRender;
-      const extraTextElement = getByTestId("extra-text");
-      expect(extraTextElement).toBeTruthy();
+      const footerTextElement = getByTestId("footer-text");
+      expect(footerTextElement).toBeTruthy();
     });
 
     test("Render the correct text", () => {
       const { getByTestId } = signupScreenRender;
-      const extraTextElement = getByTestId("extra-text");
-      const textContent = extraTextElement.props.children;
+      const footerTextElement = getByTestId("footer-text");
+      const textContent = footerTextElement.props.children;
       expect(textContent).toBe("Already have an account?");
     });
   });
 
-  describe("TextLink", () => {
+  describe("FooterLink", () => {
     test("Render correctly", () => {
       const { getByTestId } = signupScreenRender;
-      const textLinkElement = getByTestId("text-link");
-      expect(typeof textLinkElement.props).toBe("object");
+      const footerLinkElement = getByTestId("footer-link");
+      expect(typeof footerLinkElement.props).toBe("object");
     });
 
     test("Render the correct text", () => {
       const { getByTestId } = signupScreenRender;
-      const textLinkContent = getByTestId("text-link-content");
-      const LinkContent = textLinkContent.props.children;
+      const footerLinkContent = getByTestId("footer-link-content");
+      const LinkContent = footerLinkContent.props.children;
       expect(LinkContent).toBe("Login");
     });
   });

@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { StatusBar, View } from "react-native";
-// icons
-import { Octicons, Feather, Fontisto } from "@expo/vector-icons";
-// formik
+import { StatusBar } from "react-native";
 import { Formik } from "formik";
+import { Fontisto } from "@expo/vector-icons";
+import { Colors } from "../../styles/AppStyles";
 import {
   StyledContainer,
   InnerContainer,
@@ -11,23 +10,18 @@ import {
   PageTitle,
   SubTitle,
   StyledFormArea,
-  LeftIcon,
-  StyledInputLabel,
-  StyledTextInput,
-  RightIcon,
   StyledButton,
   ButtonText,
   MsgBox,
   Line,
-  ExtraView,
-  ExtraText,
-  TextLink,
-  TextLinkContent,
+  FooterView,
+  FooterText,
+  SignupLink,
+  SignupLinkContent,
 } from "./LoginScreenStyles";
-import { Colors } from "../../styles/AppStyles";
+import TextInputLoginScreen from "../../component/TextInputLoginScreen";
 
-// Colors
-const { white, orange, grey, yellow, lightGrey, black } = Colors;
+const { grey, lightGrey, black } = Colors;
 
 const LoginScreen = () => {
   const [hidePassword, setHidePassword] = useState(true);
@@ -51,7 +45,7 @@ const LoginScreen = () => {
         >
           {({ handleChange, handleBlur, handleSubmit, values }) => (
             <StyledFormArea>
-              <MyTextInput
+              <TextInputLoginScreen
                 label="Email Address"
                 icon="mail"
                 placeholder="serenity@gmail.com"
@@ -62,7 +56,7 @@ const LoginScreen = () => {
                 keyboardType="email-address"
                 testID="email-input"
               />
-              <MyTextInput
+              <TextInputLoginScreen
                 label="Password"
                 icon="lock"
                 placeholder="* * * * * * *"
@@ -96,16 +90,16 @@ const LoginScreen = () => {
                   Sign in with Google
                 </ButtonText>
               </StyledButton>
-              <ExtraView testID="extra-view">
-                <ExtraText testID="extra-text">
+              <FooterView testID="footer-view">
+                <FooterText testID="footer-text">
                   Dont you have an account already?
-                </ExtraText>
-                <TextLink testID="text-link">
-                  <TextLinkContent testID="text-link-content">
+                </FooterText>
+                <SignupLink testID="signup-link">
+                  <SignupLinkContent testID="signup-link-content">
                     Signup
-                  </TextLinkContent>
-                </TextLink>
-              </ExtraView>
+                  </SignupLinkContent>
+                </SignupLink>
+              </FooterView>
             </StyledFormArea>
           )}
         </Formik>
@@ -114,35 +108,4 @@ const LoginScreen = () => {
   );
 };
 
-const MyTextInput = (props) => {
-  const {
-    label,
-    icon,
-    isPassword,
-    hidePassword,
-    setHidePassword,
-    ...textInputProps
-  } = props;
-
-  return (
-    <View>
-      <LeftIcon>
-        <Octicons name={icon} size={30} color={black} />
-      </LeftIcon>
-      <StyledInputLabel>{label}</StyledInputLabel>
-      <StyledTextInput {...textInputProps} />
-      {isPassword && (
-        <RightIcon onPress={() => setHidePassword(!hidePassword)}>
-          <Feather
-            name={hidePassword ? "eye" : "eye-off"}
-            size={25}
-            color={lightGrey}
-          />
-        </RightIcon>
-      )}
-    </View>
-  );
-};
-
 export default LoginScreen;
-export { MyTextInput };

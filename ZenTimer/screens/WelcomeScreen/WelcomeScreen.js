@@ -40,11 +40,11 @@ const WelcomeScreen = () => {
             <Avatar
               resizeMode="cover"
               source={require("./../../assets/logoZenTimer.png")}
-              testID="avatar"
+              testID="avatar-image"
             />
             <Line testID="line" />
-            <StyledButton testID="login-styled-button">
-              <ButtonText testID="login-button-text">Logout</ButtonText>
+            <StyledButton testID="logout-styled-button">
+              <ButtonText testID="logout-button-text">Logout</ButtonText>
             </StyledButton>
           </StyledFormArea>
         </WelcomeContainer>

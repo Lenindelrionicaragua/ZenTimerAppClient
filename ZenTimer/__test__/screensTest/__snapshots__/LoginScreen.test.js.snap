@@ -8,10 +8,11 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
       "flexBasis": 0,
       "flexGrow": 1,
       "flexShrink": 1,
-      "paddingBottom": 25,
-      "paddingLeft": 25,
-      "paddingRight": 25,
+      "paddingBottom": 15,
+      "paddingLeft": 15,
+      "paddingRight": 15,
       "paddingTop": 64,
+      "width": "100%",
     }
   }
   testID="styled-container"
@@ -23,6 +24,7 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
         "flexBasis": 0,
         "flexGrow": 1,
         "flexShrink": 1,
+        "justifyContent": "center",
         "width": "100%",
       }
     }
@@ -82,39 +84,31 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
         }
       }
     >
-      <View>
-        <View
+      <View
+        testID="textInputLoginScreen"
+      >
+        <Text
+          allowFontScaling={false}
+          selectable={false}
           style={
-            {
-              "left": 15,
-              "position": "absolute",
-              "top": 38,
-              "zIndex": 1,
-            }
+            [
+              {
+                "color": "black",
+                "fontSize": 30,
+              },
+              undefined,
+              {
+                "fontFamily": "octicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              {},
+            ]
           }
+          testID="octicons-icon"
         >
-          <Text
-            allowFontScaling={false}
-            selectable={false}
-            style={
-              [
-                {
-                  "color": "#000000",
-                  "fontSize": 30,
-                },
-                undefined,
-                {
-                  "fontFamily": "octicons",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                {},
-              ]
-            }
-          >
-            
-          </Text>
-        </View>
+          
+        </Text>
         <Text
           style={
             {
@@ -154,39 +148,31 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
           value=""
         />
       </View>
-      <View>
-        <View
+      <View
+        testID="textInputLoginScreen"
+      >
+        <Text
+          allowFontScaling={false}
+          selectable={false}
           style={
-            {
-              "left": 15,
-              "position": "absolute",
-              "top": 38,
-              "zIndex": 1,
-            }
+            [
+              {
+                "color": "black",
+                "fontSize": 30,
+              },
+              undefined,
+              {
+                "fontFamily": "octicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              {},
+            ]
           }
+          testID="octicons-icon"
         >
-          <Text
-            allowFontScaling={false}
-            selectable={false}
-            style={
-              [
-                {
-                  "color": "#000000",
-                  "fontSize": 30,
-                },
-                undefined,
-                {
-                  "fontFamily": "octicons",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                {},
-              ]
-            }
-          >
-            
-          </Text>
-        </View>
+          
+        </Text>
         <Text
           style={
             {
@@ -225,66 +211,29 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
           testID="password-input"
           value=""
         />
-        <View
-          accessibilityState={
-            {
-              "busy": undefined,
-              "checked": undefined,
-              "disabled": undefined,
-              "expanded": undefined,
-              "selected": undefined,
-            }
-          }
-          accessibilityValue={
-            {
-              "max": undefined,
-              "min": undefined,
-              "now": undefined,
-              "text": undefined,
-            }
-          }
-          accessible={true}
-          collapsable={false}
-          focusable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
+        <Text
+          allowFontScaling={false}
+          onPress={[Function]}
+          selectable={false}
           style={
-            {
-              "opacity": 1,
-              "position": "absolute",
-              "right": 15,
-              "top": 38,
-              "zIndex": 1,
-            }
+            [
+              {
+                "color": "lightgrey",
+                "fontSize": 25,
+              },
+              undefined,
+              {
+                "fontFamily": "feather",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              {},
+            ]
           }
+          testID="feather-icon"
         >
-          <Text
-            allowFontScaling={false}
-            selectable={false}
-            style={
-              [
-                {
-                  "color": "#f9f7f3",
-                  "fontSize": 25,
-                },
-                undefined,
-                {
-                  "fontFamily": "feather",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-                {},
-              ]
-            }
-          >
-            
-          </Text>
-        </View>
+          
+        </Text>
       </View>
       <Text
         style={
@@ -468,7 +417,7 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
             "paddingTop": 10,
           }
         }
-        testID="extra-view"
+        testID="footer-view"
       >
         <Text
           style={
@@ -479,7 +428,7 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
               "justifyContent": "center",
             }
           }
-          testID="extra-text"
+          testID="footer-text"
         >
           Dont you have an account already?
         </Text>
@@ -518,7 +467,7 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
               "opacity": 1,
             }
           }
-          testID="text-link"
+          testID="signup-link"
         >
           <Text
             style={
@@ -527,7 +476,7 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
                 "fontSize": 15,
               }
             }
-            testID="text-link-content"
+            testID="signup-link-content"
           >
             Signup
           </Text>
