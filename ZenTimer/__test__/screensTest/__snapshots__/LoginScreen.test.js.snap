@@ -84,7 +84,9 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
         }
       }
     >
-      <View>
+      <View
+        testID="textInputLoginScreen"
+      >
         <Text
           allowFontScaling={false}
           selectable={false}
@@ -103,6 +105,7 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
               {},
             ]
           }
+          testID="octicons-icon"
         >
           
         </Text>
@@ -145,7 +148,9 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
           value=""
         />
       </View>
-      <View>
+      <View
+        testID="textInputLoginScreen"
+      >
         <Text
           allowFontScaling={false}
           selectable={false}
@@ -164,6 +169,7 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
               {},
             ]
           }
+          testID="octicons-icon"
         >
           
         </Text>
@@ -224,6 +230,7 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
               {},
             ]
           }
+          testID="feather-icon"
         >
           
         </Text>

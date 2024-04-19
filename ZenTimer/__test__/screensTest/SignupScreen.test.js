@@ -2,13 +2,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 import { render, fireEvent, act, waitFor } from "@testing-library/react-native";
 
-import DateTimePicker from "@react-native-community/datetimepicker";
-
-import { Fontisto } from "@expo/vector-icons";
-
-import SignupScreen, {
-  MyTextInput,
-} from "../../screens/SignupScreen/SignupScreen";
+import SignupScreen from "../../screens/SignupScreen/SignupScreen";
 
 import { Formik } from "formik";
 import { StatusBar } from "react-native";
