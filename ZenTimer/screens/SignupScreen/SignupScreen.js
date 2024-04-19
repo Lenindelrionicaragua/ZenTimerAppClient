@@ -18,7 +18,7 @@ import {
   FooterLinkContent,
 } from "./SignupScreenStyles";
 import { Colors } from "../../styles/AppStyles";
-import TextInputSignupScreen from "../../component/TextInputSignupScreen";
+import TextInputSignupScreen from "../../component/TextInputSignupScreen/TextInputSignupScreen";
 
 // Colors
 const { lightGrey } = Colors;
