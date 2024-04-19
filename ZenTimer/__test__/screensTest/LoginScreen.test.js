@@ -2,20 +2,10 @@ import React from "react";
 import { render, fireEvent, act } from "@testing-library/react-native";
 import renderer from "react-test-renderer";
 import { Fontisto } from "@expo/vector-icons";
-
-import LoginScreen, {
-  MyTextInput,
-} from "../../screens/LoginScreen/LoginScreen";
-
+import LoginScreen from "../../screens/LoginScreen/LoginScreen";
 import { Formik } from "formik";
 import { StatusBar } from "react-native";
-import {
-  StyledContainer,
-  InnerContainer,
-  PageLogo,
-  PageTitle,
-  SubTitle,
-} from "../../screens/LoginScreen/LoginScreenStyles";
+import { PageLogo } from "../../screens/LoginScreen/LoginScreenStyles";
 
 // Rendering Functions
 const renderLoginScreen = () => render(<LoginScreen />);
@@ -105,8 +95,8 @@ describe("Formik Integration Tests", () => {
     expect(typeof formikComponent.props.children).toBe("function");
   });
 
-  // MyTextInput
-  describe("MyTextInput", () => {
+  // LoginTextInput
+  describe("LoginTextInput", () => {
     let emailInput;
     let passwordInput;
 
@@ -219,40 +209,41 @@ describe("Formik Integration Tests", () => {
     });
   });
 
-  describe("ExtraView", () => {
+  // Footer
+  describe("FooterView", () => {
     test("Render correctly", () => {
       const { getByTestId } = loginScreenRender;
-      const extraViewElement = getByTestId("extra-view");
-      expect(extraViewElement).toBeTruthy();
+      const footerViewElement = getByTestId("footer-view");
+      expect(footerViewElement).toBeTruthy();
     });
   });
 
-  describe("ExtraText", () => {
+  describe("FooterText", () => {
     test("Render correctly", () => {
       const { getByTestId } = loginScreenRender;
-      const extraTextElement = getByTestId("extra-text");
-      expect(extraTextElement).toBeTruthy();
+      const footerTextElement = getByTestId("footer-text");
+      expect(footerTextElement).toBeTruthy();
     });
 
     test("Render a text", () => {
       const { getByTestId } = loginScreenRender;
-      const extraTextElement = getByTestId("extra-text");
-      const textContent = extraTextElement.props.children;
+      const footerTextElement = getByTestId("footer-text");
+      const textContent = footerTextElement.props.children;
       expect(textContent).toBe("Dont you have an account already?");
     });
   });
 
-  describe("TextLink", () => {
+  describe("SignupLink", () => {
     test("Render correctly", () => {
       const { getByTestId } = loginScreenRender;
-      const textLinkElement = getByTestId("text-link");
-      expect(typeof textLinkElement.props).toBe("object");
+      const SignupLinkElement = getByTestId("signup-link");
+      expect(typeof SignupLinkElement.props).toBe("object");
     });
 
     test("Render the correct text", () => {
       const { getByTestId } = loginScreenRender;
-      const textLinkContent = getByTestId("text-link-content");
-      const LinkContent = textLinkContent.props.children;
+      const SignupLinkContent = getByTestId("signup-link-content");
+      const LinkContent = SignupLinkContent.props.children;
       expect(LinkContent).toBe("Signup");
     });
   });
