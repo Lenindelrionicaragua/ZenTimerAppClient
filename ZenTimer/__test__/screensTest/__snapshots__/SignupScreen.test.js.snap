@@ -8,9 +8,9 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
       "flexBasis": 0,
       "flexGrow": 1,
       "flexShrink": 1,
-      "paddingBottom": 25,
-      "paddingLeft": 25,
-      "paddingRight": 25,
+      "paddingBottom": 15,
+      "paddingLeft": 15,
+      "paddingRight": 15,
       "paddingTop": 64,
       "width": "100%",
     }
@@ -285,18 +285,15 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
           accessible={true}
           collapsable={false}
           focusable={true}
+          onBlur={[Function]}
           onClick={[Function]}
+          onFocus={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
           onResponderTerminate={[Function]}
           onResponderTerminationRequest={[Function]}
           onStartShouldSetResponder={[Function]}
-          style={
-            {
-              "opacity": 1,
-            }
-          }
         >
           <TextInput
             editable={false}
@@ -422,7 +419,9 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
           accessible={true}
           collapsable={false}
           focusable={true}
+          onBlur={[Function]}
           onClick={[Function]}
+          onFocus={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -431,7 +430,6 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             {
-              "opacity": 1,
               "position": "absolute",
               "right": 15,
               "top": 38,
@@ -558,7 +556,9 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
           accessible={true}
           collapsable={false}
           focusable={true}
+          onBlur={[Function]}
           onClick={[Function]}
+          onFocus={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -567,7 +567,6 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             {
-              "opacity": 1,
               "position": "absolute",
               "right": 15,
               "top": 38,
@@ -631,7 +630,9 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
         accessible={true}
         collapsable={false}
         focusable={true}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -649,7 +650,6 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
             "height": 60,
             "justifyContent": "center",
             "marginVertical": 5,
-            "opacity": 1,
             "paddingBottom": 15,
             "paddingLeft": 15,
             "paddingRight": 15,
@@ -728,8 +728,10 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
           }
           accessible={true}
           collapsable={false}
-          focusable={false}
+          focusable={true}
+          onBlur={[Function]}
           onClick={[Function]}
+          onFocus={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -740,7 +742,6 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
             {
               "alignItems": "center",
               "justifyContent": "center",
-              "opacity": 1,
             }
           }
           testID="footer-link"

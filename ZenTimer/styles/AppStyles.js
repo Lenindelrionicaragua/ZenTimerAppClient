@@ -1,8 +1,6 @@
 import styled from "styled-components/native";
 import { View } from "react-native";
 
-// colors
-
 export const Colors = {
   white: "#ffe1a8" /* styledContainer(background), buttonText: BLANCO */,
   orange: "#ffc500" /* styleTextInput(background): ORANGE */,
@@ -11,10 +9,6 @@ export const Colors = {
   lightGrey: "#f9f7f3" /* Gris claro */,
   black: "#000000" /* pageTitle, styledButton: NEGRO*/,
 };
-
-const { white, orange, grey, yellow, lightGrey, black } = Colors;
-
-// styles
 
 export const AppContainer = styled(View)`
   flex: 1;

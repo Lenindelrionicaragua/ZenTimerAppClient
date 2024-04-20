@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { View, Image, Text, TextInput, TouchableOpacity } from "react-native";
+import { View, Image, Text, TextInput, Pressable } from "react-native";
 import Constants from "expo-constants";
 import { Colors } from "../../styles/AppStyles";
 
@@ -9,7 +9,7 @@ const { white, orange, grey, yellow, lightGrey, black } = Colors;
 
 export const StyledContainer = styled(View)`
   flex: 1;
-  padding: 25px;
+  padding: 15px;
   padding-top: ${StatusBarHeight + 10}px;
   background-color: ${lightGrey};
   width: 100%;
@@ -20,13 +20,6 @@ export const InnerContainer = styled(View)`
   width: 100%;
   align-items: center;
   justify-content: center;
-`;
-
-export const PageLogo = styled(Image)`
-  width: 200px;
-  height: 200px;
-  border-radius: 100px;
-  overflow: hidden;
 `;
 
 export const PageTitle = styled(Text)`
@@ -75,14 +68,14 @@ export const LeftIcon = styled(View)`
   z-index: 1;
 `;
 
-export const RightIcon = styled(TouchableOpacity)`
+export const RightIcon = styled(Pressable)`
   right: 15px;
   top: 38px;
   position: absolute;
   z-index: 1;
 `;
 
-export const StyledButton = styled(TouchableOpacity)`
+export const StyledButton = styled(Pressable)`
   padding: 15px;
   background-color: ${black};
   justify-content: center;
@@ -138,7 +131,7 @@ export const FooterText = styled(Text)`
   font-size: 15px;
 `;
 
-export const FooterLink = styled(TouchableOpacity)`
+export const FooterLink = styled(Pressable)`
   justify-content: center;
   align-items: center;
 `;

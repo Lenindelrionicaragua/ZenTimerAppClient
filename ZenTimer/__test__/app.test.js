@@ -32,11 +32,11 @@ describe("App", () => {
     expect(appContainerElement).toBeTruthy();
   });
 
-  test("render the WelcomeScreen", () => {
-    const appInstance = appRenderWithRenderer.root;
-    const welcomeScreen = appInstance.findByType(WelcomeScreen);
-    expect(welcomeScreen).toBeTruthy();
-  });
+  // test("render the WelcomeScreen", () => {
+  //   const appInstance = appRenderWithRenderer.root;
+  //   const welcomeScreen = appInstance.findByType(WelcomeScreen);
+  //   expect(welcomeScreen).toBeTruthy();
+  // });
 
   // test("render the SignupScreen component", () => {
   //   const appInstance = appRenderWithRenderer.root;
@@ -44,9 +44,9 @@ describe("App", () => {
   //   expect(signupScreen).toBeTruthy();
   // });
 
-  // test("render the LoginScreen component", () => {
-  //   const appInstance = appRenderWithRenderer.root;
-  //   const loginScreen = appInstance.findByType(LoginScreen);
-  //   expect(loginScreen).toBeTruthy();
-  // });
+  test("render the LoginScreen component", () => {
+    const appInstance = appRenderWithRenderer.root;
+    const loginScreen = appInstance.findByType(LoginScreen);
+    expect(loginScreen).toBeTruthy();
+  });
 });

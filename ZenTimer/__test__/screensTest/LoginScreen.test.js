@@ -14,7 +14,7 @@ const renderLoginScreenWithRenderer = () => renderer.create(<LoginScreen />);
 let loginScreenRender;
 let loginScreenRenderWithRenderer;
 
-beforeEach(() => {
+beforeEach(async () => {
   loginScreenRender = renderLoginScreen();
   loginScreenRenderWithRenderer = renderLoginScreenWithRenderer();
 });
@@ -185,6 +185,13 @@ describe("Formik Integration Tests", () => {
       const { getByTestId } = loginScreenRender;
       const googleIconElement = getByTestId("google-icon");
       expect(googleIconElement).toBeTruthy();
+    });
+
+    test("Render the correct text", () => {
+      const { getByTestId } = loginScreenRender;
+      const googleButtonTextElement = getByTestId("google-button-text");
+      const textContent = googleButtonTextElement.props.children.toString();
+      expect(textContent).toMatch("Sign in with Google");
     });
 
     test("StyledButton should have an Fontisto component as Child", () => {

@@ -20,10 +20,9 @@ describe("KeyboardAvoider", () => {
     expect(scrollView).toBeTruthy();
   });
 
-  test("Render TouchableWithoutFeedback", () => {
-    const touchableWithoutFeedback = KeyboardAvoiderRender.getByTestId(
-      "touchable-without-feedback"
-    );
+  test("Render Pressable", () => {
+    const touchableWithoutFeedback =
+      KeyboardAvoiderRender.getByTestId("pressable");
     expect(touchableWithoutFeedback).toBeTruthy();
   });
 });

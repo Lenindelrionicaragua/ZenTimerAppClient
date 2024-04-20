@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { View, Image, Text, TouchableOpacity } from "react-native";
+import { View, Image, Text, Pressable } from "react-native";
 import { Colors } from "../../styles/AppStyles";
 
 const { white, orange, grey, yellow, lightGrey, black } = Colors;
@@ -72,7 +72,7 @@ export const StyledFormArea = styled(View)`
   width: 90%;
 `;
 
-export const StyledButton = styled(TouchableOpacity)`
+export const StyledButton = styled(Pressable)`
   padding: 15px;
   background-color: ${black};
   justify-content: center;
