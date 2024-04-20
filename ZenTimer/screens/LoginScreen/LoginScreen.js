@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { StatusBar } from "react-native";
+import KeyboardAvoider from "../../component/KeyboardAvoider/KeyboardAvoider";
 import { Formik } from "formik";
 import { Fontisto } from "@expo/vector-icons";
-import { Colors } from "../../styles/AppStyles";
 import {
   StyledContainer,
   InnerContainer,
@@ -19,8 +19,8 @@ import {
   SignupLink,
   SignupLinkContent,
 } from "./LoginScreenStyles";
+import { Colors } from "../../styles/AppStyles";
 import TextInputLoginScreen from "../../component/TextInputLoginScreen/TextInputLoginScreen";
-import KeyboardAvoider from "../../component/KeyboardAvoider/KeyboardAvoider";
 
 const { grey, lightGrey } = Colors;
 
@@ -31,7 +31,6 @@ const LoginScreen = () => {
     <KeyboardAvoider>
       <StyledContainer testID="styled-container">
         <StatusBar style="light" />
-
         <InnerContainer testID="inner-container">
           <PageLogo
             resizeMode="cover"

@@ -14,7 +14,7 @@ const renderLoginScreenWithRenderer = () => renderer.create(<LoginScreen />);
 let loginScreenRender;
 let loginScreenRenderWithRenderer;
 
-beforeEach(() => {
+beforeEach(async () => {
   loginScreenRender = renderLoginScreen();
   loginScreenRenderWithRenderer = renderLoginScreenWithRenderer();
 });
@@ -189,8 +189,8 @@ describe("Formik Integration Tests", () => {
 
     test("Render the correct text", () => {
       const { getByTestId } = loginScreenRender;
-      const googleIconElement = getByTestId("google-icon");
-      const textContent = googleIconElement.props.children.toString();
+      const googleButtonTextElement = getByTestId("google-button-text");
+      const textContent = googleButtonTextElement.props.children.toString();
       expect(textContent).toMatch("Sign in with Google");
     });
 

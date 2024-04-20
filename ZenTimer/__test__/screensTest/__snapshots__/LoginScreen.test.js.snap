@@ -8,10 +8,6 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
       "flexBasis": 0,
       "flexGrow": 1,
       "flexShrink": 1,
-      "paddingBottom": 15,
-      "paddingLeft": 15,
-      "paddingRight": 15,
-      "paddingTop": 64,
       "width": "100%",
     }
   }
@@ -21,10 +17,12 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
     style={
       {
         "alignItems": "center",
+        "backgroundColor": "#f9f7f3",
         "flexBasis": 0,
         "flexGrow": 1,
         "flexShrink": 1,
         "justifyContent": "center",
+        "paddingTop": 15,
         "width": "100%",
       }
     }
@@ -35,13 +33,13 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
       source={1}
       style={
         {
-          "borderBottomLeftRadius": 100,
-          "borderBottomRightRadius": 100,
-          "borderTopLeftRadius": 100,
-          "borderTopRightRadius": 100,
-          "height": 200,
+          "borderBottomLeftRadius": 80,
+          "borderBottomRightRadius": 80,
+          "borderTopLeftRadius": 80,
+          "borderTopRightRadius": 80,
+          "height": 160,
           "overflow": "hidden",
-          "width": 200,
+          "width": 160,
         }
       }
       testID="page-logo"
@@ -267,7 +265,9 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
         accessible={true}
         collapsable={false}
         focusable={true}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -285,7 +285,6 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
             "height": 60,
             "justifyContent": "center",
             "marginVertical": 5,
-            "opacity": 1,
             "paddingBottom": 15,
             "paddingLeft": 15,
             "paddingRight": 15,
@@ -338,7 +337,10 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
         accessible={true}
         collapsable={false}
         focusable={true}
+        google={true}
+        onBlur={[Function]}
         onClick={[Function]}
+        onFocus={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
         onResponderRelease={[Function]}
@@ -357,7 +359,6 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
             "height": 60,
             "justifyContent": "center",
             "marginVertical": 5,
-            "opacity": 1,
             "paddingBottom": 15,
             "paddingLeft": 15,
             "paddingRight": 15,
@@ -452,8 +453,10 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
           }
           accessible={true}
           collapsable={false}
-          focusable={false}
+          focusable={true}
+          onBlur={[Function]}
           onClick={[Function]}
+          onFocus={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -464,7 +467,6 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
             {
               "alignItems": "center",
               "justifyContent": "center",
-              "opacity": 1,
             }
           }
           testID="signup-link"
@@ -491,13 +493,13 @@ exports[`PageLogo Renders the PageLogo component correctly 1`] = `
 <Image
   style={
     {
-      "borderBottomLeftRadius": 100,
-      "borderBottomRightRadius": 100,
-      "borderTopLeftRadius": 100,
-      "borderTopRightRadius": 100,
-      "height": 200,
+      "borderBottomLeftRadius": 80,
+      "borderBottomRightRadius": 80,
+      "borderTopLeftRadius": 80,
+      "borderTopRightRadius": 80,
+      "height": 160,
       "overflow": "hidden",
-      "width": 200,
+      "width": 160,
     }
   }
 />

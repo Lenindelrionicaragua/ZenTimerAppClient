@@ -1,7 +1,6 @@
 import React from "react";
 import {
   KeyboardAvoidingView,
-  ScrollView,
   Pressable,
   Keyboard,
   Platform,

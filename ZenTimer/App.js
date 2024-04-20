@@ -3,8 +3,8 @@ import LoginScreen from "./screens/LoginScreen/LoginScreen";
 // import SignupScreen from "./screens/SignupScreen/SignupScreen";
 // import WelcomeScreen from "./screens/WelcomeScreen/WelcomeScreen";
 import { AppContainer } from "./styles/AppStyles";
-import "@expo/metro-runtime";
-import { registerRootComponent } from "expo";
+// import "@expo/metro-runtime";
+// import { registerRootComponent } from "expo";
 
 export default function App() {
   return (
@@ -16,4 +16,4 @@ export default function App() {
   );
 }
 
-registerRootComponent(App);
+// registerRootComponent(App);

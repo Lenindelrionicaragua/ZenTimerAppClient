@@ -22,13 +22,6 @@ export const InnerContainer = styled(View)`
   justify-content: center;
 `;
 
-export const PageLogo = styled(Image)`
-  width: 200px;
-  height: 200px;
-  border-radius: 100px;
-  overflow: hidden;
-`;
-
 export const PageTitle = styled(Text)`
   font-size: 30px;
   text-align: center;
