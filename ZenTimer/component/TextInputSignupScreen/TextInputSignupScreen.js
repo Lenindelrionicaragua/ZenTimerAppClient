@@ -1,5 +1,5 @@
 import React from "react";
-import { View, TouchableOpacity } from "react-native";
+import { View, Pressable } from "react-native";
 import { Octicons, Feather } from "@expo/vector-icons";
 import {
   StyledInputLabel,
@@ -31,9 +31,9 @@ const TextInputSignupScreen = (props) => {
       <StyledInputLabel>{label}</StyledInputLabel>
       {!isDate && <StyledTextInput {...textInputProps} />}
       {isDate && (
-        <TouchableOpacity onPress={showDatePicker}>
+        <Pressable onPress={showDatePicker}>
           <StyledTextInput {...textInputProps} />
-        </TouchableOpacity>
+        </Pressable>
       )}
       {isPassword && (
         <RightIcon

@@ -1,31 +1,28 @@
 import styled from "styled-components/native";
-import { View, Image, Text, TextInput, TouchableOpacity } from "react-native";
-import Constants from "expo-constants";
+import { View, Image, Text, TextInput, Pressable } from "react-native";
 import { Colors } from "../../styles/AppStyles";
-
-const StatusBarHeight = Constants.statusBarHeight;
 
 const { white, orange, grey, yellow, lightGrey, black } = Colors;
 
 export const StyledContainer = styled(View)`
   flex: 1;
-  padding: 15px;
-  padding-top: ${StatusBarHeight + 10}px;
   background-color: ${lightGrey};
   width: 100%;
 `;
 
 export const InnerContainer = styled(View)`
+  background-color: ${lightGrey};
   flex: 1;
+  padding-top: 15px;
   width: 100%;
   align-items: center;
   justify-content: center;
 `;
 
 export const PageLogo = styled(Image)`
-  width: 200px;
-  height: 200px;
-  border-radius: 100px;
+  width: 160px;
+  height: 160px;
+  border-radius: 80px;
   overflow: hidden;
 `;
 
@@ -75,14 +72,14 @@ export const LeftIcon = styled(View)`
   z-index: 1;
 `;
 
-export const RightIcon = styled(TouchableOpacity)`
+export const RightIcon = styled(Pressable)`
   right: 15px;
   top: 38px;
   position: absolute;
   z-index: 1;
 `;
 
-export const StyledButton = styled(TouchableOpacity)`
+export const StyledButton = styled(Pressable)`
   padding: 15px;
   background-color: ${black};
   justify-content: center;
@@ -101,14 +98,13 @@ export const StyledButton = styled(TouchableOpacity)`
 `;
 
 export const ButtonText = styled(Text)`
-  color: ${white};
+  color: ${(props) => (props.google ? black : white)};
   font-size: 16px;
 
   ${(props) =>
-    props.google == true &&
+    props.google &&
     `
     padding: 25px;
-    color: ${black}
   `}
 `;
 
@@ -138,7 +134,7 @@ export const FooterText = styled(Text)`
   font-size: 15px;
 `;
 
-export const SignupLink = styled(TouchableOpacity)`
+export const SignupLink = styled(Pressable)`
   justify-content: center;
   align-items: center;
 `;

@@ -187,6 +187,13 @@ describe("Formik Integration Tests", () => {
       expect(googleIconElement).toBeTruthy();
     });
 
+    test("Render the correct text", () => {
+      const { getByTestId } = loginScreenRender;
+      const googleIconElement = getByTestId("google-icon");
+      const textContent = googleIconElement.props.children.toString();
+      expect(textContent).toMatch("Sign in with Google");
+    });
+
     test("StyledButton should have an Fontisto component as Child", () => {
       const { getByTestId } = loginScreenRender;
       const styledButtonComponent = getByTestId("google-styled-button");
