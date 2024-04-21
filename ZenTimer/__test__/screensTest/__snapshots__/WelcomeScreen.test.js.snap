@@ -163,8 +163,10 @@ exports[`WelcomeScreen Renders correctly the WelcomeScreen Component 1`] = `
           }
           accessible={true}
           collapsable={false}
-          focusable={false}
+          focusable={true}
+          onBlur={[Function]}
           onClick={[Function]}
+          onFocus={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
           onResponderRelease={[Function]}
@@ -182,7 +184,6 @@ exports[`WelcomeScreen Renders correctly the WelcomeScreen Component 1`] = `
               "height": 60,
               "justifyContent": "center",
               "marginVertical": 5,
-              "opacity": 1,
               "paddingBottom": 15,
               "paddingLeft": 15,
               "paddingRight": 15,
