@@ -1,19 +1,11 @@
 import React from "react";
 import {
   KeyboardAvoidingView,
+  ScrollView,
   Pressable,
   Keyboard,
   Platform,
 } from "react-native";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-
-const styles = {
-  keyboardAvoider: {
-    flex: 1,
-    width: "100%",
-    height: "100%",
-  },
-};
 
 const KeyboardAvoider = ({ children }) => {
   const shouldRenderKeyboardAvoider = Platform.OS !== "web";
@@ -25,15 +17,23 @@ const KeyboardAvoider = ({ children }) => {
       enabled={Platform.OS !== "android"}
       testID="keyboard-avoiding-view"
     >
-      <KeyboardAwareScrollView testID="scroll-view">
+      <ScrollView testID="scroll-view">
         <Pressable onPress={Keyboard.dismiss} testID="pressable">
           {children}
         </Pressable>
-      </KeyboardAwareScrollView>
+      </ScrollView>
     </KeyboardAvoidingView>
   ) : (
     <>{children}</>
   );
+};
+
+const styles = {
+  keyboardAvoider: {
+    flex: 1,
+    width: "100%",
+    height: "100%",
+  },
 };
 
 export default KeyboardAvoider;

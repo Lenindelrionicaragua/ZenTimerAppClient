@@ -1,4 +1,4 @@
-import styled from "styled-components/native";
+import styled, { css } from "styled-components/native";
 import { View, Image, Text, TextInput, Pressable } from "react-native";
 import { Colors } from "../../styles/AppStyles";
 
@@ -102,9 +102,9 @@ export const ButtonText = styled(Text)`
   font-size: 16px;
 
   ${(props) =>
-    props.google &&
+    props.google == true &&
     `
-    padding: 25px;
+    padding-left: 15px;
   `}
 `;
 
