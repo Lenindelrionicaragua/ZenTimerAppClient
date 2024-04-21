@@ -1,52 +1,24 @@
 import React from "react";
 import { render } from "@testing-library/react-native";
-import renderer from "react-test-renderer";
-import App from "../App";
-import LoginScreen from "../screens/LoginScreen/LoginScreen";
-import SignupScreen from "../screens/SignupScreen/SignupScreen";
-import WelcomeScreen from "../screens/WelcomeScreen/WelcomeScreen";
-import { AppContainer } from "../styles/appStyles";
+import RootStack from "../navigators/RootStack";
 
-// Rendering functions
-const renderApp = () => render(<App />);
-const renderAppWithRenderer = () => renderer.create(<App />);
-
-let appRender;
-let appRenderWithRenderer;
-
-beforeEach(() => {
-  appRender = renderApp();
-  appRenderWithRenderer = renderAppWithRenderer();
+test("renders RootStack correctly", () => {
+  const { getByTestId } = render(<RootStack />);
+  const rootStackElement = getByTestId("root-stack");
+  expect(rootStackElement).toBeTruthy();
 });
 
-//App.js
-describe("App", () => {
-  test("renders AppContainer correctly", () => {
-    const appSnapshot = appRenderWithRenderer.toJSON();
-    expect(appSnapshot).toMatchSnapshot();
-  });
+test("RootStack renders correctly", async () => {
+  // Render the RootStack component with renderer
+  const rootInstance = renderer.create(<RootStack />).root;
 
-  test("render a View element with the test ID 'app-container'", () => {
-    const { getByTestId } = appRender;
-    const appContainerElement = getByTestId("app-container");
-    expect(appContainerElement).toBeTruthy();
-  });
+  // Find elements by type
+  const loginScreen = rootInstance.findByType(LoginScreen);
+  const signupScreen = rootInstance.findByType(SignupScreen);
+  const welcomeScreen = rootInstance.findByType(WelcomeScreen);
 
-  // test("render the WelcomeScreen", () => {
-  //   const appInstance = appRenderWithRenderer.root;
-  //   const welcomeScreen = appInstance.findByType(WelcomeScreen);
-  //   expect(welcomeScreen).toBeTruthy();
-  // });
-
-  // test("render the SignupScreen component", () => {
-  //   const appInstance = appRenderWithRenderer.root;
-  //   const signupScreen = appInstance.findByType(SignupScreen);
-  //   expect(signupScreen).toBeTruthy();
-  // });
-
-  test("render the LoginScreen component", () => {
-    const appInstance = appRenderWithRenderer.root;
-    const loginScreen = appInstance.findByType(LoginScreen);
-    expect(loginScreen).toBeTruthy();
-  });
+  // Expect elements to be present
+  expect(loginScreen).toBeTruthy();
+  expect(signupScreen).toBeTruthy();
+  expect(welcomeScreen).toBeTruthy();
 });
