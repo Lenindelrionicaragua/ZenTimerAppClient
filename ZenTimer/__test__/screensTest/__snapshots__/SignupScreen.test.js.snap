@@ -53,7 +53,7 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
         onStartShouldSetResponder={[Function]}
         testID="pressable"
       >
-        <View
+        <RCTSafeAreaView
           style={
             {
               "backgroundColor": "#f9f7f3",
@@ -63,7 +63,7 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
               "paddingBottom": 15,
               "paddingLeft": 15,
               "paddingRight": 15,
-              "paddingTop": 64,
+              "paddingTop": 15,
               "width": "100%",
             }
           }
@@ -813,7 +813,7 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
               </View>
             </View>
           </View>
-        </View>
+        </RCTSafeAreaView>
       </View>
     </View>
   </RCTScrollView>

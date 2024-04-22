@@ -1,16 +1,13 @@
 import styled from "styled-components/native";
-import { View, Image, Text, TextInput, Pressable } from "react-native";
-import Constants from "expo-constants";
+import { View, Text, TextInput, Pressable } from "react-native";
+import { SafeAreaView } from "react-native";
 import { Colors } from "../../styles/AppStyles";
-
-const StatusBarHeight = Constants.statusBarHeight;
 
 const { white, orange, grey, yellow, lightGrey, black } = Colors;
 
-export const StyledContainer = styled(View)`
+export const StyledContainer = styled(SafeAreaView)`
   flex: 1;
   padding: 15px;
-  padding-top: ${StatusBarHeight + 10}px;
   background-color: ${lightGrey};
   width: 100%;
 `;

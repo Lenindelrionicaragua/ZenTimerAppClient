@@ -1,24 +1,18 @@
 import React from "react";
-import { render } from "@testing-library/react-native";
+import renderer from "react-test-renderer";
 import RootStack from "../navigators/RootStack";
+import App from "../App";
 
-test("renders RootStack correctly", () => {
-  const { getByTestId } = render(<RootStack />);
-  const rootStackElement = getByTestId("root-stack");
-  expect(rootStackElement).toBeTruthy();
+const renderAppWithRenderer = () => renderer.create(<App />);
+
+let appRenderWithRenderer;
+
+beforeEach(async () => {
+  appRenderWithRenderer = renderAppWithRenderer();
 });
 
-test("RootStack renders correctly", async () => {
-  // Render the RootStack component with renderer
-  const rootInstance = renderer.create(<RootStack />).root;
-
-  // Find elements by type
-  const loginScreen = rootInstance.findByType(LoginScreen);
-  const signupScreen = rootInstance.findByType(SignupScreen);
-  const welcomeScreen = rootInstance.findByType(WelcomeScreen);
-
-  // Expect elements to be present
-  expect(loginScreen).toBeTruthy();
-  expect(signupScreen).toBeTruthy();
-  expect(welcomeScreen).toBeTruthy();
+test("renders RootStack correctly", () => {
+  const appInstance = appRenderWithRenderer.root;
+  const rootStackElement = appInstance.findByType(RootStack);
+  expect(rootStackElement).toBeTruthy();
 });

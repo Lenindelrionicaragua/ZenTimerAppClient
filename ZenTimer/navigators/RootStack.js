@@ -1,18 +1,33 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Colors } from "../styles/AppStyles";
 
 // Screens
 import LoginScreen from "./../screens/LoginScreen/LoginScreen";
 import SignupScreen from "./../screens/SignupScreen/SignupScreen";
 import WelcomeScreen from "./../screens/WelcomeScreen/WelcomeScreen";
 
+const { lightGrey } = Colors;
 const Stack = createNativeStackNavigator();
 
 const RootStack = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          headerStyled: {
+            backgroundColor: "transparent",
+          },
+          headerTintColor: lightGrey,
+          headerTransparent: true,
+          headerTitle: "",
+          headerLeftContainerStyle: {
+            paddingLeft: 20,
+          },
+        }}
+        initialRouteName="Login"
+      >
         <Stack.Screen
           name="LoginScreen"
           component={LoginScreen}
