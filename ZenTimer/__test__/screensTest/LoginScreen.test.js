@@ -6,7 +6,7 @@ import LoginScreen from "../../screens/LoginScreen/LoginScreen";
 import { Formik } from "formik";
 import { StatusBar } from "react-native";
 import { PageLogo } from "../../screens/LoginScreen/LoginScreenStyles";
-
+import TextInputLoginScreen from "../../component/TextInputLoginScreen/TextInputLoginScreen";
 // Rendering Functions
 const renderLoginScreen = () => render(<LoginScreen />);
 const renderLoginScreenWithRenderer = () => renderer.create(<LoginScreen />);
@@ -78,6 +78,10 @@ describe("Formik Integration Tests", () => {
   beforeEach(() => {
     const loginScreenInstance = loginScreenRenderWithRenderer.root;
     formikComponent = loginScreenInstance.findByType(Formik);
+  });
+
+  test("Render a Formik component", () => {
+    expect(formikComponent).toBeTruthy();
   });
 
   test("Render a Formik component", () => {
@@ -252,6 +256,37 @@ describe("Formik Integration Tests", () => {
       const SignupLinkContent = getByTestId("signup-link-content");
       const LinkContent = SignupLinkContent.props.children;
       expect(LinkContent).toBe("Signup");
+    });
+  });
+
+  // Navigation Test
+
+  describe("loginScreen navigation", () => {
+    let formikComponent;
+    let navigation;
+
+    beforeEach(() => {
+      navigation = { navigate: jest.fn() };
+
+      const loginScreenRenderWithRenderer = renderer.create(
+        <LoginScreen navigation={navigation} />
+      );
+      const loginScreenInstance = loginScreenRenderWithRenderer.root;
+      formikComponent = loginScreenInstance.findByType(Formik);
+    });
+
+    test("Navigate to SignupScreen when Signup button is clicked", () => {
+      const navigation = { navigate: jest.fn() };
+      const { getByTestId } = render(<LoginScreen navigation={navigation} />);
+      const signupButton = getByTestId("signup-link");
+      fireEvent.press(signupButton);
+      expect(navigation.navigate).toHaveBeenCalledWith("SignupScreen");
+    });
+
+    test("navigate to WelcomeScreen when Login button is clicked", () => {
+      const onSubmit = formikComponent.props.onSubmit;
+      onSubmit({ email: "test@example.com", password: "password123" });
+      expect(navigation.navigate).toHaveBeenCalledWith("WelcomeScreen");
     });
   });
 });

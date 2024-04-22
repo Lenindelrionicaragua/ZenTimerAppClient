@@ -24,7 +24,7 @@ import TextInputSignupScreen from "../../component/TextInputSignupScreen/TextInp
 // Colors
 const { lightGrey } = Colors;
 
-const SignupScreen = () => {
+const SignupScreen = ({ navigation }) => {
   const [hidePassword, setHidePassword] = useState(true);
   const [show, setShow] = useState(false);
   const [date, setDate] = useState(new Date(2000, 0, 1));

@@ -1,10 +1,11 @@
 import styled from "styled-components/native";
 import { View, Image, Text, Pressable } from "react-native";
+import { SafeAreaView } from "react-native";
 import { Colors } from "../../styles/AppStyles";
 
 const { white, orange, grey, yellow, lightGrey, black } = Colors;
 
-export const StyledContainer = styled(View)`
+export const StyledContainer = styled(SafeAreaView)`
   flex: 1;
   background-color: ${lightGrey};
   width: 100%;

@@ -3,7 +3,7 @@
 exports[`Logout ButtonText Renders ButtonText with the correct text: Logout 1`] = `"[object Object]"`;
 
 exports[`WelcomeScreen Renders correctly the WelcomeScreen Component 1`] = `
-<View
+<RCTSafeAreaView
   style={
     {
       "backgroundColor": "#f9f7f3",
@@ -207,5 +207,5 @@ exports[`WelcomeScreen Renders correctly the WelcomeScreen Component 1`] = `
       </View>
     </View>
   </View>
-</View>
+</RCTSafeAreaView>
 `;

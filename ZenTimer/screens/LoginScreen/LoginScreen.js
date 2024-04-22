@@ -24,7 +24,7 @@ import TextInputLoginScreen from "../../component/TextInputLoginScreen/TextInput
 
 const { grey, lightGrey } = Colors;
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   const [hidePassword, setHidePassword] = useState(true);
 
   return (
@@ -44,7 +44,9 @@ const LoginScreen = () => {
             initialValues={{ email: "", password: "" }}
             onSubmit={(values) => {
               console.log(values);
+              navigation.navigate("WelcomeScreen");
             }}
+            testID="login-form-formik"
           >
             {({ handleChange, handleBlur, handleSubmit, values }) => (
               <StyledFormArea>
@@ -100,7 +102,10 @@ const LoginScreen = () => {
                   <FooterText testID="footer-text">
                     Dont you have an account already?
                   </FooterText>
-                  <SignupLink testID="signup-link">
+                  <SignupLink
+                    onPress={() => navigation.navigate("SignupScreen")}
+                    testID="signup-link"
+                  >
                     <SignupLinkContent testID="signup-link-content">
                       Signup
                     </SignupLinkContent>

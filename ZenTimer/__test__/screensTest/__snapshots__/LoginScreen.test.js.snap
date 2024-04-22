@@ -53,7 +53,7 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
         onStartShouldSetResponder={[Function]}
         testID="pressable"
       >
-        <View
+        <RCTSafeAreaView
           style={
             {
               "backgroundColor": "#f9f7f3",
@@ -535,7 +535,7 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
               </View>
             </View>
           </View>
-        </View>
+        </RCTSafeAreaView>
       </View>
     </View>
   </RCTScrollView>
