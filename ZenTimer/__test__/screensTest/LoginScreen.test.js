@@ -1,12 +1,12 @@
 import React from "react";
-import { render, fireEvent, act } from "@testing-library/react-native";
+import { render, fireEvent, act, cleanup } from "@testing-library/react-native";
 import renderer from "react-test-renderer";
 import { Fontisto } from "@expo/vector-icons";
 import LoginScreen from "../../screens/LoginScreen/LoginScreen";
 import { Formik } from "formik";
 import { StatusBar } from "react-native";
 import { PageLogo } from "../../screens/LoginScreen/LoginScreenStyles";
-import TextInputLoginScreen from "../../component/TextInputLoginScreen/TextInputLoginScreen";
+
 // Rendering Functions
 const renderLoginScreen = () => render(<LoginScreen />);
 const renderLoginScreenWithRenderer = () => renderer.create(<LoginScreen />);
@@ -21,6 +21,10 @@ beforeEach(async () => {
 
 //LoginScreen
 describe("LoginScreen", () => {
+  afterEach(() => {
+    cleanup();
+  });
+
   test("Renders correctly the LoginScreen Component", () => {
     const loginScreenSnapshot = loginScreenRenderWithRenderer.toJSON();
     expect(loginScreenSnapshot).toMatchSnapshot();
@@ -65,6 +69,10 @@ describe("LoginScreen", () => {
 
 // PageLogo
 describe("PageLogo", () => {
+  afterEach(() => {
+    cleanup();
+  });
+
   it("Renders the PageLogo component correctly", () => {
     const pageLogoSnapshot = renderer.create(<PageLogo />).toJSON();
     expect(pageLogoSnapshot).toMatchSnapshot();
@@ -78,6 +86,10 @@ describe("Formik Integration Tests", () => {
   beforeEach(() => {
     const loginScreenInstance = loginScreenRenderWithRenderer.root;
     formikComponent = loginScreenInstance.findByType(Formik);
+  });
+
+  afterEach(() => {
+    cleanup();
   });
 
   test("Render a Formik component", () => {
@@ -114,6 +126,10 @@ describe("Formik Integration Tests", () => {
       renderForm();
     });
 
+    afterEach(() => {
+      cleanup();
+    });
+
     describe("Rendering", () => {
       test("Renders correctly the email-input", () => {
         expect(emailInput).toBeTruthy();
@@ -127,6 +143,10 @@ describe("Formik Integration Tests", () => {
     describe("Form State Update", () => {
       beforeEach(() => {
         renderForm();
+      });
+
+      afterEach(() => {
+        cleanup();
       });
 
       test("Correctly updates form state on onChangeText and onBlur", () => {
@@ -153,6 +173,10 @@ describe("Formik Integration Tests", () => {
 
   // Login StyledButton
   describe("StyledButton", () => {
+    afterEach(() => {
+      cleanup();
+    });
+
     test("Render StyledButton", () => {
       const { getByTestId } = loginScreenRender;
       const styledButtonElement = getByTestId("login-styled-button");
@@ -162,6 +186,10 @@ describe("Formik Integration Tests", () => {
 
   // MsgBox
   describe("MsgBox", () => {
+    afterEach(() => {
+      cleanup();
+    });
+
     test("Render a MsgBox", () => {
       const { getByTestId } = loginScreenRender;
       const msgBoxElement = getByTestId("msg-box");
@@ -177,8 +205,11 @@ describe("Formik Integration Tests", () => {
   });
 
   describe("Google StyledButton", () => {
-    // Google StyledButton
+    afterEach(() => {
+      cleanup();
+    });
 
+    // Google StyledButton
     test("Render correctly", () => {
       const { getByTestId } = loginScreenRender;
       const googleStyledButton = getByTestId("google-styled-button");
@@ -222,6 +253,10 @@ describe("Formik Integration Tests", () => {
 
   // Footer
   describe("FooterView", () => {
+    afterEach(() => {
+      cleanup();
+    });
+
     test("Render correctly", () => {
       const { getByTestId } = loginScreenRender;
       const footerViewElement = getByTestId("footer-view");
@@ -230,6 +265,10 @@ describe("Formik Integration Tests", () => {
   });
 
   describe("FooterText", () => {
+    afterEach(() => {
+      cleanup();
+    });
+
     test("Render correctly", () => {
       const { getByTestId } = loginScreenRender;
       const footerTextElement = getByTestId("footer-text");
@@ -262,7 +301,7 @@ describe("Formik Integration Tests", () => {
   // Navigation Test
 
   describe("loginScreen navigation", () => {
-    let formikComponent;
+    let loginScreenInstance;
     let navigation;
 
     beforeEach(() => {
@@ -271,21 +310,32 @@ describe("Formik Integration Tests", () => {
       const loginScreenRenderWithRenderer = renderer.create(
         <LoginScreen navigation={navigation} />
       );
-      const loginScreenInstance = loginScreenRenderWithRenderer.root;
-      formikComponent = loginScreenInstance.findByType(Formik);
+      loginScreenInstance = loginScreenRenderWithRenderer.root;
+    });
+
+    afterEach(() => {
+      cleanup();
     });
 
     test("Navigate to SignupScreen when Signup button is clicked", () => {
-      const navigation = { navigate: jest.fn() };
       const { getByTestId } = render(<LoginScreen navigation={navigation} />);
       const signupButton = getByTestId("signup-link");
-      fireEvent.press(signupButton);
+
+      act(() => {
+        fireEvent.press(signupButton);
+      });
+
       expect(navigation.navigate).toHaveBeenCalledWith("SignupScreen");
     });
 
     test("navigate to WelcomeScreen when Login button is clicked", () => {
+      const formikComponent = loginScreenInstance.findByType(Formik);
       const onSubmit = formikComponent.props.onSubmit;
-      onSubmit({ email: "test@example.com", password: "password123" });
+
+      act(() => {
+        onSubmit({ email: "test@example.com", password: "password123" });
+      });
+
       expect(navigation.navigate).toHaveBeenCalledWith("WelcomeScreen");
     });
   });

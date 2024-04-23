@@ -1,6 +1,12 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { render, fireEvent, act, waitFor } from "@testing-library/react-native";
+import {
+  render,
+  fireEvent,
+  act,
+  waitFor,
+  cleanup,
+} from "@testing-library/react-native";
 import { Formik } from "formik";
 import { StatusBar } from "react-native";
 import SignupScreen from "../../screens/SignupScreen/SignupScreen";
@@ -19,6 +25,10 @@ beforeEach(() => {
 
 //SignupScreen
 describe("SignupScreen", () => {
+  afterEach(() => {
+    cleanup();
+  });
+
   test("Renders correctly the SignupScreen Component", () => {
     const signupScreenSnapshot = signupScreenRenderWithRenderer.toJSON();
     expect(signupScreenSnapshot).toMatchSnapshot();
@@ -63,6 +73,10 @@ describe("Formik Integration Tests", () => {
     formikComponent = signupScreenInstance.findByType(Formik);
   });
 
+  afterEach(() => {
+    cleanup();
+  });
+
   test("Render a Formik component", () => {
     expect(formikComponent).toBeTruthy();
   });
@@ -102,6 +116,10 @@ describe("Formik Integration Tests", () => {
       renderForm();
     });
 
+    afterEach(() => {
+      cleanup();
+    });
+
     describe("Rendering", () => {
       test("Renders correctly the full-name", () => {
         expect(fullName).toBeTruthy();
@@ -134,6 +152,10 @@ describe("Formik Integration Tests", () => {
 
       beforeEach(() => {
         renderForm();
+      });
+
+      afterEach(() => {
+        cleanup();
       });
 
       test("Correctly updates form state on onChangeText and onBlur", () => {
@@ -175,12 +197,18 @@ describe("Formik Integration Tests", () => {
       renderForm();
     });
 
+    afterEach(() => {
+      cleanup();
+    });
+
     test("Renders correctly the date-of-birth input field", () => {
       expect(dateOfBirth).toBeTruthy();
     });
 
     test("Show DateTimePicker after clicking on the date-of-birth input field", async () => {
-      fireEvent.press(dateOfBirth);
+      act(() => {
+        fireEvent.press(dateOfBirth);
+      });
 
       await waitFor(() => {
         const dateTimePicker =
@@ -190,15 +218,19 @@ describe("Formik Integration Tests", () => {
     });
 
     test("Change date in DateTimePicker", async () => {
-      fireEvent.press(dateOfBirth);
+      act(() => {
+        fireEvent.press(dateOfBirth);
+      });
 
       await waitFor(() => {
         const dateTimePicker =
           signupScreenRender.queryByTestId("date-time-picker");
         expect(dateTimePicker).toBeTruthy();
 
-        fireEvent(dateTimePicker, "onChange", {
-          nativeEvent: { timestamp: "Tue Feb 01 2022" },
+        act(() => {
+          fireEvent(dateTimePicker, "onChange", {
+            nativeEvent: { timestamp: "Tue Feb 01 2022" },
+          });
         });
       });
 
@@ -210,6 +242,10 @@ describe("Formik Integration Tests", () => {
 
   // Login StyledButton
   describe("StyledButton", () => {
+    afterEach(() => {
+      cleanup();
+    });
+
     test("Render StyledButton", () => {
       const { getByTestId } = signupScreenRender;
       const styledButtonElement = getByTestId("login-styled-button");
@@ -219,6 +255,10 @@ describe("Formik Integration Tests", () => {
 
   // MsgBox
   describe("MsgBox", () => {
+    afterEach(() => {
+      cleanup();
+    });
+
     test("Render a MsgBox", () => {
       const { getByTestId } = signupScreenRender;
       const msgBoxElement = getByTestId("msg-box");
@@ -234,6 +274,10 @@ describe("Formik Integration Tests", () => {
   });
 
   describe("FooterView", () => {
+    afterEach(() => {
+      cleanup();
+    });
+
     test("Render correctly", () => {
       const { getByTestId } = signupScreenRender;
       const FooterViewElement = getByTestId("footer-view");
@@ -242,6 +286,10 @@ describe("Formik Integration Tests", () => {
   });
 
   describe("FooterText", () => {
+    afterEach(() => {
+      cleanup();
+    });
+
     test("Render correctly", () => {
       const { getByTestId } = signupScreenRender;
       const footerTextElement = getByTestId("footer-text");
@@ -257,6 +305,10 @@ describe("Formik Integration Tests", () => {
   });
 
   describe("FooterLink", () => {
+    afterEach(() => {
+      cleanup();
+    });
+
     test("Render correctly", () => {
       const { getByTestId } = signupScreenRender;
       const footerLinkElement = getByTestId("footer-link");

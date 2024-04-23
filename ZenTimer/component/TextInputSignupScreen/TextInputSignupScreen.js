@@ -29,10 +29,18 @@ const TextInputSignupScreen = (props) => {
         <Octicons name={icon} size={30} color={black} />
       </LeftIcon>
       <StyledInputLabel>{label}</StyledInputLabel>
-      {!isDate && <StyledTextInput {...textInputProps} />}
+      {!isDate && (
+        <StyledTextInput
+          testID="styled-text-input-signup-screen"
+          {...textInputProps}
+        />
+      )}
       {isDate && (
         <Pressable onPress={showDatePicker}>
-          <StyledTextInput {...textInputProps} />
+          <StyledTextInput
+            testID="styled-date-text-input-signup-screen"
+            {...textInputProps}
+          />
         </Pressable>
       )}
       {isPassword && (

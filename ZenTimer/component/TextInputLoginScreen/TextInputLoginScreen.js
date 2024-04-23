@@ -17,10 +17,13 @@ const TextInputLoginScreen = (props) => {
   } = props;
 
   return (
-    <View testID="textInputLoginScreen">
+    <View testID="text-input-login-screen">
       <Octicons name={icon} size={30} color="black" testID="octicons-icon" />
       <StyledInputLabel>{label}</StyledInputLabel>
-      <StyledTextInput {...textInputProps} />
+      <StyledTextInput
+        testID="styled-text-input-login-screen"
+        {...textInputProps}
+      />
       {isPassword && (
         <Feather
           name={hidePassword ? "eye" : "eye-off"}

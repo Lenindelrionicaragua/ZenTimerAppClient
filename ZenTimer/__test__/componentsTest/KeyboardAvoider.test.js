@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react-native";
+import { render, cleanup } from "@testing-library/react-native";
 import KeyboardAvoider from "../../component/KeyboardAvoider/KeyboardAvoider";
 
 describe("KeyboardAvoider", () => {
@@ -24,5 +24,9 @@ describe("KeyboardAvoider", () => {
     const touchableWithoutFeedback =
       KeyboardAvoiderRender.getByTestId("pressable");
     expect(touchableWithoutFeedback).toBeTruthy();
+  });
+
+  afterEach(() => {
+    cleanup();
   });
 });
