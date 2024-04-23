@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { render } from "@testing-library/react-native";
+import { render, cleanup, fireEvent, act } from "@testing-library/react-native";
 
 import WelcomeScreen from "../../screens/WelcomeScreen/WelcomeScreen";
 
@@ -21,6 +21,10 @@ beforeEach(() => {
 
 //SignupScreen
 describe("WelcomeScreen", () => {
+  afterEach(() => {
+    cleanup();
+  });
+
   test("Renders correctly the WelcomeScreen Component", () => {
     const WelcomeScreenSnapshot = welcomeScreenRenderWithRenderer.toJSON();
     expect(WelcomeScreenSnapshot).toMatchSnapshot();
@@ -65,6 +69,10 @@ describe("WelcomeScreen", () => {
 
 // WelcomeImage
 describe("WelcomeImage", () => {
+  afterEach(() => {
+    cleanup();
+  });
+
   test("Render the WelcomePage component correctly and has a valid image source", () => {
     const { getByTestId } = welcomeScreenRender;
     const welcomeImageComponent = getByTestId("welcome-image");
@@ -74,6 +82,10 @@ describe("WelcomeImage", () => {
 
 // Avatar
 describe("AvatarImage", () => {
+  afterEach(() => {
+    cleanup();
+  });
+
   test("Render the AvatarImage component correctly and has a valid image source", () => {
     const { getByTestId } = welcomeScreenRender;
     const avatarImageComponent = getByTestId("avatar-image");
@@ -83,11 +95,39 @@ describe("AvatarImage", () => {
 
 // Logout ButtonText
 describe("Logout ButtonText", () => {
+  afterEach(() => {
+    cleanup();
+  });
+
   test("Renders ButtonText with the correct text", () => {
     const { getByTestId } = welcomeScreenRender;
     const styledButtonElement = getByTestId("logout-button-text");
     const textContent = styledButtonElement.toString();
     expect(styledButtonElement).toBeTruthy();
     expect(textContent).toMatchSnapshot("Logout");
+  });
+});
+
+// Navigation Test
+
+describe("WelcomeScreen navigation", () => {
+  let navigation;
+
+  beforeEach(() => {
+    navigation = { navigate: jest.fn() };
+    welcomeScreenRender = render(<WelcomeScreen navigation={navigation} />);
+  });
+
+  afterEach(() => {
+    cleanup();
+  });
+
+  test("navigate to LoginScreen when Logout button is clicked", () => {
+    const { getByTestId } = welcomeScreenRender;
+    const styledButtonElement = getByTestId("logout-styled-button");
+    act(() => {
+      fireEvent.press(styledButtonElement);
+    });
+    expect(navigation.navigate).toHaveBeenCalledWith("LoginScreen");
   });
 });

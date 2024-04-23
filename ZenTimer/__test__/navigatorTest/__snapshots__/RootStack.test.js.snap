@@ -214,7 +214,7 @@ exports[`RootStack snapshot matches previous version 1`] = `
                         }
                       >
                         <View
-                          testID="textInputLoginScreen"
+                          testID="text-input-login-screen"
                         >
                           <Text
                             allowFontScaling={false}
@@ -278,7 +278,7 @@ exports[`RootStack snapshot matches previous version 1`] = `
                           />
                         </View>
                         <View
-                          testID="textInputLoginScreen"
+                          testID="text-input-login-screen"
                         >
                           <Text
                             allowFontScaling={false}
