@@ -317,12 +317,12 @@ describe("Formik Integration Tests", () => {
       cleanup();
     });
 
-    test("Navigate to SignupScreen when Signup button is clicked", () => {
+    test("Navigate to SignupScreen when Signup link is clicked", () => {
       const { getByTestId } = render(<LoginScreen navigation={navigation} />);
-      const signupButton = getByTestId("signup-link");
+      const signupLink = getByTestId("signup-link");
 
       act(() => {
-        fireEvent.press(signupButton);
+        fireEvent.press(signupLink);
       });
 
       expect(navigation.navigate).toHaveBeenCalledWith("SignupScreen");

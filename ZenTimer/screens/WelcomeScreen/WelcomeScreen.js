@@ -15,7 +15,7 @@ import {
   Avatar,
 } from "./WelcomeScreenStyles";
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ navigation }) => {
   return (
     <StyledContainer testID="styled-container">
       <StatusBar style="light" />
@@ -43,7 +43,12 @@ const WelcomeScreen = () => {
               testID="avatar-image"
             />
             <Line testID="line" />
-            <StyledButton testID="logout-styled-button">
+            <StyledButton
+              onPress={() => {
+                navigation.navigate("LoginScreen");
+              }}
+              testID="logout-styled-button"
+            >
               <ButtonText testID="logout-button-text">Logout</ButtonText>
             </StyledButton>
           </StyledFormArea>

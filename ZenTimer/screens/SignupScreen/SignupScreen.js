@@ -70,6 +70,7 @@ const SignupScreen = ({ navigation }) => {
             }}
             onSubmit={(values) => {
               console.log(values);
+              navigation.navigate("WelcomeScreen");
             }}
           >
             {({ handleChange, handleBlur, handleSubmit, values }) => (
@@ -152,8 +153,11 @@ const SignupScreen = ({ navigation }) => {
                   <FooterText testID="footer-text">
                     Already have an account?
                   </FooterText>
-                  <FooterLink testID="footer-link">
-                    <FooterLinkContent testID="footer-link-content">
+                  <FooterLink
+                    onPress={() => navigation.navigate("LoginScreen")}
+                    testID="footer-login-link"
+                  >
+                    <FooterLinkContent testID="footer-login-link-content">
                       Login
                     </FooterLinkContent>
                   </FooterLink>

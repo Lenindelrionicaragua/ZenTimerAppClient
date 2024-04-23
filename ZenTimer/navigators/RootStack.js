@@ -8,7 +8,7 @@ import LoginScreen from "./../screens/LoginScreen/LoginScreen";
 import SignupScreen from "./../screens/SignupScreen/SignupScreen";
 import WelcomeScreen from "./../screens/WelcomeScreen/WelcomeScreen";
 
-const { lightGrey } = Colors;
+const { white, orange, grey, yellow, lightGrey, black } = Colors;
 const Stack = createNativeStackNavigator();
 
 const RootStack = () => {
@@ -34,6 +34,7 @@ const RootStack = () => {
           testID="login-screen"
         />
         <Stack.Screen
+          options={{ headerTintColor: grey }}
           name="SignupScreen"
           component={SignupScreen}
           testID="signup-screen"

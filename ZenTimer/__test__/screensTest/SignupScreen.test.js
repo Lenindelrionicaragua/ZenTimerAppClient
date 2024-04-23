@@ -311,15 +311,63 @@ describe("Formik Integration Tests", () => {
 
     test("Render correctly", () => {
       const { getByTestId } = signupScreenRender;
-      const footerLinkElement = getByTestId("footer-link");
+      const footerLinkElement = getByTestId("footer-login-link");
       expect(typeof footerLinkElement.props).toBe("object");
     });
 
     test("Render the correct text", () => {
       const { getByTestId } = signupScreenRender;
-      const footerLinkContent = getByTestId("footer-link-content");
+      const footerLinkContent = getByTestId("footer-login-link-content");
       const LinkContent = footerLinkContent.props.children;
       expect(LinkContent).toBe("Login");
     });
+  });
+});
+
+// Navigation Test
+
+describe("SignupScreen navigation", () => {
+  let signupScreenInstance;
+  let navigation;
+
+  beforeEach(() => {
+    navigation = { navigate: jest.fn() };
+
+    const signupScreenRenderWithRenderer = renderer.create(
+      <SignupScreen navigation={navigation} />
+    );
+    signupScreenInstance = signupScreenRenderWithRenderer.root;
+  });
+
+  afterEach(() => {
+    cleanup();
+  });
+
+  test("Navigate to SignupScreen when Login Link is clicked", () => {
+    const { getByTestId } = render(<SignupScreen navigation={navigation} />);
+    const loginLink = getByTestId("footer-login-link");
+
+    act(() => {
+      fireEvent.press(loginLink);
+    });
+
+    expect(navigation.navigate).toHaveBeenCalledWith("LoginScreen");
+  });
+
+  test("navigate to WelcomeScreen when Signup button is clicked", () => {
+    const formikComponent = signupScreenInstance.findByType(Formik);
+    const onSubmit = formikComponent.props.onSubmit;
+
+    act(() => {
+      onSubmit({
+        fullName: "Test User",
+        email: "test@example.com",
+        dateOfBirth: "2000-01-01",
+        password: "password123",
+        confirmPassword: "password123",
+      });
+    });
+
+    expect(navigation.navigate).toHaveBeenCalledWith("WelcomeScreen");
   });
 });
