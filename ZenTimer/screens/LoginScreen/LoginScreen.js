@@ -17,15 +17,48 @@ import {
   FooterView,
   FooterText,
   SignupLink,
-  SignupLinkContent,
+  SignupLinkContent
 } from "./LoginScreenStyles";
+import { View, ActiviyIndicator } from "react-native";
 import { Colors } from "../../styles/AppStyles";
 import TextInputLoginScreen from "../../component/TextInputLoginScreen/TextInputLoginScreen";
+
+// API client
+import axios from "axios";
 
 const { grey, lightGrey } = Colors;
 
 const LoginScreen = ({ navigation }) => {
   const [hidePassword, setHidePassword] = useState(true);
+  const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState("");
+
+  const handleLogin = credentials => {
+    const url =
+      "https://zen-timer-app-server-7f9db58def4c.herokuapp.com/api/auth/sign-up/";
+
+    axios
+      .post(url, credentials)
+      .then(response => {
+        const { message, status, data } = response.data;
+        setMessageType(status);
+
+        if (status !== "SUCCESS") {
+          handleMessage(message, status);
+        } else {
+          navigation.navigate("WelcomeScreen", { ...data[0] });
+        }
+      })
+      .catch(error => {
+        console.error(error);
+        handleMessage("An error ocurred. Check your network and try again");
+      });
+  };
+
+  const handleMessage = ({ message, type = "FAILED" }) => {
+    setMessage(message);
+    setMessageType(type);
+  };
 
   return (
     <KeyboardAvoider>
@@ -42,7 +75,7 @@ const LoginScreen = ({ navigation }) => {
 
           <Formik
             initialValues={{ email: "", password: "" }}
-            onSubmit={(values) => {
+            onSubmit={values => {
               console.log(values);
               navigation.navigate("WelcomeScreen");
             }}
@@ -75,7 +108,9 @@ const LoginScreen = ({ navigation }) => {
                   hidePassword={hidePassword}
                   setHidePassword={setHidePassword}
                 />
-                <MsgBox testID="msg-box">...</MsgBox>
+                <MsgBox testID="msg-box" type={messageType}>
+                  {message}
+                </MsgBox>
                 <StyledButton
                   testID="login-styled-button"
                   onPress={handleSubmit}

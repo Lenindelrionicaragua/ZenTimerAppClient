@@ -288,14 +288,14 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
               <Text
                 style={
                   {
+                    "color": "",
                     "fontSize": 13,
                     "textAlign": "center",
                   }
                 }
                 testID="msg-box"
-              >
-                ...
-              </Text>
+                type=""
+              />
               <View
                 accessibilityState={
                   {

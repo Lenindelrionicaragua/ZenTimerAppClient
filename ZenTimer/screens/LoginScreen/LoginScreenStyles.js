@@ -5,6 +5,9 @@ import { SafeAreaView } from "react-native";
 
 const { white, orange, grey, yellow, lightGrey, black } = Colors;
 
+const green = "#00FF00";
+const red = "#FF0000";
+
 export const StyledContainer = styled(SafeAreaView)`
   flex: 1;
   background-color: ${lightGrey};
@@ -89,7 +92,7 @@ export const StyledButton = styled(Pressable)`
   margin-vertical: 5px;
   height: 60px;
 
-  ${(props) =>
+  ${props =>
     props.google == true &&
     `
     background-color: ${orange};
@@ -99,10 +102,10 @@ export const StyledButton = styled(Pressable)`
 `;
 
 export const ButtonText = styled(Text)`
-  color: ${(props) => (props.google ? black : white)};
+  color: ${props => (props.google ? black : white)};
   font-size: 16px;
 
-  ${(props) =>
+  ${props =>
     props.google == true &&
     `
     padding-left: 15px;
@@ -112,6 +115,9 @@ export const ButtonText = styled(Text)`
 export const MsgBox = styled(Text)`
   text-align: center;
   font-size: 13px;
+  color: ${prop => {
+    prop.type == "SUCCESS" ? green : red;
+  }};
 `;
 
 export const Line = styled(View)`
