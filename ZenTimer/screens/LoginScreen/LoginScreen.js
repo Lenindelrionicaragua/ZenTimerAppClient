@@ -19,21 +19,22 @@ import {
   SignupLink,
   SignupLinkContent
 } from "./LoginScreenStyles";
-import { View, ActiviyIndicator } from "react-native";
+import { ActivityIndicator } from "react-native";
 import { Colors } from "../../styles/AppStyles";
 import TextInputLoginScreen from "../../component/TextInputLoginScreen/TextInputLoginScreen";
 
 // API client
 import axios from "axios";
 
-const { grey, lightGrey } = Colors;
+const { white, grey, lightGrey } = Colors;
 
 const LoginScreen = ({ navigation }) => {
   const [hidePassword, setHidePassword] = useState(true);
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState("");
 
-  const handleLogin = credentials => {
+  const handleLogin = (credentials, setSubmitting) => {
+    // handleMessage(null);
     const url =
       "https://zen-timer-app-server-7f9db58def4c.herokuapp.com/api/auth/sign-up/";
 
@@ -48,9 +49,11 @@ const LoginScreen = ({ navigation }) => {
         } else {
           navigation.navigate("WelcomeScreen", { ...data[0] });
         }
+        setSubmitting(false);
       })
       .catch(error => {
-        console.error(error);
+        console.error(error.JSON());
+        setSubmitting(false);
         handleMessage("An error ocurred. Check your network and try again");
       });
   };
@@ -75,13 +78,24 @@ const LoginScreen = ({ navigation }) => {
 
           <Formik
             initialValues={{ email: "", password: "" }}
-            onSubmit={values => {
-              console.log(values);
-              navigation.navigate("WelcomeScreen");
+            onSubmit={(values, { setSubmitting }) => {
+              if (values.email == "" || values.password == "") {
+                handleMessage("Please fill all the fields");
+                setSubmitting(false);
+                console.log({ setSubmitting });
+              } else {
+                handleLogin(values, setSubmitting);
+              }
             }}
             testID="login-form-formik"
           >
-            {({ handleChange, handleBlur, handleSubmit, values }) => (
+            {({
+              handleChange,
+              handleBlur,
+              handleSubmit,
+              values,
+              isSubmitting
+            }) => (
               <StyledFormArea>
                 <TextInputLoginScreen
                   label="Email Address"
@@ -108,15 +122,24 @@ const LoginScreen = ({ navigation }) => {
                   hidePassword={hidePassword}
                   setHidePassword={setHidePassword}
                 />
-                <MsgBox testID="msg-box" type={messageType}>
+                <MsgBox type={messageType} testID="msg-box">
                   {message}
                 </MsgBox>
-                <StyledButton
-                  testID="login-styled-button"
-                  onPress={handleSubmit}
-                >
-                  <ButtonText testID="login-button-text">Login</ButtonText>
-                </StyledButton>
+                {!isSubmitting && (
+                  <StyledButton
+                    testID="login-styled-button"
+                    onPress={handleSubmit}
+                  >
+                    <ButtonText testID="login-button-text">Login</ButtonText>
+                  </StyledButton>
+                )}
+
+                {isSubmitting && (
+                  <StyledButton disabled={true} testID="login-styled-button">
+                    <ActivityIndicator size="large" color={white} />
+                  </StyledButton>
+                )}
+
                 <Line testID="line" />
                 <StyledButton
                   google={true}

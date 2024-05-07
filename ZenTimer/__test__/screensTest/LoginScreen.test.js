@@ -103,7 +103,7 @@ describe("Formik Integration Tests", () => {
   test("Should have initialValues", () => {
     expect(formikComponent.props.initialValues).toEqual({
       email: "",
-      password: "",
+      password: ""
     });
   });
 
@@ -236,7 +236,7 @@ describe("Formik Integration Tests", () => {
 
       let hasFontistoAsAChild = false;
 
-      React.Children.forEach(children, (child) => {
+      React.Children.forEach(children, child => {
         if (child && child.type === Fontisto) {
           hasFontistoAsAChild = true;
         }

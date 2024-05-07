@@ -5,8 +5,8 @@ import { SafeAreaView } from "react-native";
 
 const { white, orange, grey, yellow, lightGrey, black } = Colors;
 
-const green = "#00FF00";
-const red = "#FF0000";
+const green = "#00ff00";
+const red = "#ff0000";
 
 export const StyledContainer = styled(SafeAreaView)`
   flex: 1;
