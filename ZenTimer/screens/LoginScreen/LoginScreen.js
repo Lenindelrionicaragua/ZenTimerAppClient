@@ -22,6 +22,7 @@ import {
 import { ActivityIndicator } from "react-native";
 import { Colors } from "../../styles/AppStyles";
 import TextInputLoginScreen from "../../component/TextInputLoginScreen/TextInputLoginScreen";
+import useFetch from "../../hooks/useFetch";
 
 // API client
 import axios from "axios";
@@ -34,9 +35,11 @@ const LoginScreen = ({ navigation }) => {
   const [messageType, setMessageType] = useState("");
 
   const handleLogin = (credentials, setSubmitting) => {
-    // handleMessage(null);
+    setMessage("");
+    setMessageType("");
+
     const url =
-      "https://zen-timer-app-server-7f9db58def4c.herokuapp.com/api/auth/sign-up/";
+      "https://zen-timer-app-server-7f9db58def4c.herokuapp.com/api/auth/sign-up";
 
     axios
       .post(url, credentials)
@@ -52,9 +55,11 @@ const LoginScreen = ({ navigation }) => {
         setSubmitting(false);
       })
       .catch(error => {
-        console.error(error.JSON());
+        console.log(error);
         setSubmitting(false);
-        handleMessage("An error ocurred. Check your network and try again");
+        handleMessage({
+          message: "An error occurred. Check your network and try again"
+        });
       });
   };
 
@@ -80,9 +85,8 @@ const LoginScreen = ({ navigation }) => {
             initialValues={{ email: "", password: "" }}
             onSubmit={(values, { setSubmitting }) => {
               if (values.email == "" || values.password == "") {
-                handleMessage("Please fill all the fields");
+                handleMessage({ message: "Please fill all the fields" });
                 setSubmitting(false);
-                console.log({ setSubmitting });
               } else {
                 handleLogin(values, setSubmitting);
               }
