@@ -22,15 +22,11 @@ import {
 import { ActivityIndicator } from "react-native";
 import { Colors } from "../../styles/AppStyles";
 import TextInputLoginScreen from "../../component/TextInputLoginScreen/TextInputLoginScreen";
-import useFetch from "../../hooks/useFetch";
-
-// API client
 import axios from "axios";
 
 const { white, grey, lightGrey } = Colors;
 
 const LoginScreen = ({ navigation }) => {
-  const [hidePassword, setHidePassword] = useState(true);
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState("");
 
@@ -39,23 +35,22 @@ const LoginScreen = ({ navigation }) => {
     setMessageType("");
 
     const url =
-      "https://zen-timer-app-server-7f9db58def4c.herokuapp.com/api/auth/sign-up";
+      "https://zen-timer-app-server-7f9db58def4c.herokuapp.com/api/auth/log-in";
 
     axios
       .post(url, credentials)
       .then(response => {
-        const { message, status, data } = response.data;
-        setMessageType(status);
+        const { success, msg, data } = response.data;
 
-        if (status !== "SUCCESS") {
-          handleMessage(message, status);
+        if (!success) {
+          handleMessage(msg);
         } else {
           navigation.navigate("WelcomeScreen", { ...data[0] });
         }
         setSubmitting(false);
       })
       .catch(error => {
-        console.log(error);
+        console.error(error);
         setSubmitting(false);
         handleMessage({
           message: "An error occurred. Check your network and try again"
