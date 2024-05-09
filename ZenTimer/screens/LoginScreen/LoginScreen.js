@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StatusBar } from "react-native";
+import { StatusBar, TurboModuleRegistry } from "react-native";
 import KeyboardAvoider from "../../component/KeyboardAvoider/KeyboardAvoider";
 import { Formik } from "formik";
 import { Fontisto } from "@expo/vector-icons";
@@ -35,8 +35,7 @@ const LoginScreen = ({ navigation }) => {
   const [success, setSuccessStatus] = useState("");
 
   const handleLogin = (values, setSubmitting) => {
-    setSuccessStatus("");
-    setMsg("");
+    setMsg(""); // Limpiar el mensaje de error
 
     const credentials = {
       email: values.email,
@@ -49,25 +48,25 @@ const LoginScreen = ({ navigation }) => {
     axios
       .post(url, { user: credentials })
       .then(response => {
-        const { success, msg, data } = response.data;
+        const { success, msg, user } = response.data;
 
-        if (success !== "true") {
-          logInfo(response.data.msg);
-          handleMessage({ successStatus: true, msg: response.data.msg });
-        } else {
+        if (success) {
           setSuccessStatus(success);
-          handleLogin({ successStatus: true, msg: response.data.msg });
-          navigation.navigate("WelcomeScreen", { ...data[0] });
+          navigation.navigate("WelcomeScreen", { ...user[0] });
+        } else {
+          logInfo(msg);
+          handleMessage({ successStatus: true, msg: msg });
         }
-        setSubmitting(false);
       })
       .catch(error => {
         logError(error.response.data.msg);
-        setSubmitting(false);
         handleMessage({
           successStatus: false,
           msg: error.response.data.msg
         });
+      })
+      .finally(() => {
+        setSubmitting(false);
       });
   };
 
@@ -96,6 +95,7 @@ const LoginScreen = ({ navigation }) => {
                 handleMessage({ msg: "Please fill all the fields" });
                 setSubmitting(false);
               } else {
+                setSubmitting(true);
                 handleLogin(
                   { email: values.email, password: values.password },
                   setSubmitting

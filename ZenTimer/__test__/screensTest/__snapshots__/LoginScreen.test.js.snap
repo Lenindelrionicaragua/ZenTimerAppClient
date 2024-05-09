@@ -172,8 +172,8 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
                 </Text>
                 <TextInput
                   keyboardType="email-address"
+                  onBlur={[Function]}
                   onChangeText={[Function]}
-                  onblur={[Function]}
                   placeholder="serenity@gmail.com"
                   placeholderTextColor="#f9f7f3"
                   style={
@@ -235,8 +235,8 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
                   Password
                 </Text>
                 <TextInput
+                  onBlur={[Function]}
                   onChangeText={[Function]}
-                  onblur={[Function]}
                   placeholder="* * * * * * *"
                   placeholderTextColor="#f9f7f3"
                   secureTextEntry={true}
@@ -288,13 +288,13 @@ exports[`LoginScreen Renders correctly the LoginScreen Component 1`] = `
               <Text
                 style={
                   {
-                    "color": "",
+                    "color": "#ff0000",
                     "fontSize": 13,
                     "textAlign": "center",
                   }
                 }
                 testID="msg-box"
-                type=""
+                type="ERROR"
               />
               <View
                 accessibilityState={

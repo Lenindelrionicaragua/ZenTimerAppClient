@@ -3,10 +3,10 @@ import { View } from "react-native";
 import { Octicons, Feather } from "@expo/vector-icons";
 import {
   StyledInputLabel,
-  StyledTextInput,
+  StyledTextInput
 } from "../../screens/LoginScreen/LoginScreenStyles";
 
-const TextInputLoginScreen = (props) => {
+const TextInputLoginScreen = props => {
   const {
     label,
     icon,

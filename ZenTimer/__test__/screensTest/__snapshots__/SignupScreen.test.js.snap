@@ -168,8 +168,8 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
                   Full Name
                 </Text>
                 <TextInput
+                  onBlur={[Function]}
                   onChangeText={[Function]}
-                  onblur={[Function]}
                   placeholder="Zen User"
                   placeholderTextColor="#f9f7f3"
                   style={
@@ -243,8 +243,8 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
                 </Text>
                 <TextInput
                   keyboardType="email-address"
+                  onBlur={[Function]}
                   onChangeText={[Function]}
-                  onblur={[Function]}
                   placeholder="serenity@gmail.com"
                   placeholderTextColor="#f9f7f3"
                   style={
@@ -349,8 +349,8 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
                 >
                   <TextInput
                     editable={false}
+                    onBlur={[Function]}
                     onChangeText={[Function]}
-                    onblur={[Function]}
                     placeholder="YYYY - MM - DD"
                     placeholderTextColor="#f9f7f3"
                     style={
@@ -424,8 +424,8 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
                   Password
                 </Text>
                 <TextInput
+                  onBlur={[Function]}
                   onChangeText={[Function]}
-                  onblur={[Function]}
                   placeholder="* * * * * * *"
                   placeholderTextColor="#f9f7f3"
                   secureTextEntry={true}
@@ -561,8 +561,8 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
                   Confirm Password
                 </Text>
                 <TextInput
+                  onBlur={[Function]}
                   onChangeText={[Function]}
-                  onblur={[Function]}
                   placeholder="* * * * * * *"
                   placeholderTextColor="#f9f7f3"
                   secureTextEntry={true}

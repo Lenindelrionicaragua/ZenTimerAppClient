@@ -24,14 +24,16 @@ export const logWarning = message => {
 /**
  * logError should be used to log anything that is app breaking
  */
-export const logError = errorMessage => {
-  if (errorMessage instanceof Error) {
-    // You can pass an Error to this function and we will post the stack
-    // eslint-disable-next-line no-console
-    console.error(errorMessage.message, errorMessage.stack);
+export const logError = error => {
+  if (error instanceof Error) {
+    console.error(error.message, error.stack);
+    if (error.innerError) {
+      console.error("Inner Error: ", error.innerError);
+    }
+  } else if (typeof error === "object") {
+    console.error("ERROR: ", JSON.stringify(error, null, 2));
   } else {
-    // eslint-disable-next-line no-console
-    console.error("ERROR: ", errorMessage);
+    console.error("ERROR: ", error);
   }
 };
 

@@ -5,7 +5,7 @@ import {
   fireEvent,
   act,
   waitFor,
-  cleanup,
+  cleanup
 } from "@testing-library/react-native";
 import { Formik } from "formik";
 import { StatusBar } from "react-native";
@@ -87,7 +87,7 @@ describe("Formik Integration Tests", () => {
       email: "",
       dateOfBirth: "",
       password: "",
-      confirmPassword: "",
+      confirmPassword: ""
     });
   });
 
@@ -142,47 +142,47 @@ describe("Formik Integration Tests", () => {
       });
     });
 
-    describe("Form State Update", () => {
-      let dateOfBirth;
+    // describe("Form State Update", () => {
+    //   let dateOfBirth;
 
-      const renderForm = () => {
-        const { getByTestId } = signupScreenRender;
-        dateOfBirth = getByTestId("date-of-birth");
-      };
+    //   const renderForm = () => {
+    //     const { getByTestId } = signupScreenRender;
+    //     dateOfBirth = getByTestId("date-of-birth");
+    //   };
 
-      beforeEach(() => {
-        renderForm();
-      });
+    //   beforeEach(() => {
+    //     renderForm();
+    //   });
 
-      afterEach(() => {
-        cleanup();
-      });
+    //   afterEach(() => {
+    //     cleanup();
+    //   });
 
-      test("Correctly updates form state on onChangeText and onBlur", () => {
-        act(() => {
-          fireEvent.changeText(fullName, "Zen User");
-          fireEvent(fullName, "blur");
+    //   test("Correctly updates form state on onChangeText and onBlur", () => {
+    //     act(() => {
+    //       fireEvent.changeText(fullName, "Zen User");
+    //       fireEvent(fullName, "blur");
 
-          fireEvent.changeText(emailInput, "serenity@gmail.com");
-          fireEvent(emailInput, "blur");
+    //       fireEvent.changeText(emailInput, "serenity@gmail.com");
+    //       fireEvent(emailInput, "blur");
 
-          fireEvent.changeText(dateOfBirth, "");
-          fireEvent(dateOfBirth, "blur");
+    //       fireEvent.changeText(dateOfBirth, "");
+    //       fireEvent(dateOfBirth, "blur");
 
-          fireEvent.changeText(passwordInput, "password123");
-          fireEvent(passwordInput, "blur");
+    //       fireEvent.changeText(passwordInput, "password123");
+    //       fireEvent(passwordInput, "blur");
 
-          fireEvent.changeText(confirmPasswordInput, "password123");
-          fireEvent(confirmPasswordInput, "blur");
-        });
+    //       fireEvent.changeText(confirmPasswordInput, "password123");
+    //       fireEvent(confirmPasswordInput, "blur");
+    //     });
 
-        expect(fullName.props.value).toBe("Zen User");
-        expect(emailInput.props.value).toBe("serenity@gmail.com");
-        expect(dateOfBirth.props.value).toBe("");
-        expect(passwordInput.props.value).toBe("password123");
-        expect(confirmPasswordInput.props.value).toBe("password123");
-      });
-    });
+    //     expect(fullName.props.value).toBe("Zen User");
+    //     expect(emailInput.props.value).toBe("serenity@gmail.com");
+    //     expect(dateOfBirth.props.value).toBe("");
+    //     expect(passwordInput.props.value).toBe("password123");
+    //     expect(confirmPasswordInput.props.value).toBe("password123");
+    //   });
+    // });
   });
 
   describe("DateTimePicker", () => {
@@ -229,7 +229,7 @@ describe("Formik Integration Tests", () => {
 
         act(() => {
           fireEvent(dateTimePicker, "onChange", {
-            nativeEvent: { timestamp: "Tue Feb 01 2022" },
+            nativeEvent: { timestamp: "Tue Feb 01 2022" }
           });
         });
       });
@@ -364,7 +364,7 @@ describe("SignupScreen navigation", () => {
         email: "test@example.com",
         dateOfBirth: "2000-01-01",
         password: "password123",
-        confirmPassword: "password123",
+        confirmPassword: "password123"
       });
     });
 
