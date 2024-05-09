@@ -22,45 +22,58 @@ import {
 import { ActivityIndicator } from "react-native";
 import { Colors } from "../../styles/AppStyles";
 import TextInputLoginScreen from "../../component/TextInputLoginScreen/TextInputLoginScreen";
+import { logError, logInfo } from "../../util/logging";
+
+// API client
 import axios from "axios";
 
 const { white, grey, lightGrey } = Colors;
 
 const LoginScreen = ({ navigation }) => {
-  const [message, setMessage] = useState("");
-  const [messageType, setMessageType] = useState("");
+  const [hidePassword, setHidePassword] = useState(true);
+  const [msg, setMsg] = useState("");
+  const [success, setSuccessStatus] = useState("");
 
-  const handleLogin = (credentials, setSubmitting) => {
-    setMessage("");
-    setMessageType("");
+  const handleLogin = (values, setSubmitting) => {
+    setSuccessStatus("");
+    setMsg("");
+
+    const credentials = {
+      email: values.email,
+      password: values.password
+    };
 
     const url =
       "https://zen-timer-app-server-7f9db58def4c.herokuapp.com/api/auth/log-in";
 
     axios
-      .post(url, credentials)
+      .post(url, { user: credentials })
       .then(response => {
         const { success, msg, data } = response.data;
 
-        if (!success) {
-          handleMessage(msg);
+        if (success !== "true") {
+          logInfo(response.data.msg);
+          handleMessage({ successStatus: true, msg: response.data.msg });
         } else {
+          setSuccessStatus(success);
+          handleLogin({ successStatus: true, msg: response.data.msg });
           navigation.navigate("WelcomeScreen", { ...data[0] });
         }
         setSubmitting(false);
       })
       .catch(error => {
-        console.error(error);
+        logError(error.response.data.msg);
         setSubmitting(false);
         handleMessage({
-          message: "An error occurred. Check your network and try again"
+          successStatus: false,
+          msg: error.response.data.msg
         });
       });
   };
 
-  const handleMessage = ({ message, type = "FAILED" }) => {
-    setMessage(message);
-    setMessageType(type);
+  const handleMessage = ({ successStatus, msg }) => {
+    setSuccessStatus(successStatus);
+    setMsg(msg);
   };
 
   return (
@@ -80,10 +93,13 @@ const LoginScreen = ({ navigation }) => {
             initialValues={{ email: "", password: "" }}
             onSubmit={(values, { setSubmitting }) => {
               if (values.email == "" || values.password == "") {
-                handleMessage({ message: "Please fill all the fields" });
+                handleMessage({ msg: "Please fill all the fields" });
                 setSubmitting(false);
               } else {
-                handleLogin(values, setSubmitting);
+                handleLogin(
+                  { email: values.email, password: values.password },
+                  setSubmitting
+                );
               }
             }}
             testID="login-form-formik"
@@ -102,7 +118,7 @@ const LoginScreen = ({ navigation }) => {
                   placeholder="serenity@gmail.com"
                   placeholderTextColor={lightGrey}
                   onChangeText={handleChange("email")}
-                  onblur={handleBlur("email")}
+                  onBlur={handleBlur("email")}
                   value={values.email}
                   keyboardType="email-address"
                   testID="email-input"
@@ -113,7 +129,7 @@ const LoginScreen = ({ navigation }) => {
                   placeholder="* * * * * * *"
                   placeholderTextColor={lightGrey}
                   onChangeText={handleChange("password")}
-                  onblur={handleBlur("password")}
+                  onBlur={handleBlur("password")}
                   value={values.password}
                   secureTextEntry={hidePassword}
                   testID="password-input"
@@ -121,8 +137,8 @@ const LoginScreen = ({ navigation }) => {
                   hidePassword={hidePassword}
                   setHidePassword={setHidePassword}
                 />
-                <MsgBox type={messageType} testID="msg-box">
-                  {message}
+                <MsgBox type={success ? "SUCCESS" : "ERROR"} testID="msg-box">
+                  {msg}
                 </MsgBox>
                 {!isSubmitting && (
                   <StyledButton
