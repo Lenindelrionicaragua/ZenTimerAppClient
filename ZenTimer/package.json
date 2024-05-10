@@ -17,6 +17,7 @@
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/native-stack": "^6.9.26",
     "axios": "^1.6.8",
+    "axios-mock-adapter": "^1.22.0",
     "components": "^0.1.0",
     "constants": "^0.0.2",
     "expo": "~50.0.15",

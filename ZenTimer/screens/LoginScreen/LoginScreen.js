@@ -35,7 +35,8 @@ const LoginScreen = ({ navigation }) => {
   const [success, setSuccessStatus] = useState("");
 
   const handleLogin = (values, setSubmitting) => {
-    setMsg(""); // Limpiar el mensaje de error
+    setMsg("");
+    setSuccessStatus("");
 
     const credentials = {
       email: values.email,
@@ -52,7 +53,7 @@ const LoginScreen = ({ navigation }) => {
 
         if (success) {
           setSuccessStatus(success);
-          navigation.navigate("WelcomeScreen", { ...user[0] });
+          navigation.navigate("WelcomeScreen", { user: user });
         } else {
           logInfo(msg);
           handleMessage({ successStatus: true, msg: msg });
