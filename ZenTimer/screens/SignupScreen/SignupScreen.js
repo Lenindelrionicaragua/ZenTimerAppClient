@@ -16,7 +16,7 @@ import {
   FooterView,
   FooterText,
   FooterLink,
-  FooterLinkContent,
+  FooterLinkContent
 } from "./SignupScreenStyles";
 import { Colors } from "../../styles/AppStyles";
 import TextInputSignupScreen from "../../component/TextInputSignupScreen/TextInputSignupScreen";
@@ -66,9 +66,9 @@ const SignupScreen = ({ navigation }) => {
               email: "",
               dateOfBirth: "",
               password: "",
-              confirmPassword: "",
+              confirmPassword: ""
             }}
-            onSubmit={(values) => {
+            onSubmit={values => {
               console.log(values);
               navigation.navigate("WelcomeScreen");
             }}
@@ -81,7 +81,7 @@ const SignupScreen = ({ navigation }) => {
                   placeholder="Zen User"
                   placeholderTextColor={lightGrey}
                   onChangeText={handleChange("fullName")}
-                  onblur={handleBlur("fullName")}
+                  onBlur={handleBlur("fullName")}
                   value={values.fullName}
                   testID="full-name"
                 />
@@ -92,7 +92,7 @@ const SignupScreen = ({ navigation }) => {
                   placeholder="serenity@gmail.com"
                   placeholderTextColor={lightGrey}
                   onChangeText={handleChange("email")}
-                  onblur={handleBlur("email")}
+                  onBlur={handleBlur("email")}
                   value={values.email}
                   keyboardType="email-address"
                   testID="email-input"
@@ -104,7 +104,7 @@ const SignupScreen = ({ navigation }) => {
                   placeholder="YYYY - MM - DD"
                   placeholderTextColor={lightGrey}
                   onChangeText={handleChange("dateOfBirth")}
-                  onblur={handleBlur("dateOfBirth")}
+                  onBlur={handleBlur("dateOfBirth")}
                   value={userBirthDay ? userBirthDay.toDateString() : ""}
                   testID="date-of-birth"
                   isDate={true}
@@ -118,7 +118,7 @@ const SignupScreen = ({ navigation }) => {
                   placeholder="* * * * * * *"
                   placeholderTextColor={lightGrey}
                   onChangeText={handleChange("password")}
-                  onblur={handleBlur("password")}
+                  onBlur={handleBlur("password")}
                   value={values.password}
                   secureTextEntry={hidePassword}
                   testID="password-input"
@@ -133,7 +133,7 @@ const SignupScreen = ({ navigation }) => {
                   placeholder="* * * * * * *"
                   placeholderTextColor={lightGrey}
                   onChangeText={handleChange("confirmPassword")}
-                  onblur={handleBlur("confirmPassword")}
+                  onBlur={handleBlur("confirmPassword")}
                   value={values.confirmPassword}
                   secureTextEntry={hidePassword}
                   testID="confirm-password-input"

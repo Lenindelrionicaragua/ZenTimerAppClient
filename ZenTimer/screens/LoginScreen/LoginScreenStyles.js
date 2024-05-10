@@ -115,9 +115,7 @@ export const ButtonText = styled(Text)`
 export const MsgBox = styled(Text)`
   text-align: center;
   font-size: 13px;
-  color: ${prop => {
-    prop.type == "SUCCESS" ? green : red;
-  }};
+  color: ${prop => (prop.type === "SUCCESS" ? green : red)};
 `;
 
 export const Line = styled(View)`

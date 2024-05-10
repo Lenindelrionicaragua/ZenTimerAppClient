@@ -1,5 +1,7 @@
 import React from "react";
 import { render, fireEvent, act, cleanup } from "@testing-library/react-native";
+import MockAdapter from "axios-mock-adapter";
+import axios from "axios";
 import renderer from "react-test-renderer";
 import { Fontisto } from "@expo/vector-icons";
 import LoginScreen from "../../screens/LoginScreen/LoginScreen";
@@ -96,10 +98,6 @@ describe("Formik Integration Tests", () => {
     expect(formikComponent).toBeTruthy();
   });
 
-  test("Render a Formik component", () => {
-    expect(formikComponent).toBeTruthy();
-  });
-
   test("Should have initialValues", () => {
     expect(formikComponent.props.initialValues).toEqual({
       email: "",
@@ -107,21 +105,45 @@ describe("Formik Integration Tests", () => {
     });
   });
 
-  test("Should have a function as a child", () => {
-    expect(typeof formikComponent.props.children).toBe("function");
+  test("Formik should have onSubmit function", () => {
+    expect(formikComponent.props.onSubmit).toBeDefined();
   });
 
-  // LoginTextInput
-  describe("LoginTextInput", () => {
-    let emailInput;
-    let passwordInput;
+  test("Formik should handle onSubmit", () => {
+    expect(formikComponent.props.onSubmit).toBeInstanceOf(Function);
+  });
+});
 
-    const renderForm = () => {
-      const { getByTestId } = loginScreenRender;
-      emailInput = getByTestId("email-input");
-      passwordInput = getByTestId("password-input");
-    };
+// LoginTextInput
+describe("LoginTextInput", () => {
+  let emailInput;
+  let passwordInput;
 
+  const renderForm = () => {
+    const { getByTestId } = loginScreenRender;
+    emailInput = getByTestId("email-input");
+    passwordInput = getByTestId("password-input");
+  };
+
+  beforeEach(() => {
+    renderForm();
+  });
+
+  afterEach(() => {
+    cleanup();
+  });
+
+  describe("Rendering", () => {
+    test("Renders correctly the email-input", () => {
+      expect(emailInput).toBeTruthy();
+    });
+
+    test("Renders correctly the password-input", () => {
+      expect(passwordInput).toBeTruthy();
+    });
+  });
+
+  describe("Form State Update", () => {
     beforeEach(() => {
       renderForm();
     });
@@ -130,44 +152,23 @@ describe("Formik Integration Tests", () => {
       cleanup();
     });
 
-    describe("Rendering", () => {
-      test("Renders correctly the email-input", () => {
-        expect(emailInput).toBeTruthy();
-      });
+    test("Correctly updates form state on onChangeText and onBlur", () => {
+      const { getByTestId } = loginScreenRender;
 
-      test("Renders correctly the password-input", () => {
-        expect(passwordInput).toBeTruthy();
-      });
-    });
-
-    describe("Form State Update", () => {
-      beforeEach(() => {
-        renderForm();
-      });
-
-      afterEach(() => {
-        cleanup();
-      });
-
-      test("Correctly updates form state on onChangeText and onBlur", () => {
-        const { getByTestId } = loginScreenRender;
-
-        act(() => {
-          fireEvent.changeText(
-            getByTestId("email-input"),
-            "serenity@gmail.com"
-          );
-          fireEvent(getByTestId("email-input"), "blur");
-
-          fireEvent.changeText(getByTestId("password-input"), "password123");
-          fireEvent(getByTestId("password-input"), "blur");
+      act(() => {
+        fireEvent.changeText(getByTestId("email-input"), "serenity@gmail.com");
+        fireEvent(getByTestId("email-input"), "blur", {
+          target: { value: "serenity@gmail.com" }
         });
 
-        expect(getByTestId("email-input").props.value).toBe(
-          "serenity@gmail.com"
-        );
-        expect(getByTestId("password-input").props.value).toBe("password123");
+        fireEvent.changeText(getByTestId("password-input"), "password123");
+        fireEvent(getByTestId("password-input"), "blur", {
+          target: { value: "password123" }
+        });
       });
+
+      expect(getByTestId("email-input").props.value).toBe("serenity@gmail.com");
+      expect(getByTestId("password-input").props.value).toBe("password123");
     });
   });
 
@@ -298,7 +299,7 @@ describe("Formik Integration Tests", () => {
     });
   });
 
-  // Navigation Test
+  //Navigation Test
 
   describe("loginScreen navigation", () => {
     let loginScreenInstance;
@@ -328,15 +329,112 @@ describe("Formik Integration Tests", () => {
       expect(navigation.navigate).toHaveBeenCalledWith("SignupScreen");
     });
 
-    test("navigate to WelcomeScreen when Login button is clicked", () => {
+    test("navigate to WelcomeScreen when Login button is clicked", async () => {
+      const mock = new MockAdapter(axios);
       const formikComponent = loginScreenInstance.findByType(Formik);
-      const onSubmit = formikComponent.props.onSubmit;
+      const handleLogin = formikComponent.props.onSubmit;
+      const setSubmitting = jest.fn();
 
-      act(() => {
-        onSubmit({ email: "test@example.com", password: "password123" });
+      const url =
+        "https://zen-timer-app-server-7f9db58def4c.herokuapp.com/api/auth/log-in";
+
+      mock.onPost(url).reply(200, {
+        success: true,
+        msg: "Login successful",
+        user: {
+          id: "6638d16d96bf8c3d0d4cf2e4",
+          email: "johnlenin@email.com",
+          name: "John Lenin"
+        }
       });
 
-      expect(navigation.navigate).toHaveBeenCalledWith("WelcomeScreen");
+      await act(async () => {
+        await handleLogin(
+          { email: "johnlenin@email.com", password: "Password1234!" },
+          { setSubmitting }
+        );
+      });
+
+      expect(navigation.navigate).toHaveBeenCalledWith("WelcomeScreen", {
+        user: {
+          id: "6638d16d96bf8c3d0d4cf2e4",
+          email: "johnlenin@email.com",
+          name: "John Lenin"
+        }
+      });
+      expect(setSubmitting).toHaveBeenCalledWith(false);
+    });
+
+    test("navigate to WelcomeScreen should fail if request does not have a valid email", async () => {
+      const mock = new MockAdapter(axios);
+      const formikComponent = loginScreenInstance.findByType(Formik);
+      const handleLogin = formikComponent.props.onSubmit;
+      const setSubmitting = jest.fn();
+
+      const url =
+        "https://zen-timer-app-server-7f9db58def4c.herokuapp.com/api/auth/log-in";
+
+      mock.onPost(url).reply(200, {
+        success: false,
+        error: "BAD REQUEST: Email and password are required."
+      });
+
+      await act(async () => {
+        await handleLogin(
+          { email: "", password: "Password1234!" },
+          { setSubmitting }
+        );
+      });
+
+      expect(navigation.navigate).not.toHaveBeenCalled();
+      expect(setSubmitting).toHaveBeenCalledWith(false);
+    });
+
+    test("navigate to WelcomeScreen should fail if request does not have a valid password", async () => {
+      const mock = new MockAdapter(axios);
+      const formikComponent = loginScreenInstance.findByType(Formik);
+      const handleLogin = formikComponent.props.onSubmit;
+      const setSubmitting = jest.fn();
+
+      const url =
+        "https://zen-timer-app-server-7f9db58def4c.herokuapp.com/api/auth/log-in";
+
+      mock.onPost(url).reply(200, {
+        success: false,
+        error: "BAD REQUEST: Email and password are required."
+      });
+
+      await act(async () => {
+        await handleLogin(
+          { email: "johnlenin@email.com", password: "" },
+          { setSubmitting }
+        );
+      });
+
+      expect(navigation.navigate).not.toHaveBeenCalled();
+      expect(setSubmitting).toHaveBeenCalledWith(false);
+    });
+
+    test("navigate to WelcomeScreen should fail if request is an empty object", async () => {
+      const mock = new MockAdapter(axios);
+      const formikComponent = loginScreenInstance.findByType(Formik);
+      const handleLogin = formikComponent.props.onSubmit;
+      const setSubmitting = jest.fn();
+
+      const url =
+        "https://zen-timer-app-server-7f9db58def4c.herokuapp.com/api/auth/log-in";
+
+      mock.onPost(url).reply(200, {
+        success: false,
+        msg: "Invalid request body"
+      });
+
+      await act(async () => {
+        await handleLogin({}, { setSubmitting });
+      });
+
+      expect(navigation.navigate).not.toHaveBeenCalled();
+      expect(setSubmitting).toHaveBeenCalledWith(false);
     });
   });
 });
