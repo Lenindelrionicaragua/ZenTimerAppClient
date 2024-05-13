@@ -12,10 +12,12 @@ import {
   Line,
   WelcomeContainer,
   WelcomeImage,
-  Avatar,
+  Avatar
 } from "./WelcomeScreenStyles";
 
-const WelcomeScreen = ({ navigation }) => {
+const WelcomeScreen = ({ navigation, route }) => {
+  const { name, email, id } = route.params;
+
   return (
     <StyledContainer testID="styled-container">
       <StatusBar style="light" />
@@ -31,10 +33,10 @@ const WelcomeScreen = ({ navigation }) => {
             Welcome!
           </PageTitle>
           <SubTitle welcome={true} testID="user-name">
-            Zen User
+            {name || "Zen User"}
           </SubTitle>
           <SubTitle welcome={true} testID="user-email">
-            serenity@gmail.com
+            {email || "serenity@gmail.com"}
           </SubTitle>
           <StyledFormArea>
             <Avatar

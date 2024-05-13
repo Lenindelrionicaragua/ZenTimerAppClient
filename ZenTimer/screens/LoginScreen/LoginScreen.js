@@ -53,7 +53,7 @@ const LoginScreen = ({ navigation }) => {
 
         if (success) {
           setSuccessStatus(success);
-          navigation.navigate("WelcomeScreen", { user: user });
+          navigation.navigate("WelcomeScreen", user);
         } else {
           logInfo(msg);
           handleMessage({ successStatus: true, msg: msg });
