@@ -41,6 +41,10 @@ const SignupScreen = ({ navigation }) => {
     setShow(false);
     setDate(currentDate);
     setUserBirthDay(currentDate);
+
+    logInfo("Valor de selectedDate:", selectedDate);
+
+    logInfo("Fecha seleccionada por DatePicker:", currentDate.toDateString());
   };
 
   const showDatePicker = () => {
@@ -56,7 +60,7 @@ const SignupScreen = ({ navigation }) => {
       name: values.name,
       email: values.email,
       password: values.password,
-      dateOfBirth: values.dateOfBirth
+      dateOfBirth: values.dateOfBirth.toDateString()
     };
 
     const url =
@@ -122,11 +126,11 @@ const SignupScreen = ({ navigation }) => {
             onSubmit={(values, { setSubmitting }) => {
               values = { ...values, dateOfBirth: userBirthDay };
               if (
-                values.name === "" ||
-                values.email === "" ||
-                values.dateOfBirth === "" ||
-                values.password === "" ||
-                values.confirmPassword === ""
+                values.name == "" ||
+                values.email == "" ||
+                values.dateOfBirth == "" ||
+                values.password == "" ||
+                values.confirmPassword == ""
               ) {
                 handleMessage({ msg: "Please fill all the fields" });
                 setSubmitting(false);
@@ -143,6 +147,11 @@ const SignupScreen = ({ navigation }) => {
                     dateOfBirth: values.dateOfBirth
                   },
                   setSubmitting
+                );
+
+                logInfo(
+                  "Fecha seleccionada por DatePicker:",
+                  values.dateOfBirth
                 );
               }
             }}
@@ -163,8 +172,8 @@ const SignupScreen = ({ navigation }) => {
                   placeholderTextColor={lightGrey}
                   onChangeText={handleChange("name")}
                   onBlur={handleBlur("name")}
-                  value={values.fullName}
-                  testID="full-name"
+                  value={values.name}
+                  testID="name"
                 />
 
                 <TextInputSignupScreen
@@ -182,7 +191,7 @@ const SignupScreen = ({ navigation }) => {
                 <TextInputSignupScreen
                   label="Date of Birth"
                   icon="calendar"
-                  placeholder="YYYY - MM - DD"
+                  placeholder="Tue Feb 01 1984"
                   placeholderTextColor={lightGrey}
                   onChangeText={handleChange("dateOfBirth")}
                   onBlur={handleBlur("dateOfBirth")}

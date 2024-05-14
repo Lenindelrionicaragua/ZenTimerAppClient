@@ -165,7 +165,7 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
                     }
                   }
                 >
-                  Full Name
+                  Name
                 </Text>
                 <TextInput
                   onBlur={[Function]}
@@ -190,7 +190,7 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
                       "paddingTop": 15,
                     }
                   }
-                  testID="full-name"
+                  testID="name"
                   value=""
                 />
               </View>
@@ -653,14 +653,14 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
               <Text
                 style={
                   {
+                    "color": "#ff0000",
                     "fontSize": 13,
                     "textAlign": "center",
                   }
                 }
                 testID="msg-box"
-              >
-                ...
-              </Text>
+                type="ERROR"
+              />
               <View
                 accessibilityState={
                   {

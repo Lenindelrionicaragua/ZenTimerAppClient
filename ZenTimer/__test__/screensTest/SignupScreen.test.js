@@ -10,7 +10,8 @@ import {
 import { Formik } from "formik";
 import { StatusBar } from "react-native";
 import SignupScreen from "../../screens/SignupScreen/SignupScreen";
-
+import axios from "axios";
+import MockAdapter from "axios-mock-adapter";
 // Rendering Functions
 const renderSignupScreen = () => render(<SignupScreen />);
 const renderSignupScreenWithRenderer = () => renderer.create(<SignupScreen />);
@@ -83,7 +84,7 @@ describe("Formik Integration Tests", () => {
 
   test("Should have initialValues", () => {
     expect(formikComponent.props.initialValues).toEqual({
-      fullName: "",
+      name: "",
       email: "",
       dateOfBirth: "",
       password: "",
@@ -97,7 +98,7 @@ describe("Formik Integration Tests", () => {
 
   //TextInputSignupScreen
   describe("TextInputSingupScreen", () => {
-    let fullName;
+    let name;
     let emailInput;
     let dateOfBirth;
     let passwordInput;
@@ -105,7 +106,7 @@ describe("Formik Integration Tests", () => {
 
     const renderForm = () => {
       const { getByTestId } = signupScreenRender;
-      fullName = getByTestId("full-name");
+      name = getByTestId("name");
       emailInput = getByTestId("email-input");
       dateOfBirth = getByTestId("date-of-birth");
       passwordInput = getByTestId("password-input");
@@ -121,8 +122,8 @@ describe("Formik Integration Tests", () => {
     });
 
     describe("Rendering", () => {
-      test("Renders correctly the full-name", () => {
-        expect(fullName).toBeTruthy();
+      test("Renders correctly the name", () => {
+        expect(name).toBeTruthy();
       });
 
       test("Renders correctly the email-input", () => {
@@ -354,20 +355,50 @@ describe("SignupScreen navigation", () => {
     expect(navigation.navigate).toHaveBeenCalledWith("LoginScreen");
   });
 
-  test("navigate to WelcomeScreen when Signup button is clicked", () => {
+  test("navigate to WelcomeScreen when Signup button is clicked", async () => {
+    const mock = new MockAdapter(axios);
     const formikComponent = signupScreenInstance.findByType(Formik);
-    const onSubmit = formikComponent.props.onSubmit;
+    const handleSignup = formikComponent.props.onSubmit;
+    const setSubmitting = jest.fn();
 
-    act(() => {
-      onSubmit({
-        fullName: "Test User",
-        email: "test@example.com",
-        dateOfBirth: "2000-01-01",
-        password: "password123",
-        confirmPassword: "password123"
-      });
+    const url =
+      "https://zen-timer-app-server-7f9db58def4c.herokuapp.com/api/auth/sign-up";
+
+    mock.onPost(url).reply(200, {
+      success: true,
+      msg: "User created successfully",
+      user: {
+        name: "Alex Lara",
+        email: "alexlara2@email.com",
+        password:
+          "$2b$10$BvpVRqsJkJ0baUqBFfQ0muu4qJ2q25wDlQtdOso8ZuzE9SFmivFJC",
+        dateOfBirth: "Tue Feb 01 1984",
+        _id: "66436d01c99318a9008d4361",
+        __v: 0
+      }
     });
 
-    expect(navigation.navigate).toHaveBeenCalledWith("WelcomeScreen");
+    await act(async () => {
+      await handleSignup(
+        {
+          name: "Alex Lara",
+          email: "alexlara2@email.com",
+          dateOfBirth: "Tue Feb 01 1984",
+          password: "Password1234!",
+          confirmPassword: "Password1234!"
+        },
+        { setSubmitting }
+      );
+    });
+
+    expect(navigation.navigate).toHaveBeenCalledWith("WelcomeScreen", {
+      name: "Alex Lara",
+      email: "alexlara2@email.com",
+      password: "$2b$10$BvpVRqsJkJ0baUqBFfQ0muu4qJ2q25wDlQtdOso8ZuzE9SFmivFJC",
+      dateOfBirth: "Tue Feb 01 1984",
+      _id: "66436d01c99318a9008d4361",
+      __v: 0
+    });
+    expect(setSubmitting).toHaveBeenCalledWith(false);
   });
 });
