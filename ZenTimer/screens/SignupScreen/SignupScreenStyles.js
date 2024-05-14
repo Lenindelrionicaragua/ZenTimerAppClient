@@ -5,6 +5,9 @@ import { Colors } from "../../styles/AppStyles";
 
 const { white, orange, grey, yellow, lightGrey, black } = Colors;
 
+const green = "#00ff00";
+const red = "#ff0000";
+
 export const StyledContainer = styled(SafeAreaView)`
   flex: 1;
   padding: 15px;
@@ -81,7 +84,7 @@ export const StyledButton = styled(Pressable)`
   margin-vertical: 5px;
   height: 60px;
 
-  ${(props) =>
+  ${props =>
     props.google == true &&
     `
     background-color: ${orange};
@@ -94,7 +97,7 @@ export const ButtonText = styled(Text)`
   color: ${white};
   font-size: 16px;
 
-  ${(props) =>
+  ${props =>
     props.google == true &&
     `
     padding: 25px;
@@ -105,6 +108,7 @@ export const ButtonText = styled(Text)`
 export const MsgBox = styled(Text)`
   text-align: center;
   font-size: 13px;
+  color: ${prop => (prop.type === "SUCCESS" ? green : red)};
 `;
 
 export const Line = styled(View)`

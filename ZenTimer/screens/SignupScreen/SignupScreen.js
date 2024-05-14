@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StatusBar } from "react-native";
+import { StatusBar, ActivityIndicator } from "react-native";
 import KeyboardAvoider from "../../component/KeyboardAvoider/KeyboardAvoider";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { Formik } from "formik";
@@ -20,15 +20,20 @@ import {
 } from "./SignupScreenStyles";
 import { Colors } from "../../styles/AppStyles";
 import TextInputSignupScreen from "../../component/TextInputSignupScreen/TextInputSignupScreen";
+// API client
+import axios from "axios";
 
 // Colors
-const { lightGrey } = Colors;
+const { white, lightGrey } = Colors;
 
 const SignupScreen = ({ navigation }) => {
   const [hidePassword, setHidePassword] = useState(true);
   const [show, setShow] = useState(false);
   const [date, setDate] = useState(new Date(2000, 0, 1));
   const [userBirthDay, setUserBirthDay] = useState();
+
+  const [msg, setMsg] = useState("");
+  const [success, setSuccessStatus] = useState("");
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
@@ -39,6 +44,51 @@ const SignupScreen = ({ navigation }) => {
 
   const showDatePicker = () => {
     setShow(true);
+  };
+
+  // form handling
+  const handleSignup = (values, setSubmitting) => {
+    setMsg("");
+    setSuccessStatus("");
+
+    const credentials = {
+      name: values.name,
+      email: values.email,
+      password: values.password,
+      dateOfBirth: values.dateOfBirth
+    };
+
+    const url =
+      "https://zen-timer-app-server-7f9db58def4c.herokuapp.com/api/auth/sign-up";
+
+    axios
+      .post(url, { user: credentials })
+      .then(response => {
+        const { success, msg, user } = response.data;
+
+        if (success) {
+          setSuccessStatus(success);
+          navigation.navigate("WelcomeScreen", user);
+        } else {
+          logInfo(msg);
+          handleMessage({ successStatus: true, msg: msg });
+        }
+      })
+      .catch(error => {
+        logError(error.response.data.msg);
+        handleMessage({
+          successStatus: false,
+          msg: error.response.data.msg
+        });
+      })
+      .finally(() => {
+        setSubmitting(false);
+      });
+  };
+
+  const handleMessage = ({ successStatus, msg }) => {
+    setSuccessStatus(successStatus);
+    setMsg(msg);
   };
 
   return (
@@ -62,26 +112,56 @@ const SignupScreen = ({ navigation }) => {
 
           <Formik
             initialValues={{
-              fullName: "",
+              name: "",
               email: "",
               dateOfBirth: "",
               password: "",
               confirmPassword: ""
             }}
-            onSubmit={values => {
-              console.log(values);
-              navigation.navigate("WelcomeScreen");
+            onSubmit={(values, { setSubmitting }) => {
+              values = { ...values, dateOfBirth: userBirthDay };
+              if (
+                values.name === "" ||
+                values.email === "" ||
+                values.dateOfBirth === "" ||
+                values.password === "" ||
+                values.confirmPassword === ""
+              ) {
+                handleMessage({ msg: "Please fill all the fields" });
+                setSubmitting(false);
+              } else if (values.password !== values.confirmPassword) {
+                handleMessage({ msg: "Passwords do not match" });
+                setSubmitting(false);
+              } else {
+                setSubmitting(true);
+                handleSignup(
+                  {
+                    name: values.name,
+                    email: values.email,
+                    password: values.password,
+                    dateOfBirth: values.dateOfBirth
+                  },
+                  setSubmitting
+                );
+              }
             }}
+            testID="signup-form-formik"
           >
-            {({ handleChange, handleBlur, handleSubmit, values }) => (
+            {({
+              handleChange,
+              handleBlur,
+              handleSubmit,
+              values,
+              isSubmitting
+            }) => (
               <StyledFormArea>
                 <TextInputSignupScreen
-                  label="Full Name"
+                  label="Name"
                   icon="person"
                   placeholder="Zen User"
                   placeholderTextColor={lightGrey}
-                  onChangeText={handleChange("fullName")}
-                  onBlur={handleBlur("fullName")}
+                  onChangeText={handleChange("name")}
+                  onBlur={handleBlur("name")}
                   value={values.fullName}
                   testID="full-name"
                 />
@@ -141,13 +221,25 @@ const SignupScreen = ({ navigation }) => {
                   hidePassword={hidePassword}
                   setHidePassword={setHidePassword}
                 />
-                <MsgBox testID="msg-box">...</MsgBox>
-                <StyledButton
-                  testID="login-styled-button"
-                  onPress={handleSubmit}
-                >
-                  <ButtonText testID="login-button-text">Sign Up</ButtonText>
-                </StyledButton>
+                <MsgBox type={success ? "SUCCESS" : "ERROR"} testID="msg-box">
+                  {msg}
+                </MsgBox>
+
+                {!isSubmitting && (
+                  <StyledButton
+                    testID="login-styled-button"
+                    onPress={handleSubmit}
+                  >
+                    <ButtonText testID="login-button-text">Sign Up</ButtonText>
+                  </StyledButton>
+                )}
+
+                {isSubmitting && (
+                  <StyledButton disabled={true} testID="signup-styled-button">
+                    <ActivityIndicator size="large" color={white} />
+                  </StyledButton>
+                )}
+
                 <Line testID="line" />
                 <FooterView testID="footer-view">
                   <FooterText testID="footer-text">
