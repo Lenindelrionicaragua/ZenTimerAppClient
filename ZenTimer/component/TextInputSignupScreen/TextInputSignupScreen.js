@@ -5,13 +5,13 @@ import {
   StyledInputLabel,
   StyledTextInput,
   LeftIcon,
-  RightIcon,
+  RightIcon
 } from "../../screens/LoginScreen/LoginScreenStyles";
 import { Colors } from "../../styles/AppStyles";
 
 const { lightGrey, black } = Colors;
 
-const TextInputSignupScreen = (props) => {
+const TextInputSignupScreen = props => {
   const {
     label,
     icon,

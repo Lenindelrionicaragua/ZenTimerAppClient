@@ -6,6 +6,8 @@ import {
   StyledTextInput
 } from "../../screens/LoginScreen/LoginScreenStyles";
 
+const { lightGrey, black } = Colors;
+
 const TextInputLoginScreen = props => {
   const {
     label,
@@ -18,20 +20,27 @@ const TextInputLoginScreen = props => {
 
   return (
     <View testID="text-input-login-screen">
-      <Octicons name={icon} size={30} color="black" testID="octicons-icon" />
+      <LeftIcon testID="left-icon">
+        <Octicons name={icon} size={30} color={black} testID="octicons-icon" />
+      </LeftIcon>
       <StyledInputLabel>{label}</StyledInputLabel>
       <StyledTextInput
         testID="styled-text-input-login-screen"
         {...textInputProps}
       />
       {isPassword && (
-        <Feather
-          name={hidePassword ? "eye" : "eye-off"}
-          size={25}
-          color="lightgrey"
+        <RightIcon
           onPress={() => setHidePassword(!hidePassword)}
-          testID="feather-icon"
-        />
+          testID="right-icon"
+        >
+          <Feather
+            name={hidePassword ? "eye" : "eye-off"}
+            size={25}
+            color={lightGrey}
+            onPress={() => setHidePassword(!hidePassword)}
+            testID="feather-icon"
+          />
+        </RightIcon>
       )}
     </View>
   );

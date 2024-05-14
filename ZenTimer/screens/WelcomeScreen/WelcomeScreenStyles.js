@@ -47,7 +47,7 @@ export const PageTitle = styled(Text)`
   color: ${black};
   padding: 10px;
 
-  ${(props) =>
+  ${props =>
     props.welcome &&
     `
     font-size: 35px;
@@ -61,7 +61,7 @@ export const SubTitle = styled(Text)`
   font-weight: bold;
   color: ${grey};
 
-  ${(props) =>
+  ${props =>
     props.welcome &&
     `
     margin-bottom: 5px;
@@ -82,7 +82,7 @@ export const StyledButton = styled(Pressable)`
   margin-vertical: 5px;
   height: 60px;
 
-  ${(props) =>
+  ${props =>
     props.google == true &&
     `
     background-color: ${orange};
@@ -95,7 +95,7 @@ export const ButtonText = styled(Text)`
   color: ${white};
   font-size: 16px;
 
-  ${(props) =>
+  ${props =>
     props.google == true &&
     `
     padding: 25px;
