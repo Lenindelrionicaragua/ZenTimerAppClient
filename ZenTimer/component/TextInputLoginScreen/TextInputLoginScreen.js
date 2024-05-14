@@ -3,8 +3,11 @@ import { View } from "react-native";
 import { Octicons, Feather } from "@expo/vector-icons";
 import {
   StyledInputLabel,
-  StyledTextInput
+  StyledTextInput,
+  LeftIcon,
+  RightIcon
 } from "../../screens/LoginScreen/LoginScreenStyles";
+import { Colors } from "../../styles/AppStyles";
 
 const { lightGrey, black } = Colors;
 

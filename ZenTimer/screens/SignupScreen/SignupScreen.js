@@ -19,6 +19,7 @@ import {
   FooterLinkContent
 } from "./SignupScreenStyles";
 import { Colors } from "../../styles/AppStyles";
+import { logError, logInfo } from "../../util/logging";
 import TextInputSignupScreen from "../../component/TextInputSignupScreen/TextInputSignupScreen";
 // API client
 import axios from "axios";

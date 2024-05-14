@@ -6,7 +6,7 @@ import {
   StyledTextInput,
   LeftIcon,
   RightIcon
-} from "../../screens/LoginScreen/LoginScreenStyles";
+} from "../../screens/SignupScreen/SignupScreenStyles";
 import { Colors } from "../../styles/AppStyles";
 
 const { lightGrey, black } = Colors;

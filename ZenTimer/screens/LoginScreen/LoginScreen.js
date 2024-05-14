@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StatusBar, TurboModuleRegistry } from "react-native";
+import { StatusBar, ActivityIndicator } from "react-native";
 import KeyboardAvoider from "../../component/KeyboardAvoider/KeyboardAvoider";
 import { Formik } from "formik";
 import { Fontisto } from "@expo/vector-icons";
@@ -19,10 +19,9 @@ import {
   SignupLink,
   SignupLinkContent
 } from "./LoginScreenStyles";
-import { ActivityIndicator } from "react-native";
 import { Colors } from "../../styles/AppStyles";
-import TextInputLoginScreen from "../../component/TextInputLoginScreen/TextInputLoginScreen";
 import { logError, logInfo } from "../../util/logging";
+import TextInputLoginScreen from "../../component/TextInputLoginScreen/TextInputLoginScreen";
 
 // API client
 import axios from "axios";
