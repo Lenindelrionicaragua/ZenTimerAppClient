@@ -124,7 +124,9 @@ describe("WelcomeScreen navigation", () => {
 
   beforeEach(() => {
     navigation = { navigate: jest.fn() };
-    welcomeScreenRender = render(<WelcomeScreen navigation={navigation} />);
+    welcomeScreenRender = render(
+      <WelcomeScreen navigation={navigation} route={{ params: {} }} />
+    );
   });
 
   afterEach(() => {

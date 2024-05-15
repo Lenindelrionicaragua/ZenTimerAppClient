@@ -41,10 +41,6 @@ const SignupScreen = ({ navigation }) => {
     setShow(false);
     setDate(currentDate);
     setUserBirthDay(currentDate);
-
-    logInfo("Valor de selectedDate:", selectedDate);
-
-    logInfo("Fecha seleccionada por DatePicker:", currentDate.toDateString());
   };
 
   const showDatePicker = () => {
@@ -60,7 +56,7 @@ const SignupScreen = ({ navigation }) => {
       name: values.name,
       email: values.email,
       password: values.password,
-      dateOfBirth: values.dateOfBirth.toDateString()
+      dateOfBirth: values.dateOfBirth
     };
 
     const url =
@@ -125,6 +121,10 @@ const SignupScreen = ({ navigation }) => {
             }}
             onSubmit={(values, { setSubmitting }) => {
               values = { ...values, dateOfBirth: userBirthDay };
+              const dateOfBirthString = values.dateOfBirth
+                ? values.dateOfBirth.toDateString()
+                : "";
+
               if (
                 values.name == "" ||
                 values.email == "" ||
@@ -144,14 +144,9 @@ const SignupScreen = ({ navigation }) => {
                     name: values.name,
                     email: values.email,
                     password: values.password,
-                    dateOfBirth: values.dateOfBirth
+                    dateOfBirth: dateOfBirthString
                   },
                   setSubmitting
-                );
-
-                logInfo(
-                  "Fecha seleccionada por DatePicker:",
-                  values.dateOfBirth
                 );
               }
             }}

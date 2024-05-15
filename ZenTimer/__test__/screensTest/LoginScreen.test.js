@@ -356,12 +356,11 @@ describe("LoginTextInput", () => {
       });
 
       expect(navigation.navigate).toHaveBeenCalledWith("WelcomeScreen", {
-        user: {
-          id: "6638d16d96bf8c3d0d4cf2e4",
-          email: "johnlenin@email.com",
-          name: "John Lenin"
-        }
+        id: "6638d16d96bf8c3d0d4cf2e4",
+        email: "johnlenin@email.com",
+        name: "John Lenin"
       });
+
       expect(setSubmitting).toHaveBeenCalledWith(false);
     });
 
