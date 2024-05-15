@@ -216,28 +216,40 @@ exports[`RootStack snapshot matches previous version 1`] = `
                         <View
                           testID="text-input-login-screen"
                         >
-                          <Text
-                            allowFontScaling={false}
-                            selectable={false}
+                          <View
                             style={
-                              [
-                                {
-                                  "color": "black",
-                                  "fontSize": 30,
-                                },
-                                undefined,
-                                {
-                                  "fontFamily": "octicons",
-                                  "fontStyle": "normal",
-                                  "fontWeight": "normal",
-                                },
-                                {},
-                              ]
+                              {
+                                "left": 15,
+                                "position": "absolute",
+                                "top": 38,
+                                "zIndex": 1,
+                              }
                             }
-                            testID="octicons-icon"
+                            testID="left-icon"
                           >
-                            
-                          </Text>
+                            <Text
+                              allowFontScaling={false}
+                              selectable={false}
+                              style={
+                                [
+                                  {
+                                    "color": "#000000",
+                                    "fontSize": 30,
+                                  },
+                                  undefined,
+                                  {
+                                    "fontFamily": "octicons",
+                                    "fontStyle": "normal",
+                                    "fontWeight": "normal",
+                                  },
+                                  {},
+                                ]
+                              }
+                              testID="octicons-icon"
+                            >
+                              
+                            </Text>
+                          </View>
                           <Text
                             style={
                               {
@@ -280,28 +292,40 @@ exports[`RootStack snapshot matches previous version 1`] = `
                         <View
                           testID="text-input-login-screen"
                         >
-                          <Text
-                            allowFontScaling={false}
-                            selectable={false}
+                          <View
                             style={
-                              [
-                                {
-                                  "color": "black",
-                                  "fontSize": 30,
-                                },
-                                undefined,
-                                {
-                                  "fontFamily": "octicons",
-                                  "fontStyle": "normal",
-                                  "fontWeight": "normal",
-                                },
-                                {},
-                              ]
+                              {
+                                "left": 15,
+                                "position": "absolute",
+                                "top": 38,
+                                "zIndex": 1,
+                              }
                             }
-                            testID="octicons-icon"
+                            testID="left-icon"
                           >
-                            
-                          </Text>
+                            <Text
+                              allowFontScaling={false}
+                              selectable={false}
+                              style={
+                                [
+                                  {
+                                    "color": "#000000",
+                                    "fontSize": 30,
+                                  },
+                                  undefined,
+                                  {
+                                    "fontFamily": "octicons",
+                                    "fontStyle": "normal",
+                                    "fontWeight": "normal",
+                                  },
+                                  {},
+                                ]
+                              }
+                              testID="octicons-icon"
+                            >
+                              
+                            </Text>
+                          </View>
                           <Text
                             style={
                               {
@@ -340,29 +364,70 @@ exports[`RootStack snapshot matches previous version 1`] = `
                             testID="password-input"
                             value=""
                           />
-                          <Text
-                            allowFontScaling={false}
-                            onPress={[Function]}
-                            selectable={false}
-                            style={
-                              [
-                                {
-                                  "color": "lightgrey",
-                                  "fontSize": 25,
-                                },
-                                undefined,
-                                {
-                                  "fontFamily": "feather",
-                                  "fontStyle": "normal",
-                                  "fontWeight": "normal",
-                                },
-                                {},
-                              ]
+                          <View
+                            accessibilityState={
+                              {
+                                "busy": undefined,
+                                "checked": undefined,
+                                "disabled": undefined,
+                                "expanded": undefined,
+                                "selected": undefined,
+                              }
                             }
-                            testID="feather-icon"
+                            accessibilityValue={
+                              {
+                                "max": undefined,
+                                "min": undefined,
+                                "now": undefined,
+                                "text": undefined,
+                              }
+                            }
+                            accessible={true}
+                            collapsable={false}
+                            focusable={true}
+                            onBlur={[Function]}
+                            onClick={[Function]}
+                            onFocus={[Function]}
+                            onResponderGrant={[Function]}
+                            onResponderMove={[Function]}
+                            onResponderRelease={[Function]}
+                            onResponderTerminate={[Function]}
+                            onResponderTerminationRequest={[Function]}
+                            onStartShouldSetResponder={[Function]}
+                            style={
+                              {
+                                "position": "absolute",
+                                "right": 15,
+                                "top": 38,
+                                "zIndex": 1,
+                              }
+                            }
+                            testID="right-icon"
                           >
-                            
-                          </Text>
+                            <Text
+                              allowFontScaling={false}
+                              onPress={[Function]}
+                              selectable={false}
+                              style={
+                                [
+                                  {
+                                    "color": "#f9f7f3",
+                                    "fontSize": 25,
+                                  },
+                                  undefined,
+                                  {
+                                    "fontFamily": "feather",
+                                    "fontStyle": "normal",
+                                    "fontWeight": "normal",
+                                  },
+                                  {},
+                                ]
+                              }
+                              testID="feather-icon"
+                            >
+                              
+                            </Text>
+                          </View>
                         </View>
                         <Text
                           style={
@@ -373,7 +438,7 @@ exports[`RootStack snapshot matches previous version 1`] = `
                             }
                           }
                           testID="msg-box"
-                          type=""
+                          type="ERROR"
                         />
                         <View
                           accessibilityState={

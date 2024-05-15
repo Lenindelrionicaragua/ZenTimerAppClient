@@ -351,7 +351,7 @@ exports[`SignupScreen Renders correctly the SignupScreen Component 1`] = `
                     editable={false}
                     onBlur={[Function]}
                     onChangeText={[Function]}
-                    placeholder="YYYY - MM - DD"
+                    placeholder="Tue Feb 01 1984"
                     placeholderTextColor="#f9f7f3"
                     style={
                       {

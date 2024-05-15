@@ -16,7 +16,10 @@ import {
 } from "./WelcomeScreenStyles";
 
 const WelcomeScreen = ({ navigation, route }) => {
-  const { name, email, id } = route.params;
+  const { name, email } = route.params ?? {
+    name: "Zen User",
+    email: "serenity@gmail.com"
+  };
 
   return (
     <StyledContainer testID="styled-container">

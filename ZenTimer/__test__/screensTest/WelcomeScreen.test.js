@@ -1,22 +1,31 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import { render, cleanup, fireEvent, act } from "@testing-library/react-native";
+import MockAdapter from "axios-mock-adapter";
+import axios from "axios";
 
 import WelcomeScreen from "../../screens/WelcomeScreen/WelcomeScreen";
 
 import { StatusBar } from "react-native";
 
 // Rendering Functions
-const renderWelcomeScreen = () => render(<WelcomeScreen />);
-const renderWelcomeScreenWithRenderer = () =>
-  renderer.create(<WelcomeScreen />);
+const renderWelcomeScreen = routeParams =>
+  render(<WelcomeScreen route={{ params: routeParams }} />);
+const renderWelcomeScreenWithRenderer = routeParams =>
+  renderer.create(<WelcomeScreen route={{ params: routeParams }} />);
 
 let welcomeScreenRender;
 let welcomeScreenRenderWithRenderer;
 
 beforeEach(() => {
-  welcomeScreenRender = renderWelcomeScreen();
-  welcomeScreenRenderWithRenderer = renderWelcomeScreenWithRenderer();
+  welcomeScreenRender = renderWelcomeScreen({
+    name: "Zen User",
+    email: "serenity@gmail.com"
+  });
+  welcomeScreenRenderWithRenderer = renderWelcomeScreenWithRenderer({
+    name: "Zen User",
+    email: "serenity@gmail.com"
+  });
 });
 
 //SignupScreen
